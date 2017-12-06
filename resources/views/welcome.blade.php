@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ config('app.locale') }}">
+<html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -56,7 +56,7 @@
       </div>
     </nav>
 
-    <header style="background-image: url('img/fondo-01.png');background-size: 100%">
+    <header class="masthead" style="background-image: url('img/fondo-01.jpg');width: 100%">
       <div class="container h-100">
         <div class="row h-100">
           <div class="col-lg-7 my-auto">
@@ -138,8 +138,8 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-lg-6">
-                  <div class="feature-item">
+                <div class="col-lg-6" >
+                  <div class="feature-item" >
                     <i class="icon-present text-primary"></i>
                     <h3>Free to Use</h3>
                     <p class="text-muted">As always, this theme is free to download and use for any purpose!</p>
@@ -163,7 +163,7 @@
       <div class="cta-content">
         <div class="container">
           <h2>Stop waiting.<br>Start building.</h2>
-          <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
+          <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger" >Let's Get Started!</a>
         </div>
       </div>
       <div class="overlay"></div>
@@ -171,17 +171,15 @@
 
     <section class="contact " id="contact" style="background-color: rgb(4,166,114); color: white;">
       <div class="container">
-        <h2>We
-          <i class="fa fa-heart"></i>
-          new friends!</h2>
+        <h2>¡Síguenos en Redes Sociales!</h2>
         <ul class="list-inline list-social">
           <li class="list-inline-item social-twitter">
-            <a href="#">
+            <a href="https://www.twitter.com">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li class="list-inline-item social-facebook">
-            <a href="#">
+            <a href="https://www.facebook.com">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
