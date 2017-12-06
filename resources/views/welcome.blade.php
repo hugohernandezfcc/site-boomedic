@@ -90,7 +90,7 @@
         <div class="row">
           <div class="col-md-8 mx-auto">
             <h2 class="section-heading">¡Descubre los beneficios tiene para ti!</h2>
-            <p>La aplicación ya está disponible para cualquier dispositivo movil ¡Descarga ya!</p>
+            <p>La aplicación ya está disponible para cualquier dispositivo movil ¡Descargalo ya!</p>
             <div class="badges">
               <a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>
               <a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
@@ -126,7 +126,7 @@
                 <div class="col-lg-6" >
                   <div class="feature-item" >
                     <i class="icon-book-open text-primary"></i>
-                    <h3>Expedientes e Historial Médico</h3>
+                    <h3>Expediente e Historial Médicos</h3>
                     <p class="text-muted">Manejo de Expediente e Historial Médico.</p>
                   </div>
                 </div>
@@ -144,7 +144,7 @@
                       <div class="feature-item">
                         <i class="icon-credit-card text-primary"></i>
                         <h3>Pagos por Servicio</h3>
-                        <p class="text-muted">Múltiple métodos de pagos a través de Visa, Mastercard y Paypal.</p>
+                        <p class="text-muted">Múltiples métodos de pagos a través de Visa, Mastercard y Paypal.</p>
                       </div>
                     </div>
                   </div>
