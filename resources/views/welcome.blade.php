@@ -56,13 +56,13 @@
       </div>
     </nav>
 
-    <header class="masthead" style="background-image: url('img/fondo-01.jpg');width: 100%">
+    <header class="masthead" style="background-image: url('img/fondo_head.png');width: 100%;">
       <div class="container h-100">
         <div class="row h-100">
           <div class="col-lg-7 my-auto">
             <div class="header-content mx-auto">
-              <h1 class="mb-5">Boomedic una aplicación que te ayudará a encontrar Médicos Especializados cerca de ti.</h1>
-              <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">¡DESCARGUE AHORA GRATIS!</a>
+              <h1 class="mb-5">Boomedic la aplicación que te ayudará a encontrar Médicos Especializados cerca de ti.</h1>
+              <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">¡DESCARGA YA!</a>
             </div>
           </div>
           <div class="col-lg-5 my-auto">
@@ -85,12 +85,12 @@
       </div>
     </header>
 
-    <section class="download text-center" id="download" style="background-color: rgb(4,166,114);color: white;">
+    <section class="download text-center" id="download" style="background-image: url('img/fondo-01.jpg');width: 100%; color: white;">
       <div class="container">
         <div class="row">
           <div class="col-md-8 mx-auto">
-            <h2 class="section-heading">¡Descubre los beneficios que tenemos para ti!</h2>
-            <p>Nuestra aplicación está disponible en cualquier dispositivo móvil ¡Descargue ahora para comenzar!</p>
+            <h2 class="section-heading">¡Descubre los beneficios tiene para ti!</h2>
+            <p>La aplicación ya está disponible para cualquier dispositivo movil ¡Descarga ya!</p>
             <div class="badges">
               <a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>
               <a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
@@ -103,8 +103,8 @@
     <section class="features" id="features">
       <div class="container">
         <div class="section-heading text-center">
-          <h2>Multiples Beneficios</h2>
-          <p class="text-muted">¡Mira los beneficios que tenemos para ti!</p>
+          <h2>Múltiples Beneficios</h2>
+          <p class="text-muted">¡Se parte de la Comunidad Boomedic!</p>
           <hr>
         </div>
         <div class="row">
@@ -144,7 +144,7 @@
                       <div class="feature-item">
                         <i class="icon-credit-card text-primary"></i>
                         <h3>Pagos por Servicio</h3>
-                        <p class="text-muted">Multiple métodos de pagos a través de Visa, Mastercard y Paypal.</p>
+                        <p class="text-muted">Múltiple métodos de pagos a través de Visa, Mastercard y Paypal.</p>
                       </div>
                     </div>
                   </div>
@@ -158,8 +158,8 @@
     <section class="cta">
       <div class="cta-content">
         <div class="container">
-          <h2>Stop waiting.<br>Start building.</h2>
-          <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger" >!EMPECEMOS!</a>
+          <h2>Encuentra tu especialista más cercano</h2>
+          <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger" >¡Comienza ya!</a>
         </div>
       </div>
       <div class="overlay"></div>
@@ -167,7 +167,7 @@
 
     <section class="contact " id="contact" style="background-color: rgb(4,166,114); color: white;">
       <div class="container">
-        <h2>¡Síguenos en Redes Sociales!</h2>
+        <h2>¡Más información en Redes Sociales!</h2>
         <ul class="list-inline list-social">
           <li class="list-inline-item social-twitter">
             <a href="https://www.twitter.com">
