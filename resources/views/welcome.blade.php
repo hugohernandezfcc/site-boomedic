@@ -62,7 +62,7 @@
           <div class="col-lg-7 my-auto">
             <div class="header-content mx-auto">
               <h1 class="mb-5">Boomedic la aplicación que te ayudará a encontrar Médicos Especializados cerca de ti.</h1>
-              <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">¡DESCARGA YA!</a>
+              <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">¡DESCARGALO YA!</a>
             </div>
           </div>
           <div class="col-lg-5 my-auto">
@@ -89,7 +89,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 mx-auto">
-            <h2 class="section-heading">¡Descubre los beneficios tiene para ti!</h2>
+            <h2 class="section-heading">¡Descubre los beneficios que tiene para ti!</h2>
             <p>La aplicación ya está disponible para cualquier dispositivo movil ¡Descargalo ya!</p>
             <div class="badges">
               <a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>
@@ -144,7 +144,7 @@
                       <div class="feature-item">
                         <i class="icon-credit-card text-primary"></i>
                         <h3>Pagos por Servicio</h3>
-                        <p class="text-muted">Múltiples métodos de pagos a través de Visa, Mastercard y Paypal.</p>
+                        <p class="text-muted">Múltiples métodos de pago a través de Visa, Mastercard y Paypal.</p>
                       </div>
                     </div>
                   </div>
