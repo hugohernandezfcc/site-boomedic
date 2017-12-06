@@ -126,7 +126,7 @@
                 <div class="col-lg-6" >
                   <div class="feature-item" >
                     <i class="icon-book-open text-primary"></i>
-                    <h3>Expediente e Historial Médicos</h3>
+                    <h3>Expediente e Historial Médico</h3>
                     <p class="text-muted">Manejo de Expediente e Historial Médico.</p>
                   </div>
                 </div>
