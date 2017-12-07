@@ -43,13 +43,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#download">Descarga</a>
+              <a class="nav-link js-scroll-trigger" href="#download">@lang('main.download')</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#features">Caracteristicas</a>
+              <a class="nav-link js-scroll-trigger" href="#features">@lang('main.features')</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
+              <a class="nav-link js-scroll-trigger" href="#contact">@lang('main.contact')</a>
             </li>
           </ul>
         </div>
@@ -61,8 +61,8 @@
         <div class="row h-100">
           <div class="col-lg-7 my-auto">
             <div class="header-content mx-auto">
-              <h1 class="mb-5">Boomedic la aplicación que te ayudará a encontrar médicos especializados cerca de ti.</h1>
-              <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">¡DESCARGALO YA!</a>
+              <h1 class="mb-5">@lang('main.header')</h1>
+              <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">@lang('main.btn_download')</a>
             </div>
           </div>
           <div class="col-lg-5 my-auto">
@@ -89,8 +89,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 mx-auto">
-            <h2 class="section-heading">¡Descubre los beneficios que tiene para ti!</h2>
-            <p>La aplicación ya está disponible para cualquier dispositivo movil ¡Descargalo ya!</p>
+            <h2 class="section-heading">@lang('main.text_download1')</h2>
+            <p>@lang('main.text_download2')</p>
             <div class="badges">
               <a class="badge-link" href="#"><img src="img/google-play-badge.svg" alt=""></a>
               <a class="badge-link" href="#"><img src="img/app-store-badge.svg" alt=""></a>
@@ -103,8 +103,8 @@
     <section class="features" id="features">
       <div class="container">
         <div class="section-heading text-center">
-          <h2>Múltiples Beneficios</h2>
-          <p class="text-muted">¡Se parte de la comunidad Boomedic!</p>
+          <h2>@lang('main.text_features1')</h2>
+          <p class="text-muted">@lang('main.text_features2')</p>
           <hr>
         </div>
         <div class="row">
@@ -126,15 +126,15 @@
                 <div class="col-lg-6" >
                   <div class="feature-item" >
                     <i class="icon-book-open text-primary"></i>
-                    <h3>Historial y Expediente médico</h3>
-                    <p class="text-muted">Manejo de historial y expediente Médico.</p>
+                    <h3>@lang('main.text_features3')</h3>
+                    <p class="text-muted">@lang('main.text_features4')</p>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="feature-item">
                     <i class="icon-magnifier text-primary"></i>
-                    <h3>Búsqueda eficaz</h3>
-                    <p class="text-muted">Encuentra a tu especialista más cercano.</p>
+                    <h3>@lang('main.text_features5')</h3>
+                    <p class="text-muted">@lang('main.text_features6')</p>
                   </div>
                 </div>
               </div>
@@ -143,8 +143,8 @@
                     <div class="col-lg-6">
                       <div class="feature-item">
                         <i class="icon-credit-card text-primary"></i>
-                        <h3>Pagos por servicio</h3>
-                        <p class="text-muted">Múltiples métodos de pago a través de Visa, Mastercard y Paypal.</p>
+                        <h3>@lang('main.text_features7')</h3>
+                        <p class="text-muted">@lang('main.text_features8')</p>
                       </div>
                     </div>
                   </div>
@@ -158,8 +158,8 @@
     <section class="cta">
       <div class="cta-content">
         <div class="container">
-          <h2>Encuentra tu especialista más cercano</h2>
-          <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger" >¡Comienza ya!</a>
+          <h2>@lang('main.text_contact1')</h2>
+          <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger" >@lang('main.btn_contact')</a>
         </div>
       </div>
       <div class="overlay"></div>
@@ -167,7 +167,7 @@
 
     <section class="contact " id="contact" style="background-color: rgb(4,166,114); color: white;">
       <div class="container">
-        <h2>¡Más información en Redes Sociales!</h2>
+        <h2>@lang('main.text_contact2')</h2>
         <ul class="list-inline list-social">
           <li class="list-inline-item social-twitter">
             <a href="https://www.twitter.com">
