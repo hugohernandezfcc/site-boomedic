@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
@@ -51,6 +52,12 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">@lang('main.contact')</a>
             </li>
+            <li class="nav-item">
+              <form id="form" name="form" method="post">
+              <select id="informationTest" onchange="functiontest(this);" style="background-color:transparent;border-radius: 5px;border-color: transparent;">
+              </select>
+            </form>
+            </li>
           </ul>
         </div>
       </div>
@@ -69,20 +76,14 @@
             <div class="device-container">
               <div class="device-mockup iphone6_plus portrait white">
                 <div class="device">
-                  <!--<div class="screen">
-                    <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                    <!--<img src="img/demo-screen-1.jpg" class="img-fluid" alt="">
                   </div>
-                  <div class="button">
-                  -->
-                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
-                 </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
     </header>
 
     <section class="download text-center" id="download" style="background-image: url('img/fondo-01.jpg');width: 100%; color: white;">
@@ -185,12 +186,7 @@
             </a>
           </li>
         </ul>
-        <!--
-        <br>
-        <br>
-        <div class="fb-comments" data-href="https://www.facebook.com/jaziel.moran.1" data-numposts="5"></div>
-      </div>
-  -->
+        
     </section>
 
     <footer>
@@ -219,17 +215,70 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/new-age.min.js"></script>
-<!--
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = 'https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.11';
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
--->
 
+  <script type="text/javascript">
+    
+    function functiontest(argument) {
+        location.href = '/'+argument.value;
+    }
+    window.onload = function(){
+
+        var campo = document.getElementById('informationTest');
+
+        var url = window.location.href;
+        let explodeURl = url.split('/');
+        console.log(explodeURl); 
+        var bandera=0;
+        for (var i = explodeURl.length - 1; i >= 0; i--) {
+            if (explodeURl[i] == 'es') {
+
+                var opt = document.createElement('option');
+
+                opt.value = 'es';
+                opt.innerHTML = 'Español';
+                opt.selected = true;
+                campo.appendChild(opt);
+
+                var opt = document.createElement('option');
+
+                opt.value = 'en';
+                opt.innerHTML = 'Ingles';
+                campo.appendChild(opt);
+                bandera=1;
+                break;
+            }else if(explodeURl[i] == 'en'){
+                var opt = document.createElement('option');
+
+                opt.value = 'en';
+                opt.innerHTML = 'Ingles';
+                opt.selected = true;
+                campo.appendChild(opt);
+
+                var opt = document.createElement('option');
+                opt.value = 'es';
+                opt.innerHTML = 'Español';
+                
+                campo.appendChild(opt);
+                bandera=1;
+                break;
+            }
+        }
+        if(bandera==0){
+          var opt = document.createElement('option');
+
+          opt.value = 'es';
+          opt.innerHTML = 'Español';
+          opt.selected = true;
+          campo.appendChild(opt);
+
+          var opt = document.createElement('option');
+
+          opt.value = 'en';
+          opt.innerHTML = 'Ingles';
+          campo.appendChild(opt);
+        }
+    }
+  </script>
   </body>
 
 </html>
