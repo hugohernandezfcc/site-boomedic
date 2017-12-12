@@ -58,6 +58,9 @@
               </select>
             </form>
             </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/home">@lang('main.billing')</a>
+            </li>
           </ul>
         </div>
       </div>

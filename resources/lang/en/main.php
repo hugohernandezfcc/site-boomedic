@@ -19,4 +19,5 @@ return[
 	'text_contact1' => 'Find your nearest specialist',
 	'btn_contact' => 'Start now!',
 	'text_contact2' => 'More information on Social Networks!',
+	'billing' => 'BILLING',
 ];

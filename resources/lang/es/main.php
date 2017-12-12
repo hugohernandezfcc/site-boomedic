@@ -19,4 +19,5 @@ return[
 	'text_contact1' => 'Encuentra tu especialista más cercano',
 	'btn_contact' => '¡Comienza ya!',
 	'text_contact2' => '¡Más información en Redes Sociales!',
+	'billing' => 'FACTURACIÓN',
 ];
