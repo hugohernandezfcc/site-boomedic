@@ -54,7 +54,7 @@
             </li>
             <li class="nav-item">
               <form id="form" name="form" method="post">
-              <select id="informationTest" onchange="functiontest(this);" style="background-color:transparent;border-radius: 5px;border-color: transparent;">
+              <select id="informationTest" onchange="functiontest(this);" class="navbar-brand" style="background-color:transparent;border-radius: 5px;border-color: transparent;font-size: 16px;padding-top:0px;">
               </select>
             </form>
             </li>
@@ -237,12 +237,14 @@
                 opt.value = 'es';
                 opt.innerHTML = 'Español';
                 opt.selected = true;
+                opt.style="color:black";
                 campo.appendChild(opt);
 
                 var opt = document.createElement('option');
 
                 opt.value = 'en';
                 opt.innerHTML = 'Ingles';
+                opt.style="color:black";
                 campo.appendChild(opt);
                 bandera=1;
                 break;
@@ -252,12 +254,13 @@
                 opt.value = 'en';
                 opt.innerHTML = 'Ingles';
                 opt.selected = true;
+                opt.style="color:black";
                 campo.appendChild(opt);
 
                 var opt = document.createElement('option');
                 opt.value = 'es';
                 opt.innerHTML = 'Español';
-                
+                opt.style="color:black";
                 campo.appendChild(opt);
                 bandera=1;
                 break;
@@ -269,12 +272,14 @@
           opt.value = 'es';
           opt.innerHTML = 'Español';
           opt.selected = true;
+          opt.style="color:black";
           campo.appendChild(opt);
 
           var opt = document.createElement('option');
 
           opt.value = 'en';
           opt.innerHTML = 'Ingles';
+          opt.style="color:black";
           campo.appendChild(opt);
         }
     }
