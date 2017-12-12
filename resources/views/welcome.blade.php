@@ -53,13 +53,13 @@
               <a class="nav-link js-scroll-trigger" href="#contact">@lang('main.contact')</a>
             </li>
             <li class="nav-item">
-              <form id="form" name="form" method="post">
-              <select id="informationTest" onchange="functiontest(this);" class="navbar-brand" style="background-color:transparent;border-radius: 5px;border-color: transparent;font-size: 16px;padding-top:0px;">
-              </select>
-            </form>
+              <a class="nav-link js-scroll-trigger" href="/home">@lang('main.billing')</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/home">@lang('main.billing')</a>
+              <form id="form" name="form" method="post">
+              <select id="informationTest" onchange="functiontest(this);" class="navbar-brand" style="background-color:transparent;border-radius: 5px;border-color: transparent;font-size: 11px;padding-top:7px;font-family:Lato,Helvetica,Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;">
+              </select>
+            </form>
             </li>
           </ul>
         </div>
@@ -238,7 +238,7 @@
                 var opt = document.createElement('option');
 
                 opt.value = 'es';
-                opt.innerHTML = 'Español';
+                opt.innerHTML = 'ESPAÑOL';
                 opt.selected = true;
                 opt.style="color:black";
                 campo.appendChild(opt);
@@ -246,7 +246,7 @@
                 var opt = document.createElement('option');
 
                 opt.value = 'en';
-                opt.innerHTML = 'Ingles';
+                opt.innerHTML = 'ENGLISH';
                 opt.style="color:black";
                 campo.appendChild(opt);
                 bandera=1;
@@ -255,14 +255,14 @@
                 var opt = document.createElement('option');
 
                 opt.value = 'en';
-                opt.innerHTML = 'Ingles';
+                opt.innerHTML = 'ENGLISH';
                 opt.selected = true;
                 opt.style="color:black";
                 campo.appendChild(opt);
 
                 var opt = document.createElement('option');
                 opt.value = 'es';
-                opt.innerHTML = 'Español';
+                opt.innerHTML = 'ESPAÑOL';
                 opt.style="color:black";
                 campo.appendChild(opt);
                 bandera=1;
@@ -273,7 +273,7 @@
           var opt = document.createElement('option');
 
           opt.value = 'es';
-          opt.innerHTML = 'Español';
+          opt.innerHTML = 'ESPAÑOL';
           opt.selected = true;
           opt.style="color:black";
           campo.appendChild(opt);
@@ -281,7 +281,7 @@
           var opt = document.createElement('option');
 
           opt.value = 'en';
-          opt.innerHTML = 'Ingles';
+          opt.innerHTML = 'ENGLISH';
           opt.style="color:black";
           campo.appendChild(opt);
         }
