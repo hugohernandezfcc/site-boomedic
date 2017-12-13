@@ -1,11 +1,13 @@
 @extends('adminlte::master')
+<style type="text/css">
+    body{background-image: url('img/fondo-01.jpg');}
+</style>
 
 @section('adminlte_css')
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/css/auth.css') }}">
     @yield('css')
 @stop
 
-@section('body_class', 'register-page')
 
 @section('body')
     <div class="register-box">
