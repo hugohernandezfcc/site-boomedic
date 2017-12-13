@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Facturación</b>',
+    'logo' => 'Facturación',
 
     'logo_mini' => '<b>A</b>LT',
 
