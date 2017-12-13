@@ -35,7 +35,7 @@
                     @endif
                 </div>
                 <button type="submit"
-                        class="btn btn-primary btn-block btn-flat"
+                        class="btn btn-secondary btn-block btn-flat"
                 >{{ trans('adminlte::adminlte.send_password_reset_link') }}</button>
             </form>
         </div>

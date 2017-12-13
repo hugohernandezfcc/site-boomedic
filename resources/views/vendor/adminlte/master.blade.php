@@ -22,6 +22,46 @@
 
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/AdminLTE.min.css') }}">
+<style type="text/css">
+        .btn-secondary { 
+            color: #ffffff; 
+            background-color: #000000; 
+            border-color: #555; 
+        }
+        
+        .btn-secondary:hover, 
+        .btn-secondary.active, 
+        .open .dropdown-toggle.btn-secondary
+        { 
+            color: #ffffff; 
+            background-color: #333333; 
+            border-color: #444; 
+        }
+        .btn-secondary:focus, 
+        .btn-secondary:active, 
+        .open .dropdown-toggle.btn-secondary
+        { 
+            color: #ffffff; 
+            background-color: #696969; 
+            border-color: #444; 
+        }
+        .nav-tabs-custom>.nav-tabs>li.active {
+            border-top-color: #222d32;
+        }
+        .nav-tabs-custom>.nav-tabs>li {
+            border-top: 3px solid rgb(210, 214, 222);
+            margin-bottom: -2px;
+            margin-right: 5px;
+        }
+        #mapAddressUser {
+            height: 100%;
+            width: 95%;
+        }
+        #calendar {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    </style>
 
     @if(config('adminlte.plugins.datatables'))
         <!-- DataTables -->
