@@ -51,7 +51,7 @@
                     <!-- /.col -->
                     <div class="col-xs-4">
                         <button type="submit"
-                                class="btn btn-secondary btn-block btn-flat">{{ trans('adminlte::adminlte.sign_in') }}</button>
+                                class="btn btn-secondary btn-block btn-flat">Entrar</button>
                     </div>
                     <!-- /.col -->
                 </div>

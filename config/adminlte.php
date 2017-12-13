@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Boomedic</b>',
+    'logo' => '<b>Facturación</b>',
 
     'logo_mini' => '<b>A</b>LT',
 
