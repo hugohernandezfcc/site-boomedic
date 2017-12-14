@@ -53,10 +53,10 @@
               <a class="nav-link js-scroll-trigger" href="#contact">@lang('main.contact')</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/home">@lang('main.billing')</a>
+              <a class="nav-link " href="/home">@lang('main.billing')</a>
             </li>
             <li class="nav-item">
-              <select class="nav-link" id="informationTest" onchange="functiontest(this);" class="nav-link" style="background-color:transparent;border-radius: 5px;border-color: transparent;font-size: 11px;padding-top:7px;font-family:Lato,Helvetica,Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;">
+                <select class="nav-link" id="informationTest" onchange="functiontest(this);" style="background-color:transparent;border-radius: 5px;border-color: transparent;font-size: 11px;padding-top:7px;font-family:Lato,Helvetica,Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;">
               </select>
             </li>
           </ul>
@@ -285,6 +285,7 @@
         }
     }
   </script>
+
   </body>
 
 </html>
