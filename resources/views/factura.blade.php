@@ -5,9 +5,7 @@
 @section('content_header')
 
   <center>
-    <div style="width: 100%;background-color: black;color: white;">
     <h1>Mis consultas</h1>
-    </div>
   </center>
 
     
