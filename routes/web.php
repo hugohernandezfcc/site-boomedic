@@ -17,6 +17,16 @@ Route::get('/', function () {
 Route::get('/factura', function () {
     return view('factura');
 });
+
+Route::get('/prueba', function () {
+ $users = DB::table('users')->get();
+
+foreach ($users as $user)
+{
+    echo $user->name;
+}
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
