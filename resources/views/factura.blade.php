@@ -4,11 +4,8 @@
 
 @section('content_header')
 
-  <center>
     <h1>Mis consultas</h1>
-  </center>
 
-    
 @stop
 
 @section('content')
