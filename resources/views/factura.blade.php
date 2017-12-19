@@ -33,7 +33,6 @@
               </tr>
           </tfoot>
           <tbody >
-            @foreach ($transaction as $key => $trans)
               <tr>
                   <td>Detalles</td>
                   <td>Alejandro Rivera</td>
@@ -42,7 +41,6 @@
                   <td>CDMX</td>
                   <td>PayPal</td>
               </tr>
-            @endforeach 
           </tbody>
       </table>
     </div>
