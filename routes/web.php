@@ -19,7 +19,7 @@ Route::get('/factura', function () {
 });
 
 Route::get('/prueba', function () {
- $users = DB::table('transaction_bank')->get();
+ $users = DB::table('users')->get();
 
 foreach ($users as $user)
 {
