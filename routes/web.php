@@ -23,7 +23,7 @@ Route::get('/prueba', function () {
 
 foreach ($users as $user)
 {
-    echo $user->id.' '.$user->receiver.' '.$user->amount.' '.$user->credit_debit.' '.$user->bank.' '.$user->paymentmethod.'<br>';
+    echo $user->id.' '.$user->receiver.' '.$user->amount.' '.$user->bank.' '.$user->paymentmethod.'<br>';
 }
 });
 
