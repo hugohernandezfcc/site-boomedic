@@ -29,8 +29,8 @@ Route::get('/prueba', function () {
 	//$users = DB::table('users')->get();
 	//$payments = DB::table('paymentsmethods')->get();
 	//$trans = DB::table('transaction_bank')->get();
- 	$payment1 = DB::table('paymentsmethods')->where('owner','1')->get();
- 	$payment2 = DB::table('paymentsmethods')->where('owner',1)->get();
+ 	$payment = DB::table('paymentsmethods')->where('owner','1')->get();
+ 	//$payment2 = DB::table('paymentsmethods')->where('owner',1)->get();
  	echo $payment.'<br><br>';
  	//echo $payment2.'<br><br>';
  	//echo $payments.'<br>';
