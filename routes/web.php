@@ -19,11 +19,11 @@ Route::get('/factura', function () {
 });
 
 Route::get('/prueba', function () {
- $users = DB::table('users')->get();
+ $users = DB::table('transaction_bank')->get();
 
 foreach ($users as $user)
 {
-    echo $user->name;
+    echo $user;
 }
 });
 
