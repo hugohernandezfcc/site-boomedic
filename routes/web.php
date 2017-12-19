@@ -26,13 +26,15 @@ Route::get('/factura', function () {
 });
 
 Route::get('/prueba', function () {
-	$users = DB::table('users')->get();
-	$payments = DB::table('paymentsmethods')->get();
-	$trans = DB::table('transaction_bank')->get();
- 	$payment = DB::table('paymentsmethods')->where('owner','16')->get();
- 	echo $payment.'<br>';
- 	echo $payments.'<br>';
- 	echo $trans.'<br>';
+	//$users = DB::table('users')->get();
+	//$payments = DB::table('paymentsmethods')->get();
+	//$trans = DB::table('transaction_bank')->get();
+ 	$payment1 = DB::table('paymentsmethods')->where('owner','1')->get();
+ 	$payment2 = DB::table('paymentsmethods')->where('owner',1)->get();
+ 	echo $payment1.'<br><br>';
+ 	echo $payment2.'<br>';
+ 	//echo $payments.'<br>';
+ 	//echo $trans.'<br>';
  	//echo $users;
  	//$transaction = DB::table('transaction_bank')->where('paymentmethod',$payment[0]->id)->get();
 });
