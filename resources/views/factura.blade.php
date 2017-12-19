@@ -35,7 +35,11 @@
           <tbody >
             @foreach ($transaction as $key => $trans)
               <tr>
-                  <td>Detalles</td>
+                  <td>
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                      Launch Default Modal
+                    </button>
+                  </td>
                   <td>Alejandro Rivera</td>
                   <td>{{$trans->amount}}</td>
                   <td>Boomedic</td>
@@ -47,6 +51,31 @@
       </table>
     </div>
   </center>
+
+
+  <div class="modal fade" id="modal-default">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Default Modal</h4>
+              </div>
+              <div class="modal-body">
+                <center>
+                  <img src="https://maps.googleapis.com/maps/api/staticmap?maptype=roadmap&center=43.2686751,-2.9340005&zoom=16&size=300x300&markers=color:black|43.2686751,-2.9340005" style="width: 40%;" />
+                </center>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
 @stop
 
 @section('css')

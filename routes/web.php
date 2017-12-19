@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/factura', function () {
+//Route::get('/factura', function () {
 	
     /*$users = DB::table('users')->where('id', Auth::id() )->get();
  	$payment = DB::table('paymentsmethods')->where('owner',Auth::id())->get();
@@ -22,9 +22,9 @@ Route::get('/factura', function () {
 //foreach ($users as $user)
 //{
     //echo $users.'<br>';
-    return view('factura');
-});
-Route::get('factura2',['as'=>'factura','uses'=>'facturaController@fac']);
+    //return view('factura');
+//});
+Route::get('factura',['as'=>'factura','uses'=>'facturaController@fac']);
 Route::get('/prueba', function () {
 	//$users = DB::table('users')->get();
 	//$payments = DB::table('paymentsmethods')->get();
