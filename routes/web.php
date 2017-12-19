@@ -27,9 +27,10 @@ Route::get('/factura', function () {
 
 Route::get('/prueba', function () {
 	$users = DB::table('users')->get();
+	$payment = DB::table('paymentsmethods')->get();
  	$payment = DB::table('paymentsmethods')->where('owner',16)->get();
  	echo $payment.'<br>';
- 	echo $users;
+ 	//echo $users;
  	//$transaction = DB::table('transaction_bank')->where('paymentmethod',$payment[0]->id)->get();
 });
 
