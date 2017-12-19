@@ -37,7 +37,7 @@
               <tr>
                   <td>
                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
-                      Launch Default Modal
+                      Detalles
                     </button>
                   </td>
                   <td>Alejandro Rivera</td>
