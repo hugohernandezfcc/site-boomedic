@@ -36,7 +36,7 @@
               <tr>
                   <td>Detalles</td>
                   <td>Alejandro Rivera</td>
-                  <td>{{$trans->amount}}</td>
+                  <td></td>
                   <td>Boomedic</td>
                   <td>CDMX</td>
                   <td>PayPal</td>
