@@ -23,7 +23,7 @@ Route::get('/prueba', function () {
 
 foreach ($users as $user)
 {
-    echo $user->name.'<br>';
+    echo $user.'<br>';
 }
 });
 
