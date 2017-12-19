@@ -21,10 +21,10 @@ Route::get('/factura', function () {
 Route::get('/prueba', function () {
  $users = DB::table('users')->get();
 
-foreach ($users as $user)
-{
-    echo $user.'<br>';
-}
+//foreach ($users as $user)
+//{
+    echo $users.'<br>';
+//}
 });
 
 Auth::routes();
