@@ -15,15 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/factura', function () {
-    return view('factura');
+
+    return view('factura',);
 });
 
 Route::get('/prueba', function () {
- $users = DB::table('transaction_bank')->get();
-
+	$users = DB::table('users')->where('id', Auth::id() )->get();
+ 	$payment = DB::table('paymentsmethods')->where('owner',Auth::id())->get();
+ 	$transaction = DB::table('transaction_bank')->where('paymentmethod',$payment[0]->id)->get();
 //foreach ($users as $user)
 //{
-    echo $users.'<br>';
+    //echo $users.'<br>';
+    return view('factura',$transaction);
 //}
 });
 

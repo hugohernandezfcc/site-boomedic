@@ -33,10 +33,11 @@
               </tr>
           </tfoot>
           <tbody >
+            @foreach ($transaction as $key => $trans)
               <tr>
                   <td>Detalles</td>
                   <td>Alejandro Rivera</td>
-                  <td>$5,000</td>
+                  <td>{{$trans->amount}}</td>
                   <td>Boomedic</td>
                   <td>CDMX</td>
                   <td>PayPal</td>
