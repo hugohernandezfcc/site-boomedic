@@ -42,7 +42,7 @@
                   <td>CDMX</td>
                   <td>PayPal</td>
               </tr>
-            @endforeach
+            @endforeach 
           </tbody>
       </table>
     </div>
