@@ -31,12 +31,13 @@ Route::get('/prueba', function () {
 	//$trans = DB::table('transaction_bank')->get();
  	$payment1 = DB::table('paymentsmethods')->where('owner','1')->get();
  	$payment2 = DB::table('paymentsmethods')->where('owner',1)->get();
- 	echo $payment1.'<br><br>';
- 	echo $payment2.'<br>';
+ 	echo $payment.'<br><br>';
+ 	//echo $payment2.'<br><br>';
  	//echo $payments.'<br>';
  	//echo $trans.'<br>';
  	//echo $users;
- 	//$transaction = DB::table('transaction_bank')->where('paymentmethod',$payment[0]->id)->get();
+ 	$transaction = DB::table('transaction_bank')->where('paymentmethod',$payment->id)->get();
+ 	echo $transaction;
 });
 
 Auth::routes();
