@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use App\Quotation;
 
+use App\Http\Controllers\Controller;
+
 class facturaController extends Controller
 {
 	public function fac(){
