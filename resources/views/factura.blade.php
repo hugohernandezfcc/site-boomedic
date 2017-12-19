@@ -42,14 +42,7 @@
                   <td>CDMX</td>
                   <td>PayPal</td>
               </tr>
-              <tr>
-                  <td>Detalles1</td>
-                  <td>Alejandro Rivera1</td>
-                  <td>$5,0001</td>
-                  <td>Boomedic1</td>
-                  <td>CDMX1</td>
-                  <td>PayPal1</td>
-              </tr>
+            @endforeach
           </tbody>
       </table>
     </div>
