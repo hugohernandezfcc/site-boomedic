@@ -37,7 +37,7 @@
             @foreach ($transaction as $key => $trans)
               <tr>
                   <td>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal({{trans->amount}})">
                       Detalles
                     </button>
                   </td>
@@ -70,7 +70,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary">Save changes</button>
               </div>
             </div>
             <!-- /.modal-content -->
@@ -91,12 +91,16 @@
 @section('js')
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js">
   
-    <script>
+  <script>
     $(document).ready(function() {
-    $('#example').DataTable( {
+      $('#example').DataTable( {
         "ordering": false,
         "info":     false
+      } );
     } );
-  } );
-</script>
+
+    function datosmodal(valor) {
+      document.getElementById("idInput").value=valor;
+    }
+  </script>
 @stop

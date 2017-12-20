@@ -13,7 +13,7 @@ class facturaController extends Controller
 {
 	public function fac(){
 
-	    $payment = DB::table('paymentsmethods')->where('owner',Auth::id())->get();
+	    $payment = DB::table('paymentsmethods')->where('owner',1)->get();
 	    if(count($payment)>0){
 	    	$transaction = DB::table('transaction_bank')->where('paymentmethod',$payment[0]->id)->get();
 	    	if(count($transaction)>0){
