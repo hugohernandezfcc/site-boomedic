@@ -63,9 +63,9 @@
                   <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Detalles de consulta</h4>
               </div>
-              <div class="modal-body">
+              <div class="modal-body" style="display: inline-block;">
                 <center>
-                  <img src="https://maps.googleapis.com/maps/api/staticmap?maptype=roadmap&center=43.2686751,-2.9340005&zoom=16&size=600x300&markers=color:black|43.2686751,-2.9340005" style="width: 80%;" />
+                  <img src="https://maps.googleapis.com/maps/api/staticmap?maptype=roadmap&center=19.296502,-99.1864797&zoom=16&size=600x300&markers=color:black|19.296502,-99.1864797" style="width: 80%;" />
                 </center>
                 <br>
                 <div class="padre">
@@ -127,6 +127,9 @@
         padding: 20px, 20px;
         text-align: justify;
       }
+      .labelEstrellas{
+        color:grey;
+    }
   </style>
 @stop
 
