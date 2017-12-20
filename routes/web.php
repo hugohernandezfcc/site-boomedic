@@ -25,6 +25,11 @@ Route::get('/', function () {
     //return view('factura');
 //});
 Route::get('factura',['as'=>'factura','uses'=>'facturaController@fac']);
+
+Route::get('/perfil-tributario', function () {
+    return view('Perfil-Tributario');
+});
+
 Route::get('/prueba', function () {
 	//$users = DB::table('users')->get();
 	//$payments = DB::table('paymentsmethods')->get();
