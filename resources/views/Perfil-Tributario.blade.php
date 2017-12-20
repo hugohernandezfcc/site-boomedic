@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'Boomedic')
 
 @section('content_header')
     <h1>Perfil tributario</h1>
 @stop
 
 @section('content')
-	<div class="">
+	<div class="" style="margin-bottom: 5em;">
 		<div class="container">
 			<div id="">
 				<div class="">
