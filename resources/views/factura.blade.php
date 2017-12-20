@@ -33,8 +33,8 @@
               </tr>
           </tfoot>
           <tbody >
-            @if(count($transaction2)>0)
-            @foreach ($transaction2 as $key => $trans)
+            @if(count($transaction)>0)
+            @foreach ($transaction as $key => $trans)
               <tr>
                   <td>
                     <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal({{$trans->amount}})">
