@@ -69,7 +69,7 @@
                 </center>
                 <br>
                 <div class="padre">
-                  <div >
+                  <div style="margin-right: 20%">
                     <label>Monto : </label>
                     <p class="clasificacion">
                       <label id="idlabelMonto"></label>
@@ -122,7 +122,7 @@
       .padre{
         border: 1px;
         display: inline-block;
-        width: auto;
+        width: 50%;
         margin: auto;
         padding: 20px, 20px;
         text-align: justify;
