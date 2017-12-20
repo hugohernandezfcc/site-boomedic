@@ -37,11 +37,11 @@
             @foreach ($transaction as $key => $trans)
               <tr>
                   <td>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal({{$trans->amount}})">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal({{$trans->amount}},{{$user->name}},{{$user->email}},{{$user->ocupacion}})">
                       Detalles
                     </button>
                   </td>
-                  <td>{{user[0]->name}}</td>
+                  <td>{{user->name}}</td>
                   <td>{{$trans->amount}}</td>
                   <td>Boomedic</td>
                   <td>CDMX</td>
@@ -91,6 +91,22 @@
 
                       </p>
                     </form>
+                  </div>
+                </div>
+                <div class="padre" style="">
+                  <div style="margin-right: 20%">
+                    <label id="" value="">Nombre :</label>
+                    <p class="">
+                      <label id="nombreMedico"></label>
+                    </p>
+                    <label id="" value="">Email :</label>
+                    <p class="">
+                      <label id="emailMedico"></label>
+                    </p>
+                    <label id="" value="">Ocupación :</label>
+                    <p class="">
+                      <label id="ocupacionMedico"></label>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -144,8 +160,11 @@
       } );
     } );
 
-    function datosmodal(valor) {
-      document.getElementById("idlabelMonto").innerHTML=valor;
+    function datosmodal(monto,nombre,email,ocupacion) {
+      document.getElementById("idlabelMonto").innerHTML=monto;
+      document.getElementById("nombreMedico").innerHTML=nombre;
+      document.getElementById("emailMedico").innerHTML=email;
+      document.getElementById("ocupacionMedico").innerHTML=ocupacion;
     }
   </script>
 @stop
