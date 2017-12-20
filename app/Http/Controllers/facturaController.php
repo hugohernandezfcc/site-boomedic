@@ -22,7 +22,7 @@ class facturaController extends Controller
 	    		foreach ($transaction as $key => $t) {
 	    			$transaction2[$i]->idTransaction_bank= $t->id;
 	    			$transaction2[$i]->amount=$t->amount;
-	    			$transaction2[$i]->medico=>'medico'.$i;
+	    			$transaction2[$i]->medico='medico'.$i;
 	    			$i=$i+1;
 	    		}
 	    		$json = json_encode($transaction2);
