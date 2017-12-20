@@ -125,7 +125,7 @@
         width: 50%;
         margin: auto;
         padding: 20px, 20px;
-        text-align: justify;
+        text-align: right;
       }
       .labelEstrellas{
         color:grey;
