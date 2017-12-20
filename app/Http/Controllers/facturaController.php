@@ -18,14 +18,11 @@ class facturaController extends Controller
 	    	$transaction = DB::table('transaction_bank')->where('paymentmethod',$payment[0]->id)->get();
 	    	if(count($transaction)>0){
 	    		$i=0;
-	    		//return view('factura', compact('codigo'))->with('transaction2', $transaction2);
 	    		return view('factura',
 	    		[
                 'transaction'     => $transaction,
+                'payment'=>$payment,
                 'medico'    => 'richard'
-                //'userId'    => Auth::id(),
-                //'username'  => DB::table('users')->where('id', Auth::id() )->value('name'),
-                //'photo'  => DB::table('users')->where('id', Auth::id() )->value('profile_photo'),
             ]);
 	    	}
 	    }

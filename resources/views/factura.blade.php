@@ -45,7 +45,7 @@
                   <td>{{$trans->amount}}</td>
                   <td>Boomedic</td>
                   <td>CDMX</td>
-                  <td>PayPal</td>
+                  <td>{{$payment[0]->typemethod}}</td>
               </tr>
             @endforeach
             @endif
