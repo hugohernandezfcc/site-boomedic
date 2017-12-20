@@ -27,7 +27,7 @@ class facturaController extends Controller
 	    			$i=$i+1;
 	    		}
 	    		//return view('factura', compact('codigo'))->with('transaction2', $transaction2);
-	    		return view('factura',$transaction2);
+	    		return view('factura', compact('codigo'))->with('transaction2', $transaction2);
 	    	}
 	    }
 	    $transaction2= array();
