@@ -18,16 +18,15 @@ class facturaController extends Controller
 	    	$transaction = DB::table('transaction_bank')->where('paymentmethod',$payment[0]->id)->get();
 	    	if(count($transaction)>0){
 	    		$i=0;
-
-	    		foreach ($transaction as $key => $t) {
-	    			$transaction2[$i]->idTransaction_bank= $t->id;
-	    			$transaction2[$i]->amount=$t->amount;
-	    			$transaction2[$i]->medico='medico'.$i;
-	    			$i=$i+1;
-	    		}
-	    		$json = json_encode($transaction2);
 	    		//return view('factura', compact('codigo'))->with('transaction2', $transaction2);
-	    		return view('factura', compact('codigo'))->with('transaction2', $json);
+	    		return view('factura',
+	    		[
+                'transaction'     => $transaction,
+                'medico'    => 'richard'
+                //'userId'    => Auth::id(),
+                //'username'  => DB::table('users')->where('id', Auth::id() )->value('name'),
+                //'photo'  => DB::table('users')->where('id', Auth::id() )->value('profile_photo'),
+            ]
 	    	}
 	    }
 	    $transaction2= array();
