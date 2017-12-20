@@ -18,7 +18,6 @@ class facturaController extends Controller
 	    	$transaction = DB::table('transaction_bank')->where('paymentmethod',$payment[0]->id)->get();
 	    	$user=DB::table('users')->where('id',16)->get();
 	    	if(count($transaction)>0){
-	    		$i=0;
 	    		return view('factura',
 	    		[
                 'transaction'     => $transaction,
