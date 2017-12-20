@@ -19,7 +19,7 @@ class facturaController extends Controller
 	    	if(count($transaction)>0){
 	    		$i=0;
 	    		foreach ($transaction as $key => $t) {
-	    			$transaction2=[
+	    			$transaction2[$i]=[
 	    				'idTransaction_bank'=> $t->id,
 	    				'amount'=>$t->amount,
 	    				'medico'=>'medico'.$i,
