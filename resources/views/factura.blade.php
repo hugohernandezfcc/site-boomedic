@@ -37,7 +37,7 @@
             @foreach ($transaction as $key => $trans)
               <tr>
                   <td>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal( {{$trans->amount}} , {{$user[0]->name}} , {{$user[0]->email}} , {{$user[0]->occupation}} );">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal({{$trans->amount}},{{$user[0]->name}},{{$user[0]->email}},{{$user[0]->occupation}})">
                       Detalles
                     </button>
                   </td>
@@ -138,10 +138,10 @@
       .padre{
         border: 1px;
         display: inline-block;
-        width: 50%;
+        width: 49%;
         margin: auto;
-        padding: 20px, 20px;
         text-align: right;
+        vertical-align:top;
       }
       .labelEstrellas{
         color:grey;
