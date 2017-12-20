@@ -24,7 +24,7 @@ class facturaController extends Controller
 	    				'amount'=>$t->amount,
 	    				'medico'=>'medico'.$i,
 	    			]
-	    			$i++;
+	    			$i=$i+1;
 	    		}
 	    		return view('factura', compact('codigo'))->with('transaction', $transaction2);
 	    	}
