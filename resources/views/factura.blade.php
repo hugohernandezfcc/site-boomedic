@@ -37,7 +37,7 @@
             @foreach ($transaction as $key => $trans)
               <tr>
                   <td>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal({{$trans->amount}},{{$user->name}},{{$user->email}},{{$user->ocupacion}})">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal( {{$trans->amount}} , {{$user->name}} , {{$user->email}} , {{$user->occupation}} );">
                       Detalles
                     </button>
                   </td>
