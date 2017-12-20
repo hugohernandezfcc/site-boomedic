@@ -33,7 +33,7 @@
               </tr>
           </tfoot>
           <tbody >
-            @if($transaction!=null)
+            @if(count($transaction)>0)
             @foreach ($transaction as $key => $trans)
               <tr>
                   <td>
