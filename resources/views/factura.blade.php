@@ -33,6 +33,7 @@
               </tr>
           </tfoot>
           <tbody >
+            @if($transaction!=null)
             @foreach ($transaction as $key => $trans)
               <tr>
                   <td>
@@ -47,6 +48,7 @@
                   <td>PayPal</td>
               </tr>
             @endforeach
+            @endif
           </tbody>
       </table>
     </div>
