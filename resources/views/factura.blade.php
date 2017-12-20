@@ -97,15 +97,15 @@
                   <div style="margin-right: 20%">
                     <label id="" value="">Nombre :</label>
                     <p class="">
-                      <label id="nombreMedico"></label>
+                      <label id="nombre"></label>
                     </p>
                     <label id="" value="">Email :</label>
                     <p class="">
-                      <label id="emailMedico"></label>
+                      <label id="email"></label>
                     </p>
                     <label id="" value="">Ocupación :</label>
                     <p class="">
-                      <label id="ocupacionMedico"></label>
+                      <label id="ocupacion"></label>
                     </p>
                   </div>
                 </div>
@@ -161,10 +161,10 @@
     } );
 
     function datosmodal(monto,nombre,email,ocupacion) {
-      document.getElementById("idlabelMonto").innerHTML=monto;
-      document.getElementById("nombreMedico").innerHTML=nombre;
-      document.getElementById("emailMedico").innerHTML=email;
-      document.getElementById("ocupacionMedico").innerHTML=ocupacion;
+      document.getElementById("idlabelMonto").innerHTML=monto,
+      document.getElementById("nombre").innerHTML=nombre;
+      document.getElementById("email").innerHTML=email;
+      document.getElementById("ocupacion").innerHTML=ocupacion;
     }
   </script>
 @stop
