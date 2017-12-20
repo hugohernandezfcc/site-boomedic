@@ -67,6 +67,9 @@
                 <center>
                   <img src="https://maps.googleapis.com/maps/api/staticmap?maptype=roadmap&center=43.2686751,-2.9340005&zoom=16&size=300x300&markers=color:black|43.2686751,-2.9340005" style="width: 40%;" />
                 </center>
+                <br>
+                <label>Monto : </label>
+                <label id="idlabelMonto"></label>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -100,7 +103,7 @@
     } );
 
     function datosmodal(valor) {
-      document.getElementById("idInput").value=valor;
+      document.getElementById("idlabelMonto").innerHTML=valor;
     }
   </script>
 @stop

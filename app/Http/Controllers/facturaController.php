@@ -17,11 +17,20 @@ class facturaController extends Controller
 	    if(count($payment)>0){
 	    	$transaction = DB::table('transaction_bank')->where('paymentmethod',$payment[0]->id)->get();
 	    	if(count($transaction)>0){
-	    		return view('factura', compact('codigo'))->with('transaction', $transaction);
+	    		$i=0;
+	    		foreach ($transaction as $key => $t) {
+	    			$transaction2=[
+	    				'idTransaction_bank'=> $t->id,
+	    				'amount'=>$t->amount,
+	    				'medico'=>'medico'.$i,
+	    			]
+	    			$i++;
+	    		}
+	    		return view('factura', compact('codigo'))->with('transaction', $transaction2);
 	    	}
 	    }
 	    $transaction= array();
 	    //return view('factura',$transaction);
-	    return view('factura', compact('codigo'))->with('transaction', $transaction);
+	    return view('factura', compact('codigo'))->with('transaction', $transaction2);
 	}
 }

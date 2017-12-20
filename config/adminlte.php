@@ -123,12 +123,12 @@ return [
         ],
         'ACCOUNT SETTINGS',
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
+            'text' => 'Mis Consultas',
+            'url'  => '/factura',
             'icon' => 'user',
         ],
         [
-            'text' => 'Change Password',
+            'text' => 'Perfil tributario',
             'url'  => 'admin/settings',
             'icon' => 'lock',
         ],
