@@ -23,7 +23,7 @@ class facturaController extends Controller
 	    				'idTransaction_bank'=> $t->id,
 	    				'amount'=>$t->amount,
 	    				'medico'=>'medico'.$i,
-	    			]
+	    			];
 	    			$i=$i+1;
 	    		}
 	    		return view('factura', compact('codigo'))->with('transaction', $transaction2);
