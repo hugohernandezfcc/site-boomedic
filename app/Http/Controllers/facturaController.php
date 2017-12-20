@@ -26,12 +26,12 @@ class facturaController extends Controller
                 //'userId'    => Auth::id(),
                 //'username'  => DB::table('users')->where('id', Auth::id() )->value('name'),
                 //'photo'  => DB::table('users')->where('id', Auth::id() )->value('profile_photo'),
-            ]
+            ]);
 	    	}
 	    }
-	    $transaction2= array();
+	    $transaction= array();
 	    //return view('factura',$transaction);
 	    //return view('factura', compact('codigo'))->with('transaction2', $transaction2);
-	    return view('factura',$transaction2);
+	    return view('factura',$transaction);
 	}
 }
