@@ -129,7 +129,7 @@ return [
         ],
         [
             'text' => 'Perfil tributario',
-            'url'  => 'admin/settings',
+            'url'  => 'perfil-tributario',
             'icon' => 'lock',
         ],
         [
