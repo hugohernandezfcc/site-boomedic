@@ -41,7 +41,7 @@
                       Detalles
                     </button>
                   </td>
-                  <td>Alejandro Rivera</td>
+                  <td>{{user[0]->name}}</td>
                   <td>{{$trans->amount}}</td>
                   <td>Boomedic</td>
                   <td>CDMX</td>
