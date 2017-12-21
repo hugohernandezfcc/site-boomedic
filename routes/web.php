@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/antonio', function (){
-    $current_uri = $_SERVER['SCRIPT_URI'];
+    $current_uri = $_SERVER['SCRIPT_NAME'];
     dd('current uri = '.$current_uri);
 });
 //Route::get('/factura', function () {
