@@ -15,8 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/antonio', function () { 
-    dd('antonioGT');   
+Route::get('/antonio', function (){
+    dd('antonioGT');
+    echo "Procesamiento de Facturas...";
 });
 //Route::get('/factura', function () {
 	
