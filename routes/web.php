@@ -14,6 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/antonio', function () { 
+    dd('antonioGT');   
+});
 //Route::get('/factura', function () {
 	
     /*$users = DB::table('users')->where('id', Auth::id() )->get();
@@ -42,7 +46,7 @@ Route::get('/prueba', function () {
  	//echo $payments.'<br>';
  	//echo $trans.'<br>';
  	//echo $users;
-    
+
  	$transaction = DB::table('transaction_bank')->where('paymentmethod',$payment[0]->id)->get();
  	echo $transaction.'<br><br>';
  	echo $users;
