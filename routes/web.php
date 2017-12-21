@@ -42,6 +42,7 @@ Route::get('/prueba', function () {
  	//echo $payments.'<br>';
  	//echo $trans.'<br>';
  	//echo $users;
+    
  	$transaction = DB::table('transaction_bank')->where('paymentmethod',$payment[0]->id)->get();
  	echo $transaction.'<br><br>';
  	echo $users;
