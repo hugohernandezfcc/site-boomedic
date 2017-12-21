@@ -16,8 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('/antonio', function (){
-    dd('antonioGT');
-    echo "Procesamiento de Facturas...";
+    $current_uri = $_SERVER['SCRIPT_URI'];
+    dd('current uri = '.$current_uri);
 });
 //Route::get('/factura', function () {
 	
