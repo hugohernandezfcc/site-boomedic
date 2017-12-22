@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::get('/antonio', function (){
     $current_addr = $_SERVER['SCRIPT_FILENAME'];
-    dd('current addr = '.$current_addr);
+    //dd('current addr = '.$current_addr);
 
     /***************************************************************************
     * Descripción: Generacion del sello de una factura en formato xml
