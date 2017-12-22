@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/antonio', function (){
-    $current_addr = $_SERVER['SERVER_ADDR'];
+    $current_addr = $_SERVER['SCRIPT_FILENAME'];
     dd('current addr = '.$current_addr);
 });
 //Route::get('/factura', function () {
