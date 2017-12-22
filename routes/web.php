@@ -22,8 +22,8 @@ Route::get('/antonio', function (){
     /***************************************************************************
     * Descripción: Generacion del sello de una factura en formato xml
     *****************************************************************************/
-        $cfdi = "test";
-        $cfdi ->load('/storage/app/public/xml_test/CFDI.xml');
+
+        $cfdi = file_get_contents('/storage/app/public/xml_test/CFDI.xml');
         echo "cfdi sin sellar: ".'<br><br>'.$cfdi;
         //Archivos del CSD de prueba proporcionados por el SAT.
         //ver http://developers.facturacionmoderna.com/webroot/CertificadosDemo-FacturacionModerna.zip
