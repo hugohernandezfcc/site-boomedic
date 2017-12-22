@@ -29,8 +29,8 @@ Route::get('/antonio', function (){
         //ver http://developers.facturacionmoderna.com/webroot/CertificadosDemo-FacturacionModerna.zip
         $numero_certificado = "00001000000305304226";
         $archivo_cer = '/storage/app/public/csd/00001000000305304226.cer';
-        $archivo_key = .'/storage/app/public/csd/00001000000305304226.key';
-        $archivo_pem = .'/storage/app/public/csd/archivo.key.pem';
+        $archivo_key = '/storage/app/public/csd/00001000000305304226.key';
+        $archivo_pem = '/storage/app/public/csd/archivo.key.pem';
 
     //Sellar un XML con los CSD de pruebas
     //$cfdi = sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
