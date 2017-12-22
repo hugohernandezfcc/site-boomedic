@@ -24,7 +24,7 @@ Route::get('/antonio', function (){
     *****************************************************************************/
 
         $cfdi = "/storage/app/public/xml_test/CFDI.xml";
-        dd('cfdi sin sellar: '.$cfdi);
+        echo "cfdi sin sellar: ".$cfdi);
         //Archivos del CSD de prueba proporcionados por el SAT.
         //ver http://developers.facturacionmoderna.com/webroot/CertificadosDemo-FacturacionModerna.zip
         $numero_certificado = "00001000000305304226";
