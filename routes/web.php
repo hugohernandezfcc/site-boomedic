@@ -65,7 +65,6 @@ Route::get('/antonio', function (){
       $c->setAttribute('certificado', $certificado);
       $c->setAttribute('noCertificado', $numero_certificado);
       return $xdoc->saveXML();}
-      
     }
 });
 //Route::get('/factura', function () {
