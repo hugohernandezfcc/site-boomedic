@@ -20,7 +20,7 @@ Route::get('/antonio', function (){
     //dd('current addr = '.$current_addr);
 
     /***************************************************************************
-    * Descripción: Generacion del sello de una factura en formato xml
+    * Descripción: Generacion del sello de una factura en forato xml
     *****************************************************************************/
 
         $cfdi = file_get_contents('./CFDI.xml','/storage/app/public/xml_test/'); 
