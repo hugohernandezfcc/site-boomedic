@@ -34,7 +34,7 @@ Route::get('/antonio', function (){
  
     //Sellar un XML con los CSD de pruebas
     $cfdi = sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
-    dd('cfdi sellado: '.$cfdi);
+    dd('cfdi sellado: '.$cfdi); 
 
     function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem){
 
