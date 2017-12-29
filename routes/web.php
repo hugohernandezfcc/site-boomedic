@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::get('/antonio', function (){
     $current_addr = $_SERVER['SCRIPT_FILENAME'];
-    //dd('current addr = '.$current_addr);
+    dd('current addr = '.$current_addr);
 
     /***************************************************************************
     * Descripción: Generacion del sello de una factura en forato xml
@@ -32,7 +32,7 @@ Route::get('/antonio', function (){
         $archivo_cer = '/storage/app/public/csd/00001000000305304226.cer';
         $archivo_key = '/storage/app/public/csd/00001000000305304226.key';
         $archivo_pem = '/storage/app/public/csd/archivo.key.pem';
- 
+  /*
     //Sellar un XML con los CSD de pruebas
     $cfdi = sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
     dd('cfdi sellado: '.$cfdi); 
@@ -67,6 +67,7 @@ Route::get('/antonio', function (){
       $c->setAttribute('noCertificado', $numero_certificado);
       return $xdoc->saveXML();
     }
+    */
 });
 //Route::get('/factura', function () {
 	
