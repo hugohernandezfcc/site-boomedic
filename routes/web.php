@@ -31,6 +31,7 @@ Route::get('/antonio', function (){
         $archivo_cer = Storage::disk('csd')->get('00001000000305304226.cer');
         $archivo_key = Storage::disk('csd')->get('00001000000305304226.key');
         $archivo_pem = Storage::disk('csd')->get('archivo.key.pem');
+        $cadena_original = Storage::disk('public')->get('cadenaoriginal_3_3.xslt');
 
     //Sellar un XML con los CSD de pruebas
     
@@ -43,7 +44,7 @@ Route::get('/antonio', function (){
       $xdoc->loadXML($cfdi) or die("XML invalido");
 
       $XSL = new DOMDocument("1.0","UTF-8");
-      $XSL->load('storage/app/public/cadenaoriginal_3_3.xslt');
+      $XSL->load($cadena_original);
       
       $proc = new XSLTProcessor;
       $proc->importStyleSheet($XSL);
