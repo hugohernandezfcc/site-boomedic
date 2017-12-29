@@ -26,16 +26,15 @@ Route::get('/antonio', function (){
         //echo "cfdi sin sellar: ".'<br><br>'.$cfdi;
         //Archivos del CSD de prueba proporcionados por el SAT.
         //ver http://developers.facturacionmoderna.com/webroot/CertificadosDemo-FacturacionModerna.zip
-  /*
+  
         $numero_certificado = "00001000000305304226";
-        $archivo_cer = '/storage/app/public/csd/00001000000305304226.cer';
-        $archivo_key = '/storage/app/public/csd/00001000000305304226.key';
-        $archivo_pem = '/storage/app/public/csd/archivo.key.pem';
-  */
-  /*
+        $archivo_cer = Storage::disk('csd')->get('00001000000305304226.cer');
+        $archivo_key = Storage::disk('csd')->get('00001000000305304226.key');
+        $archivo_pem = Storage::disk('csd')->get('archivo.key.pem');
+
     //Sellar un XML con los CSD de pruebas
     $cfdi = sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
-    dd('cfdi sellado: '.$cfdi); 
+    echo 'cfdi sellado: '.$cfdi; 
 
     function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem){
 
@@ -67,7 +66,6 @@ Route::get('/antonio', function (){
       $c->setAttribute('noCertificado', $numero_certificado);
       return $xdoc->saveXML();
     }
-    */
 });
 //Route::get('/factura', function () {
 	
