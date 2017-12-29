@@ -38,7 +38,7 @@ Route::get('/antonio', function (){
 
     function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem){
 
-      //ingresa codificado en base64 el archivo .cer dentro del atributo -certificado- del xml de la factura
+      //ingresa codificado en base64 el archivo .cer dentro del atributo -certificado- del xml de la facturas
       $certificado = str_replace(array('\n', '\r' ), '', base64_encode(file_get_contents($archivo_cer)));
       
       //Genera Cadena Original del XML(factura) y el XSLT(sat)******
