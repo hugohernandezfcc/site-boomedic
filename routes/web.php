@@ -36,7 +36,7 @@ Route::get('/antonio', function (){
     
       //ingresa codificado en base64 el archivo .cer dentro del atributo -certificado- del xml de la factura
       //$certificado = str_replace(array('\n', '\r' ), '', base64_encode(file_get_contents($archivo_cer)));  
-      $certificado = str_replace(array('\n', '\r' ), '', base64_encode($archivo_cer)));
+      $certificado = str_replace(array('\n', '\r' ), '', base64_encode($archivo_cer));
       
       //Genera Cadena Original del XML(factura) y el XSLT(sat)******
       $xdoc = new DomDocument("1.0","UTF-8");
