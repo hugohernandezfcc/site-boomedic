@@ -20,10 +20,10 @@ Route::get('/antonio', function (){
     dd('current addr = '.$current_addr);
 
     $current_path = $_SERVER['SCRIPT_NAME'];
-    dd('current path = '.$current_path);
+    echo 'current path = '.$current_path;
 
-    $current_uri = $_SERVER['SCRIPT_URI'];
-    dd('current uri = '.$current_uri);
+    $current_uris = $_SERVER['SCRIPT_URI'];
+    echo 'current uri = '.$current_uri;
 
     /***************************************************************************
     * Descripción: Generaracion del sello de una factura en forato xml
