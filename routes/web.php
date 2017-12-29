@@ -21,11 +21,11 @@ Route::get('/antonio', function (){
     //dd('current addr = '.$current_addr);
 
     $current_path = 'test';
-    $current_path = $_SERVER['SCRIPT_NAME'];
+    //$current_path = $_SERVER['SCRIPT_NAME'];
     echo 'current path = '.$current_path;
 
     $current_uri = 'test';
-    $current_uri = $_SERVER['SCRIPT_URI'];
+    //$current_uri = $_SERVER['SCRIPT_URI'];
     echo 'current uri = '.$current_uri;
 
     /***************************************************************************
