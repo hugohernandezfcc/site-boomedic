@@ -33,11 +33,7 @@ Route::get('/antonio', function (){
         $archivo_pem = Storage::disk('csd')->get('archivo.key.pem');
 
     //Sellar un XML con los CSD de pruebas
-    $cfdi = sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
-    echo 'cfdi sellado: '.$cfdi; 
-
-    function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem){
-
+    
       //ingresa codificado en base64 el archivo .cer dentro del atributo -certificado- del xml de la factura
       $certificado = str_replace(array('\n', '\r' ), '', base64_encode(file_get_contents($archivo_cer)));
       
@@ -64,7 +60,10 @@ Route::get('/antonio', function (){
       $c->setAttribute('sello', $sello);
       $c->setAttribute('certificado', $certificado);
       $c->setAttribute('noCertificado', $numero_certificado);
-      return $xdoc->saveXML();
+
+      $cfdi = $xdoc;
+
+       echo '<pre>' . str_replace('<', '&lt;', $cfdi) . '</pre>';
     }
 });
 //Route::get('/factura', function () {
