@@ -16,17 +16,15 @@ Route::get('/', function () {
 });
 
 Route::get('/antonio', function (){
-    $current_addr = 'test';
+
     $current_addr = $_SERVER['SCRIPT_FILENAME'];
-    //dd('current addr = '.$current_addr);
+    echo $current_addr;
 
-    $current_path = 'test';
-    //$current_path = $_SERVER['SCRIPT_NAME'];
-    echo 'current path = '.$current_path;
+    $current_path = $_SERVER['SCRIPT_NAME'];
+    echo $current_path;
 
-    $current_uri = 'test';
-    //$current_uri = $_SERVER['SCRIPT_URI'];
-    echo 'current uri = '.$current_uri;
+    $current_uri = $_SERVER['SCRIPT_URI'];
+    echo $current_uri;
 
     /***************************************************************************
     * Descripción: Generaracion del sello de una factura en forato xml
