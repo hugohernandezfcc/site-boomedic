@@ -21,7 +21,7 @@ Route::get('/antonio', function (){
     * Descripción: Generaracion del sello de una factura en forato xml
     *****************************************************************************/
 
-        $cfdi = xml_test::get('CFDI.xml'); 
+        $cfdi = Storage::get('/xml_test/CFDI.xml'); 
         echo '<pre>' . str_replace('<', '&lt;', $cfdi) . '</pre>';
         //echo "cfdi sin sellar: ".'<br><br>'.$cfdi;
         //Archivos del CSD de prueba proporcionados por el SAT.
