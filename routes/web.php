@@ -19,8 +19,14 @@ Route::get('/antonio', function (){
     $current_addr = $_SERVER['SCRIPT_FILENAME'];
     dd('current addr = '.$current_addr);
 
+    $current_path = $_SERVER['SCRIPT_NAME'];
+    dd('current path = '.$current_path);
+
+    $current_uri = $_SERVER['SCRIPT_URI'];
+    dd('current uri = '.$current_uri);
+
     /***************************************************************************
-    * Descripción: Generacion del sello de una factura en forato xml
+    * Descripción: Generaracion del sello de una factura en forato xml
     *****************************************************************************/
 
         //$cfdi = file_get_contents('/storage/app/public/xml_test/CFDI.xml'); 
