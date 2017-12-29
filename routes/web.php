@@ -16,13 +16,16 @@ Route::get('/', function () {
 });
 
 Route::get('/antonio', function (){
+    $current_addr = 'test';
     $current_addr = $_SERVER['SCRIPT_FILENAME'];
     //dd('current addr = '.$current_addr);
 
+    $current_path = 'test';
     $current_path = $_SERVER['SCRIPT_NAME'];
     echo 'current path = '.$current_path;
 
-    $current_uris = $_SERVER['SCRIPT_URI'];
+    $current_uri = 'test';
+    $current_uri = $_SERVER['SCRIPT_URI'];
     echo 'current uri = '.$current_uri;
 
     /***************************************************************************
