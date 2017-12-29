@@ -63,8 +63,8 @@ Route::get('/antonio', function (){
 
       $cfdi = $xdoc;
 
-       echo '<pre>' . str_replace('<', '&lt;', $cfdi) . '</pre>';
-    }
+      echo '<pre>' . str_replace('<', '&lt;', $cfdi) . '</pre>';
+    
 });
 //Route::get('/factura', function () {
 	
