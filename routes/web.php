@@ -33,7 +33,7 @@ Route::get('/antonio', function (){
         $archivo_pem = Storage::disk('csd')->get('archivo.key.pem');
         $cadena_original = Storage::disk('public')->get('cadenaoriginal_3_3.xslt');
 
-    //Sellar un XML con los CSD de pruebas
+    //Sellar un XML con los CSD de prueba
     
       //ingresa codificado en base64 el archivo .cer dentro del atributo -certificado- del xml de la factura
       //$certificado = str_replace(array('\n', '\r' ), '', base64_encode(file_get_contents($archivo_cer)));  
@@ -46,7 +46,7 @@ Route::get('/antonio', function (){
       $XSL = new DOMDocument("1.0","UTF-8");
       $XSL->load($cadena_original);
       
-      $proc = new XSLTProcess;
+      $proc = new XSLTProcessor;
       $proc->importStyleSheet($XSL);
       $cadena_original = trim($proc->transformToXML($xdoc)); 
 
