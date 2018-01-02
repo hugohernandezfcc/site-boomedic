@@ -176,7 +176,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Krowinski\LaravelXSLT\XSLTServiceProvider::class,
+        Krowinski\LaravelXSLT\XSLTServiceProvider::class, 
 
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
 
