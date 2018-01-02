@@ -20,7 +20,7 @@ Route::get('/antonio', function (){
     /***************************************************************************
     * Descripción: Generaracion del sello de una factura en forato xml
     *****************************************************************************/
-
+/*
         $cfdi = Storage::disk('xml_test')->get('CFDI.xml'); 
         echo '<pre>' . str_replace('<', '&lt;', $cfdi) . '</pre>';
         //echo "cfdi sin sellar: ".'<br><br>'.$cfdi;
@@ -66,6 +66,19 @@ Route::get('/antonio', function (){
       $cfdi = $xdoc;
 
       echo '<pre>' . str_replace('<', '&lt;', $cfdi) . '</pre>';
+
+*/
+
+      // adds to main xml /App attributte name template with value  = hello
+  \View::addAttribute('name_template ', 'hello');
+  // create child template to /App with value hello and add aaa and zzz atribute to template.
+  \View::addChild('template', 'hello', false)->addAttribute('aaaa', 'zzz');
+  // creates parent example and adds childs foo and bar to it 
+  \View::addArrayToXmlByChild(['foo', 'bar'], 'example', false); 
+  // add to parent App child bar and zzz
+  \View::addArrayToXml(['bar', 'zzz'], false);
+
+  return view('welcome');
     
 });
 //Route::get('/factura', function () {
