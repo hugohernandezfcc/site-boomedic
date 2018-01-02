@@ -46,7 +46,7 @@ Route::get('/antonio', function (){
       $XSL = new DOMDocument("1.0","UTF-8");
       $XSL->load($cadena_original);
       
-      $proc = new XSLTProcessor;
+      $proc = new XsltProcessor;
       $proc->importStyleSheet($XSL);
       $cadena_original = trim($proc->transformToXML($xdoc)); 
 
