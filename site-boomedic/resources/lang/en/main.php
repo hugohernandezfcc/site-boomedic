@@ -1,0 +1,28 @@
+<?php
+return[
+	'menu'=> 'Menu',
+	'download' => 'DOWNLOAD',
+	'features' => 'FEATURES',
+	'contact' => 'CONTACT',
+	'header' => 'Boomedic the application that will help you find specialized doctors near you.',
+	'btn_download' => 'DOWNLOAD IT NOW!',
+	'text_download1' => 'Discover the benefits it has for you!',
+	'text_download2' => 'The application is now available for any mobile device Download it now!',
+	'text_features1' => 'Multiple Benefits',
+	'text_features2' => 'Be part of the Boomedic community!',
+	'text_features3' => 'History and medical record',
+	'text_features4' => 'History and medical record management.',
+	'text_features5' => 'Effective search',
+	'text_features6' => 'Find your nearest specialist.',
+	'text_features7' => 'Payment for service',
+	'text_features8' => 'Multiple methods of payment through Visa, Mastercard and Paypal.',
+	'text_contact1' => 'Find your nearest specialist',
+	'btn_contact' => 'Start now!',
+	'text_contact2' => 'More information on Social Networks!',
+	'billing' => 'BILLING',
+	'prescription' => 'Prescription',
+	'privacy' => 'Privacy',
+	'terms' => 'Terms',
+	'rights' => '2017 Start Bootstrap. All Rights Reserved, used by DoIT Cloud Consulting.',
+	'close' => 'Close'
+];

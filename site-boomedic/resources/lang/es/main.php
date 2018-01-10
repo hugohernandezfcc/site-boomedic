@@ -1,0 +1,28 @@
+<?php
+return[
+	'menu'=> 'Menú',
+	'download' => 'DESCARGA',
+	'features' => 'CARACTERISTICAS',
+	'contact' => 'CONTACTO',
+	'header' => 'Boomedic la aplicación que te ayudará a encontrar médicos especializados cerca de ti.',
+	'btn_download' => '¡DESCARGALO YA!',
+	'text_download1' => '¡Descubre los beneficios que tiene para ti!',
+	'text_download2' => 'La aplicación ya está disponible para cualquier dispositivo movil ¡Descargalo ya!',
+	'text_features1' => 'Múltiples Beneficios',
+	'text_features2' => '¡Se parte de la comunidad Boomedic!',
+	'text_features3' => 'Historial y Expediente médico',
+	'text_features4' => 'Manejo de historial y expediente Médico.',
+	'text_features5' => 'Búsqueda eficaz',
+	'text_features6' => 'Encuentra a tu especialista más cercano.',
+	'text_features7' => 'Pagos por servicio',
+	'text_features8' => 'Múltiples métodos de pago a través de Visa, Mastercard y Paypal.',
+	'text_contact1' => 'Encuentra tu especialista más cercano',
+	'btn_contact' => '¡Comienza ya!',
+	'text_contact2' => '¡Más información en Redes Sociales!',
+	'billing' => 'FACTURACIÓN',
+	'prescription' => 'Receta médica',
+	'privacy' => 'Política de privacidad',
+	'terms' => 'Términos',
+	'rights' => '2017 comienza Bootstrap. Todos los derechos reservados, usado por DoIT Cloud Consulting.',
+	'close' => 'Cerrar'
+];
