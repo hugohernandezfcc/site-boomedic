@@ -27,21 +27,27 @@ Route::get('/perfilTributario',['as'=>'perfilTributario.edit','uses'=>'perfilTri
 
 Route::get('/prueba', function () { 
 	$user = DB::table('users')->get();
-	/*$lab = DB::table('professional_information')->where('user',16)->get();
- 	$tp=DB::table('medical_appointments')->get();
-    $join = DB::table('medical_appointments')->where('medical_appointments.user',3)//cambiar al usuario de sesion
-            ->join('users', 'medical_appointments.user_doctor', '=', 'users.id')
-            ->join('professional_information', 'medical_appointments.user_doctor', '=', 'professional_information.user')
-            ->join('labor_information', 'medical_appointments.workplace', '=', 'labor_information.id')
-            ->select('medical_appointments.*', 'users.name', 'users.email', 'users.occupation', 'professional_information.specialty', 'labor_information.workplace', 'labor_information.delegation','labor_information.latitude','labor_information.longitude')
-            ->get();
- 	echo $lab.'<br><br>';
- 	echo $tp.'<br><br>';
-    echo $join.'<br><br>';
- 	echo $user.'<br><br>';*/
-    echo $user.'<br><br>';
+	$recipe=DB::table('recipes_tests')->where('folio',$folio)->get();//where('folio',"like","{$folio}%")->get();
+        /*}else{
+            if(count($recipe)>0){
+                for($i=0;$i<count($recipe);$i++){
+                    if($recipe[$i]->folio==$folio){
+                        $cont++;
+                    }
+                }
+                if($count>1){*/
+                    $doctor=DB::table('users')->where('id',$recipe[0]->doctor)->get();
+                    $patient=DB::table('users')->where('id',$recipe[0]->patient)->get();
+                    $medicines=DB::table('cli_recipes_tests')->where('cli_recipes_tests.recipe_test',$recipe[0]->id)
+                        ->join('medicines', 'cli_recipes_tests.medicine', '=', 'medicines.id')
+                        ->get();
+                        echo $recipe.'<br><br>';
+                        echo $doctor.'<br><br>';
+                        echo $patient.'<br><br>';
+                        echo $medicines.'<br><br>';
+    /*echo $user.'<br><br>';
     $recipe=DB::table('recipes_tests')->get();
-    echo $recipe;
+    echo $recipe;*/
 
 });
 
