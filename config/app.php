@@ -175,8 +175,7 @@ return [
         App\Providers\AuthServiceProvider::class, 
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
-        Krowinski\LaravelXSLT\XSLTServiceProvider::class, 
+        App\Providers\RouteServiceProvider::class, 
 
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
