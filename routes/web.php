@@ -27,7 +27,7 @@ Route::get('/perfilTributario',['as'=>'perfilTributario.edit','uses'=>'perfilTri
 
 Route::get('/prueba', function () { 
 	$user = DB::table('users')->get();
-	$recipe=DB::table('recipes_tests')->where('folio',$folio)->get();//where('folio',"like","{$folio}%")->get();
+	$recipe=DB::table('recipes_tests')->where('folio',15103161)->get();//where('folio',"like","{$folio}%")->get();
         /*}else{
             if(count($recipe)>0){
                 for($i=0;$i<count($recipe);$i++){
