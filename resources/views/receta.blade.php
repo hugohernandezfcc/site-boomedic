@@ -50,22 +50,15 @@
                     <h4 class="modal-title">Receta médica</h4>
                 </div>
                 <div class="modal-body" style="display: inline-block;width: 100%">
-                
-                    <div style="width: 100%;margin-right: 2em;margin-left: 2em;">
-                        <div class="datos" style="margin-right: 2em;margin-left: 2em;">
-                            <div>
-                                <label class="label1" >Médico :</label>
-                                <label class="label2" style="float: right;margin-right: 4em;" id="doctor"></label>
-                            </div>
-                            <div>
-                                <label class="label1">Paciente :</label>
-                                <label class="label2" style="float: right;margin-right: 4em;" id="patient"></label>
-                            </div>
-                            <div>
-                                <label class="label1">Fecha cita :</label>
-                                <label class="label2" style="float: right;margin-right: 4em;" id="date"></label>
-                            </div>
-                        </div>
+                    <div style="width: 45%;text-align: right;display: inline-block;">
+                        <label class="" style="display: block;">Médico :</label>
+                        <label class="" style="display: block;">Paciente :</label>
+                        <label class="" style="display: inline-block;">Fecha cita :</label>
+                    </div>
+                    <div style="width: 45%;text-align: left;display: inline-block;margin-left: 1em;">
+                        <label class="" style="display: block;font-weight: normal;" id="doctor"></label>
+                        <label class="" style="display: block;font-weight: normal;" id="patient"></label>
+                        <label class="" style="display: inline-block;font-weight: normal;" id="date"></label>
                     </div>
                     <br><br>
                     <center>
