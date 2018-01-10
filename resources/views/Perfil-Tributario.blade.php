@@ -7,102 +7,173 @@
 @stop
 
 @section('content')
-	<div class="" style="margin-bottom: 5em;">
-		<div class="container">
-			<div id="">
-				<div class="">
-					<div >
-						<form >
-							<div >
-								<label class="label">Empresa/nombre legal</label>
-								<input type="text" id="empresa" class="text-input" value="" >
-							</div>
-							<div >
-								<label class="label">Calle</label>
-								<input type="text" id="calle" class="text-input" value="" >
-							</div>
-							<div >
-								<label class="label">Número exterior</label>
-								<input type="text" id="noExterior" class="text-input" value="" >
-							</div>
-							<div >
-								<label class="label">Número interior</label>
-								<input type="text" id="noInterior" class="text-input" value="" >
-							</div>
-							<div >
-								<label class="label">Código postal</label>
-								<input type="text" id="codigoPostal" class="text-input" value="" >
-							</div>
-							<div >
-								<label class="label">Colonia</label>
-								<input type="text" id="colonia" class="text-input" value="" >
-							</div>
-							<div >
-								<label class="label">Delegación / Municipio</label>
-								<input type="text" id="delegacion" class="text-input" value="" >
-							</div>
-							<div >
-								<label class="label">Ciudad</label>
-								<input type="text" id="ciudad" class="text-input" value="" >
-							</div>
-							<div >
-								<label class="label">Estado</label>
-								<input type="text" id="estado" class="text-input" value="" >
-							</div>
-							<div>
-								<label  class="label">RFC</label>
-								<input  type="text" id="rfc" class="text-input" value="" >
-							</div>
-							<div >
-								<label class="label">Método de Pago</label>
-								<div class="select">
-									<select id="metodoPago" ></select>
-								</div>
-							</div>
-							<div>
-								<!--<label class="label"></label>
-								<div class="select">
-									<select id="field-on_demand_invoicing" >
-										<option value="automatic">Facturación automática</option>
-										<option value="on_demand">Facturación manual</option>
-									</select>
-								</div>
-								<div class="form-caption form-caption--error"></div>
-							</div>
-							<div >
-								<label class="label">email de cuenta adicional (cc)</label>
-								<input type="text" id="field-invoice_cc_mail" class="text-input" value="" >
-								<div class="form-caption form-caption--error"></div>
-							</div>-->
-							<hr >
-							<div class="">
-								<button class="btn btn-secundary"><!-- react-text: 71 -->Save<!-- /react-text --></button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">General Elements</h3>
+        </div>
+
+        @if (count($errors) > 0) 
+	        <div class="alert alert-danger">
+	            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+	            <ul>
+	                @foreach ($errors->all() as $error)
+	                    <li>{{ $error }}</li>
+	                @endforeach
+	            </ul>
+	        </div>
+	    @endif
+      @if(count($perfil)>0)
+            <!-- /.box-header -->
+        <div class="box-body">
+            <form action="/update/{{$user[0]->id}}" method="post">
+            	{{ csrf_field() }}
+                <!-- text input -->
+               	<div class="form-group">
+                  	<label>Empresa/Nombre legal</label>
+                  	<input value="{{$perfil[0]->company_legalName}}" id="company_legalName" name="company_legalName" type="text" class="form-control" placeholder="Enter ..." name="" >
+                </div>
+                <div class="form-group">
+                  	<label>RFC</label>
+                  	<input value="{{$perfil[0]->rfc}}" id="rfc" name="rfc" type="text" class="form-control" placeholder="Enter ..." >
+                </div>
+                <div class="form-group">
+                	<div class="checkbox">
+	                    <label>
+	                      	<input id="copyDir" type="checkbox">
+	                      	¿Copiar dirección del perfil?
+	                    </label>
+                  	</div>
+                  	<label>País</label>
+                  	<input value="{{$perfil[0]->country}}" id="country" type="text" class="form-control" placeholder="Enter ..." value="" name="country">
+                </div>
+                <div class="form-group">
+                  	<label>Estado</label>
+                  	<input value="{{$perfil[0]->state}}" id="state" type="text" class="form-control" placeholder="Enter ..." value="" name="state">
+                </div>
+                <div class="form-group">
+                  	<label>Delegación/Municipio</label>
+                  	<input value="{{$perfil[0]->delegation}}" id="delegation" type="text" class="form-control" placeholder="Enter ..." value="" name="delegation">
+                </div>
+                <div class="form-group">
+                  	<label>Colonia</label>
+                  	<input value="{{$perfil[0]->colony}}" id="colony" type="text" class="form-control" placeholder="Enter ..." value="" name="colony">
+                </div>
+                <div class="form-group">
+                  	<label>Calle</label>
+                  	<input value="{{$perfil[0]->street}}" id="street" name="street" type="text" class="form-control" placeholder="Enter ..." value="" >
+                </div>
+                <div class="form-group">
+                  	<label>Número exterior</label>
+                  	<input value="{{$perfil[0]->exteriorNumber}}" id="exteriorNumber" type="text" class="form-control" placeholder="Enter ..." value="" name="exteriorNumber">
+                </div>
+                <div class="form-group">
+                  	<label>Número interior</label>
+                  	<input value="{{$perfil[0]->interiorNumber}}" id="interiorNumber" type="text" class="form-control" placeholder="Enter ..." value="" name="interiorNumber">
+                </div>
+                <div class="form-group">
+                  	<label>Código postal</label>
+                  	<input value="{{$perfil[0]->postalCode}}" id="postalCode" type="text" class="form-control" placeholder="Enter ..." value="" name="postalCode">
+                </div>
+                
+                <div class="box-footer">
+                	<button type="submit" class="btn btn-secondary">Guardar</button>
+              	</div>
+            </form>
+        </div>
+        @else
+          <div class="box-body">
+            <form action="/update/{{$user[0]->id}}" method="post">
+              {{ csrf_field() }}
+                <!-- text input -->
+                <div class="form-group">
+                    <label>Empresa/Nombre legal</label>
+                    <input id="company_legalName" name="company_legalName" type="text" class="form-control" placeholder="Enter ..." name="" >
+                </div>
+                <div class="form-group">
+                    <label>RFC</label>
+                    <input id="rfc" name="rfc" type="text" class="form-control" placeholder="Enter ..." >
+                </div>
+                <div class="form-group">
+                  <div class="checkbox">
+                      <label>
+                          <input id="copyDir" type="checkbox">
+                          ¿Copiar dirección del perfil?
+                      </label>
+                    </div>
+                    <label>País</label>
+                    <input id="country" type="text" class="form-control" placeholder="Enter ..." value="" name="country">
+                </div>
+                <div class="form-group">
+                    <label>Estado</label>
+                    <input id="state" type="text" class="form-control" placeholder="Enter ..." value="" name="state">
+                </div>
+                <div class="form-group">
+                    <label>Delegación/Municipio</label>
+                    <input id="delegation" type="text" class="form-control" placeholder="Enter ..." value="" name="delegation">
+                </div>
+                <div class="form-group">
+                    <label>Colonia</label>
+                    <input id="colony" type="text" class="form-control" placeholder="Enter ..." value="" name="colony">
+                </div>
+                <div class="form-group">
+                    <label>Calle</label>
+                    <input id="street" name="street" type="text" class="form-control" placeholder="Enter ..." value="" >
+                </div>
+                <div class="form-group">
+                    <label>Número exterior</label>
+                    <input id="exteriorNumber" type="text" class="form-control" placeholder="Enter ..." value="" name="exteriorNumber">
+                </div>
+                <div class="form-group">
+                    <label>Número interior</label>
+                    <input id="interiorNumber" type="text" class="form-control" placeholder="Enter ..." value="" name="interiorNumber">
+                </div>
+                <div class="form-group">
+                    <label>Código postal</label>
+                    <input id="postalCode" type="text" class="form-control" placeholder="Enter ..." value="" name="postalCode">
+                </div>
+                
+                <div class="box-footer">
+                  <button type="submit" class="btn btn-secondary">Guardar</button>
+                </div>
+            </form>
+        </div>
+        @endif
+
+    </div>
+
 @stop
 
 @section('css')
-<style type="text/css">
-	element.style {
-}
-input{width: 100%;height: 3em}
-.container{width: 80%;}
-.four-fifths{width:80%}
-.text-input{
-	padding:5px 8px;border:1px solid #e1e1e1;border-radius:3px;box-shadow:inset 0 0 2px 0; rgba(0,0,0,.1);font-size:15px;
-}
-.label{
-	color: rgba(0,0,0,.7);;
-	display: block;
-	font:inherit;
-	font-weight:700;
-	font-size:14px;
-	text-align: left;
-}
-</style>
+@stop
+
+@section('js')
+	<script type="text/javascript">
+	$(document).on('change','input[type="checkbox"]' ,function(e) {
+	    if(this.id=="copyDir") {
+	        if(this.checked){
+	        	document.getElementById("country").value='{{$user[0]->country}}';
+				document.getElementById("state").value='{{$user[0]->state}}';
+				document.getElementById("delegation").value='{{$user[0]->delegation}}';
+				document.getElementById("colony").value='{{$user[0]->colony}}';
+				document.getElementById("street").value='{{$user[0]->street}}';
+				document.getElementById("streetNumber").value='{{$user[0]->streetnumber}}';
+				document.getElementById("interiorNumber").value='{{$user[0]->interiornumber}}';
+				document.getElementById("codePostal").value='{{$user[0]->postalcode}}';
+	        }
+	    }
+	    
+	});
+		/*function copiarDireccion() {
+			if(document.getElementById("copyDir").value){
+				document.getElementById("country").value={{$user[0]->country}};
+				document.getElementById("state").value={{$user[0]->state}};
+				document.getElementById("delegation").value={{$user[0]->delegation}};
+				document.getElementById("colony").value={{$user[0]->colony}};
+				document.getElementById("street").value={{$user[0]->street}};
+				document.getElementById("streetnumber").value={{$user[0]->streetnumber}};
+				document.getElementById("interiornumber").value={{$user[0]->interiornumber}};
+				document.getElementById("postalcode").value={{$user[0]->postalcode}};
+			}
+		}*/
+	</script>
 @stop

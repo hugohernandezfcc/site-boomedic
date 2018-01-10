@@ -20,4 +20,9 @@ return[
 	'btn_contact' => 'Start now!',
 	'text_contact2' => 'More information on Social Networks!',
 	'billing' => 'BILLING',
+	'prescription' => 'Prescription',
+	'privacy' => 'Privacy',
+	'terms' => 'Terms',
+	'rights' => '2017 Start Bootstrap. All Rights Reserved, used by DoIT Cloud Consulting.',
+	'close' => 'Close'
 ];

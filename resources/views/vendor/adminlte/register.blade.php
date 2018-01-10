@@ -1,6 +1,6 @@
 @extends('adminlte::master')
 <style type="text/css">
-    body{background-image: url('img/fondo-01.jpg');}
+    body{background-image: url('img/fondo-01.jpg');background-size: 100%}
 </style>
 
 @section('adminlte_css')

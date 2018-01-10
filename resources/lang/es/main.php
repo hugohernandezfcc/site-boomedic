@@ -20,4 +20,9 @@ return[
 	'btn_contact' => '¡Comienza ya!',
 	'text_contact2' => '¡Más información en Redes Sociales!',
 	'billing' => 'FACTURACIÓN',
+	'prescription' => 'Receta médica',
+	'privacy' => 'Política de privacidad',
+	'terms' => 'Términos',
+	'rights' => '2017 comienza Bootstrap. Todos los derechos reservados, usado por DoIT Cloud Consulting.',
+	'close' => 'Cerrar'
 ];

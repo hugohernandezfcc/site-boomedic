@@ -2,33 +2,42 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Boomedic</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom fonts for this template -->
-    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-
-    <!-- Plugin CSS -->
-    <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
-
-    <!-- Custom styles for this template -->
-    <link href="css/new-age.min.css" rel="stylesheet">
-
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+      <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+      <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+      <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
+      <link href="css/new-age.min.css" rel="stylesheet">
+      <style type="text/css">
+        .btn-secondary { 
+          color: #ffffff; 
+          background-color: #000000; 
+          border-color: #555; 
+        }
+        .btn-secondary:hover, 
+        .btn-secondary.active, 
+        .open .dropdown-toggle.btn-secondary{ 
+          color: #ffffff; 
+          background-color: #333333; 
+          border-color: #444; 
+        }
+        .btn-secondary:focus, 
+        .btn-secondary:active, 
+        .open .dropdown-toggle.btn-secondary{ 
+          color: #ffffff; 
+          background-color: #696969; 
+          border-color: #444; 
+        }
+      </style>
+      <title>Boomedic</title>
   </head>
 
   <body id="page-top">
@@ -53,6 +62,9 @@
               <a class="nav-link js-scroll-trigger" href="#contact">@lang('main.contact')</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#receta">@lang('main.prescription')</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link " href="/home">@lang('main.billing')</a>
             </li>
             <li class="nav-item">
@@ -64,7 +76,7 @@
       </div>
     </nav>
 
-    <header class="masthead" style="background-image: url('img/fondo_head.png');width: 100%;">
+    <header class="masthead" style="background-image: url('img/fondo-03.jpg');width: 100%;background-size: 100%;">
       <div class="container h-100">
         <div class="row h-100">
           <div class="col-lg-7 my-auto">
@@ -87,7 +99,7 @@
 
     </header>
 
-    <section class="download text-center" id="download" style="background-image: url('img/fondo-01.jpg');width: 100%; color: white;">
+    <section class="download text-center" id="download" style="background-color: black;width: 100%; color: white;">
       <div class="container">
         <div class="row">
           <div class="col-md-8 mx-auto">
@@ -161,7 +173,7 @@
       <div class="cta-content">
         <div class="container">
           <h2>@lang('main.text_contact1')</h2>
-          <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger" >@lang('main.btn_contact')</a>
+          <a href="/login" class="btn btn-outline btn-xl js-scroll-trigger" >@lang('main.btn_contact')</a>
         </div>
       </div>
       <div class="overlay"></div>
@@ -172,12 +184,12 @@
         <h2>@lang('main.text_contact2')</h2>
         <ul class="list-inline list-social">
           <li class="list-inline-item social-twitter">
-            <a href="https://www.twitter.com">
+            <a href="#">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li class="list-inline-item social-facebook">
-            <a href="https://www.facebook.com">
+            <a href="#">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
@@ -190,23 +202,51 @@
         
     </section>
 
+    <!-- Receta médica -->
+    <section class="contact " id="receta" style="background-color: rgb(0,159,169); color: white;">
+      <div class="container">
+            <a href="/receta" class="btn btn-outline btn-xl js-scroll-trigger" >@lang('main.prescription')</a>
+        
+    </section>
+
     <footer>
       <div class="container">
-        <p>&copy; 2017 Start Bootstrap. All Rights Reserved.</p>
+        <p>&copy; @lang('main.rights')</p>
         <ul class="list-inline">
           <li class="list-inline-item">
-            <a href="#">Privacy</a>
+            <a class="js-scroll-trigger" href="#privacy" onclick="politicas(this.text);" id="privacy">@lang('main.privacy')</a>
           </li>
           <li class="list-inline-item">
-            <a href="#">Terms</a>
+            <a class="js-scroll-trigger" href="#terms" onclick="politicas(this.text);" id="term">@lang('main.terms')</a>
           </li>
           <li class="list-inline-item">
-            <a href="#">FAQ</a>
+            <a class="js-scroll-trigger" href="#FAQ" onclick="politicas('FAQ');" id="FAQ">FAQ</a>
           </li>
         </ul>
       </div>
     </footer>
 
+
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog" >
+        <div class="modal-content">
+          <div class="modal-header" style="font-family:Catamaran,Helvetica,Arial,sans-serif;">
+            <h4 class="modal-title" style="" id="titleM" style=""></h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="cursor: pointer;">
+            <span aria-hidden="true">&times;</span></button>
+            
+          </div>
+          <div class="modal-body" style="display: inline-block;width: 100%">
+          </div>
+          <div class="modal-footer" >
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" style="border-radius: 2px;font-size: 12px;font-family:Catamaran,Helvetica,Arial,sans-serif;cursor: pointer;">@lang('main.close')</button>
+          </div>
+        </div>
+            <!-- /.modal-content -->
+      </div>
+          <!-- /.modal-dialog -->
+    </div>
+        <!-- /.modal -->
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -283,7 +323,12 @@
           opt.style="color:black";
           campo.appendChild(opt);
         }
-    }
+    };
+    
+    function politicas(titulo){
+      document.getElementById("titleM").innerHTML=titulo;
+      $('#myModal').modal('show');
+    };
   </script>
 
   </body>
