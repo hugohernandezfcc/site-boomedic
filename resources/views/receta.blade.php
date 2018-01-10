@@ -50,7 +50,7 @@
                     <h4 class="modal-title">Receta médica</h4>
                 </div>
                 <div class="modal-body" style="display: inline-block;width: 100%">
-                    <div style="width: 45%;text-align: right;display: inline-block;">
+                    <div style="width: 20%;text-align: right;display: inline-block;">
                         <label class="" style="display: block;">Médico :</label>
                         <label class="" style="display: block;">Paciente :</label>
                         <label class="" style="display: inline-block;">Fecha cita :</label>
