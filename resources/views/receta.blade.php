@@ -150,6 +150,10 @@
                             var patient=response['patient'];
                             var recipe=response['recipe'];
                             var medicines=response['medicines'];
+                            console.log(doctor);
+                            console.log(patient);
+                            console.log(recipe);
+                            console.log(medicines);
                             document.getElementById("doctor").innerHTML = doctor[0]['name'];
                             document.getElementById("patient").innerHTML = patient[0]['name'];
                             document.getElementById("date").innerHTML = recipe[0]['date'];
