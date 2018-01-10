@@ -2,7 +2,7 @@
 
 @section('title', 'Boomedic')
 
-@section('content_header')
+@section('content_header') 
     <h1>Perfil tributario</h1>
 @stop
 
