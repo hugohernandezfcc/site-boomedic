@@ -68,8 +68,8 @@
                         </div>
                     </div>
                     <br><br>
-                    <div style="max-width: 100%;overflow-x:auto;">
-                        <table id="example" class="table table-bordered table-hove" width="100%">
+                    <center>
+                        <table id="example" class="table table-bordered table-hove" style="width: 90%">
                             <thead>
                                 <tr>
                                     <th style="border-style: none;"></th>
@@ -82,7 +82,7 @@
                             <tbody id="tableBody">
                             </tbody>
                         </table>
-                    </div>
+                    </center>
                 </div>
                     <div class="modal-footer" >
                         <button type="button" class="btn btn-secondary" onclick="completado();">Receta Completa</button>
