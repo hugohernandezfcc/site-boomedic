@@ -12,7 +12,7 @@
 */
 use Illuminate\Http\Request;
 
-Route::get('medicines/{folio?}', ['as' => 'recetaa', 'uses' => 'RecetaController@show']);
+Route::get('medicines/{folio?}', ['as' => 'recetaa', 'uses' => 'recetaController@show']);
 
 Route::get('receta','recetaController@index');
 
