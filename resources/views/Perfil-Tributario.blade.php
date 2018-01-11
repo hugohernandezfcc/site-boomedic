@@ -10,12 +10,12 @@
     </div>
     @if (count($errors) > 0) 
       <div class="alert alert-danger">
-          <strong>Whoops!</strong> There were some problems with your input.<br><br>
-          <ul>
-              @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-              @endforeach
-          </ul>
+        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+        </ul>
       </div>
     @endif
     @if(count($perfil)>0)
@@ -82,50 +82,50 @@
           {{ csrf_field() }}
           <!-- text input -->
           <div class="form-group">
-              <label>Empresa/Nombre legal</label>
-              <input id="company_legalName" name="company_legalName" type="text" class="form-control" placeholder="Enter ..." name="" >
+            <label>Empresa/Nombre legal</label>
+            <input id="company_legalName" name="company_legalName" type="text" class="form-control" placeholder="Enter ..." name="" >
           </div>
           <div class="form-group">
-              <label>RFC</label>
-              <input id="rfc" name="rfc" type="text" class="form-control" placeholder="Enter ..." >
+            <label>RFC</label>
+            <input id="rfc" name="rfc" type="text" class="form-control" placeholder="Enter ..." >
           </div>
           <div class="form-group">
             <div class="checkbox">
-                <label>
-                    <input id="copyDir" type="checkbox">
-                    ¿Copiar dirección del perfil?
-                </label>
-              </div>
-              <label>País</label>
-              <input id="country" type="text" class="form-control" placeholder="Enter ..." value="" name="country">
+              <label>
+                  <input id="copyDir" type="checkbox">
+                  ¿Copiar dirección del perfil?
+              </label>
+            </div>
+            <label>País</label>
+            <input id="country" type="text" class="form-control" placeholder="Enter ..." value="" name="country">
           </div>
           <div class="form-group">
-              <label>Estado</label>
-              <input id="state" type="text" class="form-control" placeholder="Enter ..." value="" name="state">
+            <label>Estado</label>
+            <input id="state" type="text" class="form-control" placeholder="Enter ..." value="" name="state">
           </div>
           <div class="form-group">
-              <label>Delegación/Municipio</label>
-              <input id="delegation" type="text" class="form-control" placeholder="Enter ..." value="" name="delegation">
+            <label>Delegación/Municipio</label>
+            <input id="delegation" type="text" class="form-control" placeholder="Enter ..." value="" name="delegation">
           </div>
           <div class="form-group">
-              <label>Colonia</label>
-              <input id="colony" type="text" class="form-control" placeholder="Enter ..." value="" name="colony">
+            <label>Colonia</label>
+            <input id="colony" type="text" class="form-control" placeholder="Enter ..." value="" name="colony">
           </div>
           <div class="form-group">
-              <label>Calle</label>
-              <input id="street" name="street" type="text" class="form-control" placeholder="Enter ..." value="" >
+            <label>Calle</label>
+            <input id="street" name="street" type="text" class="form-control" placeholder="Enter ..." value="" >
           </div>
           <div class="form-group">
-              <label>Número exterior</label>
-              <input id="exteriorNumber" type="text" class="form-control" placeholder="Enter ..." value="" name="exteriorNumber">
+            <label>Número exterior</label>
+            <input id="exteriorNumber" type="text" class="form-control" placeholder="Enter ..." value="" name="exteriorNumber">
           </div>
           <div class="form-group">
-              <label>Número interior</label>
-              <input id="interiorNumber" type="text" class="form-control" placeholder="Enter ..." value="" name="interiorNumber">
+            <label>Número interior</label>
+            <input id="interiorNumber" type="text" class="form-control" placeholder="Enter ..." value="" name="interiorNumber">
           </div>
           <div class="form-group">
-              <label>Código postal</label>
-              <input id="postalCode" type="text" class="form-control" placeholder="Enter ..." value="" name="postalCode">
+            <label>Código postal</label>
+            <input id="postalCode" type="text" class="form-control" placeholder="Enter ..." value="" name="postalCode">
           </div>
           <div class="box-footer">
             <button type="submit" class="btn btn-secondary">Guardar</button>

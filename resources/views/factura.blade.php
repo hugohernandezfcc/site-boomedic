@@ -2,26 +2,25 @@
 
 @section('title', 'Boomedic')
 
-
 @section('content')
   <div class="box">
     <div class="box-header with-border">
       <h3>Consultas</h3>
     </div>
     <div class="box-body">
-    <center>
-      <div style="width: 90%">
-        <table id="example" class="table table-bordered table-hove" width="100%">
-          <thead>
-            <tr>
+      <center>
+        <div style="width: 90%">
+          <table id="example" class="table table-bordered table-hove" width="100%">
+            <thead>
+              <tr>
                 <th>Detalles</th>
                 <th>Médico</th>
                 <th>Tarifa</th>
                 <th>Consultorio</th>
                 <th>Delegación</th>
                 <th>Método de pago</th>
-            </tr>
-          </thead>
+              </tr>
+            </thead>
             <tfoot> 
               <tr>
                 <th>Detalles</th>
@@ -36,26 +35,26 @@
               @if(count($join)>0)
               @foreach ($join as $key => $citas)
                 <tr>
-                    <td>
-                      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal('5.0','{{$citas->name}}','{{$citas->email}}','{{$citas->specialty}}','{{$citas->latitude}}','{{$citas->longitude}}','3','{{$citas->profile_photo}}')">
-                        Detalles
-                      </button>
-                    </td>
-                    <td>{{$citas->name}}</td>
-                    <td>1.0</td>
-                    <td>{{$citas->workplace}}</td>
-                    <td>{{$citas->delegation}}</td>
-                    <td>PayPal</td>
+                  <td>
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal('5.0','{{$citas->name}}','{{$citas->email}}','{{$citas->specialty}}','{{$citas->latitude}}','{{$citas->longitude}}','3','{{$citas->profile_photo}}')">
+                      Detalles
+                    </button>
+                  </td>
+                  <td>{{$citas->name}}</td>
+                  <td>1.0</td>
+                  <td>{{$citas->workplace}}</td>
+                  <td>{{$citas->delegation}}</td>
+                  <td>PayPal</td>
                 </tr>
               @endforeach
               @else
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
                 </tr>
               @endif
             </tbody>
@@ -64,7 +63,6 @@
       </center>
     </div>
   </div>
-
 
   <div class="modal fade" id="modal-default">
     <div class="modal-dialog">
@@ -118,11 +116,8 @@
             <button type="button" class="btn btn-secondary">Guardar cambios</button>
           </div>
         </div>
-      <!-- /.modal-content -->
       </div>
-    <!-- /.modal-dialog -->
     </div>
-  <!-- /.modal -->
 </div>
 @stop
 
@@ -169,7 +164,6 @@
 @stop
 
 @section('js')
-  
   <script>
     $(function () {
       $('#example').DataTable({
@@ -197,7 +191,6 @@
       document.getElementById("especialidad").innerHTML=especialidad;
       $("#photo").attr("src",photo);
       $("#map").attr("src", 'https://maps.googleapis.com/maps/api/staticmap?maptype=roadmap&center='+latitude+','+longitude+'&zoom=16&size=600x200&markers=color:black|'+latitude+','+longitude+'&key=AIzaSyDFFuMEwcwH3OpA8go3AVElVcocm6o5WBQ');
-
       if(valor5=='5'){
         document.getElementById("radio1").checked=1;
         document.getElementById("radio2").checked=1;
