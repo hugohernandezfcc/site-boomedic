@@ -104,8 +104,9 @@
 
         } );
         function cerrar() {
-                $('#modal-default').modal('hide');
-            };
+            $('#modal-default').modal('hide');
+        };
+            
         function completado() {
             for(var i=0;i<length;i++){
                 document.getElementById(i).checked=true;

@@ -67,63 +67,63 @@
 
 
   <div class="modal fade" id="modal-default">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Detalles de consulta</h4>
-              </div>
-              <div class="modal-body" style="display: inline-block;padding-right: 0px;padding-left: 0px;padding-top: 0px;">
-                <center>
-                  <img id="map" style="width: 100%;" />
-                </center>
-                <br>
-                <div class="datos" style="vertical-align: top;">
-                  <center>
-                    <img id="photo" style="width: 70%;vertical-align: top;">
-                  </center>
-                </div>
-                <div class="datosMedico">
-                  <div style=" width: 30%;display: inline-block;text-align: right;">
-                    <label class="label1" value="">Nombre :</label>
-                    <label class="label1" value="">Email :</label>
-                    <label class="label1" value="">Especialidad :</label>
-                    <label class="label1">Monto : </label>
-                    <label class="label1">Calificación:  </label>
-                  </div>
-                  <div style=" width: 60%;display: inline-block;text-align: left;">
-                    <label class="label2" id="nombre"></label>
-                    <label class="label2" id="email"></label>
-                    <label class="label2" id="especialidad"></label>
-                    <label class="label2" id="idlabelMonto"></label>
-                    <form>
-                        <scan class="clasificacion label2">
-                          <input id="radio1" type="radio" name="estrellas" value="5"><!--
-                          --><label class="labelEstrellas" for="radio1">★</label><!--
-                          --><input id="radio2" type="radio" name="estrellas" value="4"><!--
-                          --><label class="labelEstrellas" for="radio2">★</label><!--
-                          --><input id="radio3" type="radio" name="estrellas" value="3"><!--
-                          --><label class="labelEstrellas" for="radio3">★</label><!--
-                          --><input id="radio4" type="radio" name="estrellas" value="2"><!--
-                          --><label class="labelEstrellas" for="radio4">★</label><!--
-                          --><input id="radio5" type="radio" name="estrellas" value="1"><!--
-                          --><label class="labelEstrellas" for="radio5">★</label>
-                        </scan>
-                      </form>
-                  </div>
-                </div>
-                
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-secondary">Guardar cambios</button>
-              </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Detalles de consulta</h4>
         </div>
-        <!-- /.modal -->
+        <div class="modal-body" style="display: inline-block;padding-right: 0px;padding-left: 0px;padding-top: 0px;">
+          <center>
+            <img id="map" style="width: 100%;" />
+          </center>
+          <br>
+          <div class="datos" style="vertical-align: top;">
+            <center>
+              <img id="photo" style="width: 70%;vertical-align: top;">
+            </center>
+          </div>
+          <div class="datosMedico">
+            <div style=" width: 30%;display: inline-block;text-align: right;">
+              <label class="label1" value="">Nombre :</label>
+              <label class="label1" value="">Email :</label>
+              <label class="label1" value="">Especialidad :</label>
+              <label class="label1">Monto : </label>
+              <label class="label1">Calificación:  </label>
+            </div>
+            <div style=" width: 60%;display: inline-block;text-align: left;">
+              <label class="label2" id="nombre"></label>
+              <label class="label2" id="email"></label>
+              <label class="label2" id="especialidad"></label>
+              <label class="label2" id="idlabelMonto"></label>
+              <form>
+                <scan class="clasificacion label2">
+                  <input id="radio1" type="radio" name="estrellas" value="5"><!--
+                  --><label class="labelEstrellas" for="radio1">★</label><!--
+                  --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+                  --><label class="labelEstrellas" for="radio2">★</label><!--
+                  --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+                  --><label class="labelEstrellas" for="radio3">★</label><!--
+                  --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+                  --><label class="labelEstrellas" for="radio4">★</label><!--
+                  --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+                  --><label class="labelEstrellas" for="radio5">★</label>
+                </scan>
+              </form>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-secondary">Guardar cambios</button>
+          </div>
+        </div>
+      <!-- /.modal-content -->
+      </div>
+    <!-- /.modal-dialog -->
+    </div>
+  <!-- /.modal -->
+</div>
 @stop
 
 @section('css')

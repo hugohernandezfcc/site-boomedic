@@ -19,6 +19,7 @@ Route::get('receta','recetaController@index');
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('factura',['as'=>'factura','uses'=>'facturaController@fac']);
 
 Route::post('/update/{id}','perfilTributarioController@update');
