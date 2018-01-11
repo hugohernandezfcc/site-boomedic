@@ -65,10 +65,10 @@
                         <table id="example" class="table table-bordered table-hove" style="width: 90%">
                             <thead>
                                 <tr>
-                                    <th style="border-style: none;"></th>
-                                    <th style="border-style: none;">Nombre</th>
-                                    <th style="border-style: none;">Descripción</th>
-                                    <th style="border-style: none;">Código</th>
+                                    <th style=""></th>
+                                    <th style="">Nombre</th>
+                                    <th style="">Descripción</th>
+                                    <th style="">Código</th>
                                 </tr>
                             </thead>
           

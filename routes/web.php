@@ -27,15 +27,7 @@ Route::get('/perfilTributario',['as'=>'perfilTributario.edit','uses'=>'perfilTri
 
 Route::get('/prueba', function () { 
 	$user = DB::table('users')->get();
-	$recipe=DB::table('recipes_tests')->where('folio',15103161)->get();//where('folio',"like","{$folio}%")->get();
-        /*}else{
-            if(count($recipe)>0){
-                for($i=0;$i<count($recipe);$i++){
-                    if($recipe[$i]->folio==$folio){
-                        $cont++;
-                    }
-                }
-                if($count>1){*/
+	$recipe=DB::table('recipes_tests')->where('folio',15103161)->get();
                     $doctor=DB::table('users')->where('id',$recipe[0]->doctor)->get();
                     $patient=DB::table('users')->where('id',$recipe[0]->patient)->get();
                     $medicines=DB::table('cli_recipes_tests')->where('cli_recipes_tests.recipe_test',$recipe[0]->id)
@@ -45,10 +37,6 @@ Route::get('/prueba', function () {
                         echo $doctor.'<br><br>';
                         echo $patient.'<br><br>';
                         echo $medicines.'<br><br>';
-    /*echo $user.'<br><br>';
-    $recipe=DB::table('recipes_tests')->get();
-    echo $recipe;*/
-
 });
 
 Auth::routes();
