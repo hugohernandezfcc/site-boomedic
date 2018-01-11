@@ -2,14 +2,11 @@
 
 @section('title', 'Boomedic')
 
-@section('content_header') 
-    <h1>Perfil tributario</h1>
-@stop
 
 @section('content')
 	<div class="box box-default">
         <div class="box-header with-border">
-            <h3 class="box-title">General Elements</h3>
+            <h3 class="box-title">Perfil tributario</h3>
         </div>
 
         @if (count($errors) > 0) 
@@ -163,17 +160,5 @@
 	    }
 	    
 	});
-		/*function copiarDireccion() {
-			if(document.getElementById("copyDir").value){
-				document.getElementById("country").value={{$user[0]->country}};
-				document.getElementById("state").value={{$user[0]->state}};
-				document.getElementById("delegation").value={{$user[0]->delegation}};
-				document.getElementById("colony").value={{$user[0]->colony}};
-				document.getElementById("street").value={{$user[0]->street}};
-				document.getElementById("streetnumber").value={{$user[0]->streetnumber}};
-				document.getElementById("interiornumber").value={{$user[0]->interiornumber}};
-				document.getElementById("postalcode").value={{$user[0]->postalcode}};
-			}
-		}*/
 	</script>
 @stop

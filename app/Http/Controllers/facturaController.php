@@ -13,11 +13,8 @@ use App\Http\Controllers\Controller;
 class facturaController extends Controller
 {
 	public function fac(){
-
-	    //$payment = DB::table('paymentsmethods')->where('owner',1)->get();
-	    //$medical_appointments= DB::table('medical_appointments')->where('user',Auth::id())->get();
 	    $user = user::find(Auth::id());
-       	$join = DB::table('medical_appointments')->where('medical_appointments.user',Auth::id())//3)//cambiar al usuario de sesion
+       	$join = DB::table('medical_appointments')->where('medical_appointments.user',Auth::id())
         	->join('users', 'medical_appointments.user_doctor', '=', 'users.id')
         	->join('professional_information', 'medical_appointments.user_doctor', '=', 'professional_information.user')
         	->join('labor_information', 'medical_appointments.workplace', '=', 'labor_information.id')

@@ -19,8 +19,6 @@
 @section('body')
 
     <div class="login-box">
-        <!--<div class="box">-->
-
         <!-- /.login-logo -->
         <div class="box box-body login-box-body" style="">
             <p class="login-box-msg">Folio receta médica</p>
@@ -38,8 +36,6 @@
             </div>
         </div>
     </div><!-- /.login-box -->
-
-
 
     <div class="modal fade" id="modal-default">
         <div class="modal-dialog" >
@@ -92,8 +88,6 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
-    <style type="text/css">
-    </style>
 @stop
 
 @section('adminlte_js')

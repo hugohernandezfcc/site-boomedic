@@ -13,18 +13,10 @@ class perfilTributarioController extends Controller
     public function edit(){
     	$user=DB::table('users')->where('id',Auth::id())->get();
         $perfil=DB::table('tributary_profile')->where('user',Auth::id())->get();
-        //if(count($perfil)>0)
-    	//$user = users::find($id);
     	return view('Perfil-Tributario',['perfil'=>$perfil,'user'=>$user] );
-    	/*return view('perfil-tributario',
-                'user'=>$user
-            );*/
     }
 
     public function update(Request $request,$id){
-
-        //$user = User::find($id);
-        //console.log($user);
     	$this->validate($request, [
             'street' => 'required',
             'postalCode' => 'required',
