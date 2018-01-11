@@ -199,26 +199,26 @@
       $("#map").attr("src", 'https://maps.googleapis.com/maps/api/staticmap?maptype=roadmap&center='+latitude+','+longitude+'&zoom=16&size=600x200&markers=color:black|'+latitude+','+longitude+'&key=AIzaSyDFFuMEwcwH3OpA8go3AVElVcocm6o5WBQ');
 
       if(valor5=='5'){
-      document.getElementById("radio1").checked=1;
-      document.getElementById("radio2").checked=1;
-      document.getElementById("radio3").checked=1;
-      document.getElementById("radio4").checked=1;
-      document.getElementById("radio5").checked=1;
-    }else if(valor5=='4'){
-      document.getElementById("radio1").checked=1;
-      document.getElementById("radio2").checked=1;
-      document.getElementById("radio3").checked=1;
-      document.getElementById("radio4").checked=1;
-    }else if(valor5=='3'){
-      document.getElementById("radio1").checked=1;
-      document.getElementById("radio2").checked=1;
-      document.getElementById("radio3").checked=1;
-    }else if(valor5=='2'){
-      document.getElementById("radio1").checked=1;
-      document.getElementById("radio2").checked=1;
-    }else if(valor5=='1'){
-      document.getElementById("radio1").checked=1;
-    }
+        document.getElementById("radio1").checked=1;
+        document.getElementById("radio2").checked=1;
+        document.getElementById("radio3").checked=1;
+        document.getElementById("radio4").checked=1;
+        document.getElementById("radio5").checked=1;
+      }else if(valor5=='4'){
+          document.getElementById("radio1").checked=1;
+          document.getElementById("radio2").checked=1;
+          document.getElementById("radio3").checked=1;
+          document.getElementById("radio4").checked=1;
+      }else if(valor5=='3'){
+          document.getElementById("radio1").checked=1;
+          document.getElementById("radio2").checked=1;
+          document.getElementById("radio3").checked=1;
+      }else if(valor5=='2'){
+          document.getElementById("radio1").checked=1;
+          document.getElementById("radio2").checked=1;
+      }else if(valor5=='1'){
+          document.getElementById("radio1").checked=1;
+      }
     }
   </script>
 @stop

@@ -7,13 +7,13 @@ use Auth;
 use DB;
 use App\User;
 
-class recetaController extends Controller
-{
+class recetaController extends Controller{
     //
     public function index(){
 	    $user=DB::table('users')->get();
 	    return view('receta',['receta'=>$user]);
 	}
+	
     public function show($folio){
 	    $recipe=DB::table('recipes_tests')->where('folio',$folio)->get();
 		$doctor=DB::table('users')->where('id',$recipe[0]->doctor)->get();
@@ -23,8 +23,8 @@ class recetaController extends Controller
     		->get();
     	return response()->json(['recipe'=>$recipe,'doctor'=>$doctor,'patient'=>$patient,'medicines'=>$medicines]);
 	}
+
 	public function prueba(Request $request){
 	    return $request->folio;
 	}
-
 }

@@ -73,17 +73,12 @@
                         </table>
                     </center>
                 </div>
-                    <div class="modal-footer" >
-                        <button type="button" class="btn btn-secondary" onclick="completado();">Receta Completa</button>
-                    </div>
-                    </center>
+                <div class="modal-footer" >
+                    <button type="button" class="btn btn-secondary" onclick="completado();">Receta Completa</button>
+                </div>
             </div>
-            <!-- /.modal-content -->
         </div>
-          <!-- /.modal-dialog -->
     </div>
-        <!-- /.modal -->
-        
 @stop
 
 @section('css')
@@ -106,7 +101,7 @@
         function cerrar() {
             $('#modal-default').modal('hide');
         };
-            
+
         function completado() {
             for(var i=0;i<length;i++){
                 document.getElementById(i).checked=true;
