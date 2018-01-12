@@ -146,7 +146,7 @@
             var descripcion=document.getElementById("descripcion").value;
             document.getElementById("folio").value=null;
             setTimeout("$('#modal-default').modal('hide');", 1000);
-
+            console.log('%'+porcentaje);
             var dat={'porcentaje':porcentaje, 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':'no'};
             //var dat={'hola':'hola','hola2':'hola2'};
             $.ajax({

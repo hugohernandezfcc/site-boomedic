@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use DB;
 use App\User;
+use Jenssegers\Agent\Agent;
 
 class recetaController extends Controller{
     //
