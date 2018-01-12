@@ -180,6 +180,8 @@ return [
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
 
+        Jenssegers\Agent\AgentServiceProvider::class,
+
     ],
 
     /*
@@ -231,6 +233,7 @@ return [
 
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
 
     ],
 

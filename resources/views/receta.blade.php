@@ -45,12 +45,12 @@
                     <h4 class="modal-title">Receta médica</h4>
                 </div>
                 <div class="modal-body" style="display: inline-block;width: 100%">
-                    <div style="width: 20%;text-align: right;display: inline-block;">
+                    <div style="width: 30%;text-align: right;display: inline-block;">
                         <label class="" style="display: block;">Médico :</label>
                         <label class="" style="display: block;">Paciente :</label>
                         <label class="" style="display: inline-block;">Fecha cita :</label>
                     </div>
-                    <div style="width: 45%;text-align: left;display: inline-block;margin-left: 1em;">
+                    <div style="width: 60%;text-align: left;display: inline-block;margin-left: 1em;">
                         <label class="" style="display: block;font-weight: normal;" id="doctor"></label>
                         <label class="" style="display: block;font-weight: normal;" id="patient"></label>
                         <label class="" style="display: inline-block;font-weight: normal;" id="date"></label>
@@ -71,8 +71,13 @@
                             </tbody>
                         </table>
                     </center>
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter ..." id="descripcion"></textarea>
+                    </div>
                 </div>
                 <div class="modal-footer" >
+                    <button type="button" class="btn btn-default" style="display: none;" onclick="incompleto();" id="incom">Receta Incompleta</button>
                     <button type="button" class="btn btn-secondary" onclick="completado();">Receta Completa</button>
                 </div>
             </div>
@@ -88,6 +93,11 @@
     <script src="{{ asset('vendor/adminlte/plugins/iCheck/icheck.min.js') }}"></script>
     <script>
         var length;
+        var latitud;
+        var longitud;
+        window.onload = function(){
+            getLocation();
+        };
         $(document).ready(function() {
             $('#myTable').DataTable( {
                 "ordering": false,
@@ -100,15 +110,60 @@
         function cerrar() {
             $('#modal-default').modal('hide');
         };
-
         function completado() {
             for(var i=0;i<length;i++){
                 document.getElementById(i).checked=true;
             }
             document.getElementById("folio").value=null;
             setTimeout("$('#modal-default').modal('hide');", 1000);
+
+            var descripcion=document.getElementById("descripcion").value;
+            var dat={'porcentaje':'100', 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':'si'};
+            //var dat={'hola':'hola','hola2':'hola2'};
+            $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+              url : "/recetaCompleta",
+              type : "post",
+              data : dat,
+              error: function() {
+                console.log('Error :c');
+               },
+              success : function(response){
+                    console.log("Correcto, escribiste : "+response);
+                }
+            });
         };
-        
+        function incompleto(){
+            var contador=0;
+            for(var i=0;i<length;i++){
+                if(document.getElementById(i).checked==true){
+                    contador++;
+                }
+            }
+            var porcentaje=(contador/length)*100;
+            var descripcion=document.getElementById("descripcion").value;
+            document.getElementById("folio").value=null;
+            setTimeout("$('#modal-default').modal('hide');", 1000);
+
+            var dat={'porcentaje':porcentaje, 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':'no'};
+            //var dat={'hola':'hola','hola2':'hola2'};
+            $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+              url : "/recetaCompleta",
+              type : "post",
+              data : dat,
+              error: function() {
+                console.log('Error :c');
+               },
+              success : function(response){
+                    console.log("Correcto, escribiste : "+response);
+                }
+            });
+        }
         function buscar() {
             var folio = document.getElementById("folio").value;
             var log=folio.length;
@@ -160,6 +215,20 @@
                 }
             }
         }  
+        function press(){
+            document.getElementById("incom").style.display='inline';
+        }
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                console.log("Geolocation is not supported by this browser.");
+            }
+        }
+        function showPosition(position) {
+            latitud=position.coords.latitude;
+            longitud=position.coords.longitude;
+        }
     </script>
     @yield('js')
 @stop
