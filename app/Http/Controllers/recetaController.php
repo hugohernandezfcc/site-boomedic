@@ -24,7 +24,21 @@ class recetaController extends Controller{
     	return response()->json(['recipe'=>$recipe,'doctor'=>$doctor,'patient'=>$patient,'medicines'=>$medicines]);
 	}
 
-	public function prueba(Request $request){
-	    return $request->folio;
+	public function guardarJson(Request $request){
+		$agent = new Agent();
+	    if($agent->isDesktop()){
+	    	$dis='Desktop';
+	    }else if($agent->isMobile()){
+	    	$dis='Mobile';
+	    }else if($agent->isTablet()){
+	    	$dis='Table';
+	    }
+	    $device = $agent->device();
+	    $platform = $agent->platform();
+	    $versionP = $agent->version($platform);
+	    $browser = $agent->browser();
+	    $versionB = $agent->version($browser);
+	    $json= json_encode(array('dis' => $dis, 'device' => $device, 'platform' => $platform.' '.$versionP, 'browser' => $browser.' '.$versionB, 'latitud' => $request->latitud, 'longitud' => $request->longitud, 'recetaInfo' => array('surtio_completo' =>$request->surtioC, 'porcentaje' => '%'.$request->porcentaje, 'descripcion' => $request->descripcion)));
+		return $json;
 	}
 }
