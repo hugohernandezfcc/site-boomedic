@@ -124,7 +124,7 @@
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-              url : "/recetaCompleta",
+              url : "/pru",
               type : "post",
               data : dat,
               error: function() {
@@ -153,7 +153,7 @@
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-              url : "/recetaCompleta",
+              url : "/pru",
               type : "post",
               data : dat,
               error: function() {
@@ -197,7 +197,7 @@
                             $('#tableBody').empty();
                             length=medicines.length;
                             for(var i=0;i<medicines.length;i++){
-                                var fila="<td><div class='checkbox' id=''><label><input id='"+i+"' type='checkbox'></label></div></td> <td>"+medicines[i]['name']+"</td><td>"+medicines[i]['description']+"</td><td>"+medicines[i]['code']+"</td>";
+                                var fila="<td><div class='checkbox' id=''><label><input id='"+i+"' type='checkbox' onclick='press();'></label></div></td> <td>"+medicines[i]['name']+"</td><td>"+medicines[i]['description']+"</td><td>"+medicines[i]['code']+"</td>";
                                 var btn = document.createElement("TR");
                                 btn.innerHTML=fila;
                                 document.getElementById("tableBody").appendChild(btn);
