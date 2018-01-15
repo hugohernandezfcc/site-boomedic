@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use DB;
 use App\User;
+use App\recipe_test;
 use Jenssegers\Agent\Agent;
 
 class recetaController extends Controller{
@@ -41,7 +42,7 @@ class recetaController extends Controller{
 	    $versionB = $agent->version($browser);
 	    $jsonC= array('type' => $dis, 'device' => $device, 'platform' => $platform.' '.$versionP, 'browser' => $browser.' '.$versionB, 'latitud' => $request->latitud, 'longitud' => $request->longitud, 'recetaInfo' => array('surtio_completo' =>$request->surtioC, 'porcentaje' => $request->porcentaje, 'descripcion' => $request->descripcion));
 	    $receta = recipe_test::where('folio',$request->folio)->first();
-	    /*$json = json_decode($receta->Data_frontend);
+	    $json = json_decode($receta->Data_frontend);
 
 	    //$receta->Data_frontend=$json;
 	    //$receta->save();
