@@ -43,11 +43,22 @@ Route::get('/prueba', function () {
     echo $medicines.'<br><br>';*/
     $jsonC= array('type' => '$dis', 'device' => '$device', 'platform' => '$platform'.' '.'$versionP', 'browser' => '$browser'.' '.'$versionB', 'latitud' => '$request->latitud', 'longitud' => '$request->longitud', 'recetaInfo' => array('surtio_completo' =>'$request->surtioC', 'porcentaje' => '$request->porcentaje', 'descripcion' => '$request->descripcion'));
     $receta = recipe_test::where('folio','15103161')->first();
+
+    $x= array();
+        array_push($x,$jsonC);
+        for($i=0;$i<count($json);$i++){
+            //$xt2=json_decode($xt);
+            array_push($x,$json[$i]);
+        }
+        $json= json_encode($x);
+        $receta->Data_frontend=null;
+        $receta->save();
+
     //$receta->Data_frontend=null;
         //$receta->save();
     //echo count(json_decode($receta->Data_frontend));
     echo $receta->Data_frontend;
-    echo json_decode($receta->Data_frontend)->type;
+    //echo json_decode($receta->Data_frontend)->type;
     /*if($receta->Data_frontend==null){
             $receta->Data_frontend=json_encode($jsonC);
     }else{
