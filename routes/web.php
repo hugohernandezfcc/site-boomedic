@@ -45,11 +45,12 @@ Route::get('/prueba', function () {
     $receta = recipe_test::where('folio','15103161')->first();
     //$receta->Data_frontend=null;
         //$receta->save();
-    if($receta->Data_frontend==null){
+    echo count($receta->Data_frontend);
+    /*if($receta->Data_frontend==null){
             $receta->Data_frontend=json_encode($jsonC);
     }else{
         $x= array();
-        $json=json_decode($receta->Data_frontend);
+        //$json=json_decode($receta->Data_frontend);
         array_push($x,$jsonC);
         for($i=0;$i<count(json_decode($json));$i++){
             //$xt2=json_decode($xt);
@@ -59,7 +60,7 @@ Route::get('/prueba', function () {
         echo json_encode($x);
         //$json2= json_encode($x);
         //$receta->Data_frontend=json_encode($x);
-    }
+    }*/
 });
 
 Auth::routes();
