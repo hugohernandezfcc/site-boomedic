@@ -45,7 +45,7 @@ Route::get('/prueba', function () {
     $receta = recipe_test::where('folio','15103161')->first();
     //$receta->Data_frontend=null;
         //$receta->save();
-    echo count($receta->Data_frontend);
+    echo count(json_decode($receta->Data_frontend));
     /*if($receta->Data_frontend==null){
             $receta->Data_frontend=json_encode($jsonC);
     }else{
