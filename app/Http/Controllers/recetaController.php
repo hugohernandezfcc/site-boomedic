@@ -42,7 +42,7 @@ class recetaController extends Controller{
 	    $versionB = $agent->version($browser);
 	    $jsonC= array('type' => $dis, 'device' => $device, 'platform' => $platform.' '.$versionP, 'browser' => $browser.' '.$versionB, 'latitud' => $request->latitud, 'longitud' => $request->longitud, 'recetaInfo' => array('surtio_completo' =>$request->surtioC, 'porcentaje' => $request->porcentaje, 'descripcion' => $request->descripcion));
 	    $receta = recipe_test::where('folio',$request->folio)->first();
-	    /*$json = json_decode($receta->Data_frontend);
+	    $json = json_decode($receta->Data_frontend);
 
 	    //$receta->Data_frontend=$json;
 	    //$receta->save();
@@ -53,8 +53,8 @@ class recetaController extends Controller{
 	        array_push($x,$json[$i]);
 	    }
 	    $json= json_encode($x);
-	    $receta->Data_frontend=$json;
+	    //$receta->Data_frontend=$json;
 	    //$receta->save();*/
-		return json_encode($receta);
+		return $json;
 	}
 }
