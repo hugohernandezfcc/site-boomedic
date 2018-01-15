@@ -50,7 +50,7 @@ class recetaController extends Controller{
 	    array_push($x,$jsonC);
 	    for($i=0;$i<count($json);$i++){
 	        //$xt2=json_decode($xt);
-	        array_push($x,$json[$i]);
+	        array_push($x,json_encode($json[$i]));
 	    }
 	    /*
 	    $json2= json_encode($x);
