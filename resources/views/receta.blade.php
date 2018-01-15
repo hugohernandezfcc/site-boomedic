@@ -95,6 +95,9 @@
         var length;
         var latitud;
         var longitud;
+        var folio;
+        var porcentaje;
+        var descripcion;
         window.onload = function(){
             getLocation();
         };
@@ -117,9 +120,9 @@
             document.getElementById("folio").value=null;
             setTimeout("$('#modal-default').modal('hide');", 1000);
 
-            var descripcion=document.getElementById("descripcion").value;
+            descripcion=document.getElementById("descripcion").value;
             document.getElementById("descripcion").value=null;
-            var dat={'porcentaje':'100', 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':'si'};
+            var dat={'porcentaje':'100%', 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':'si'};
             //var dat={'hola':'hola','hola2':'hola2'};
             $.ajax({
             headers: {
@@ -135,6 +138,8 @@
                     console.log("Correcto, escribiste : "+response);
                 }
             });
+            porcentaje=null;
+            descripcion=null;
         };
         function incompleto(){
             var contador=0;
@@ -143,13 +148,19 @@
                     contador++;
                 }
             }
-            var porcentaje=(contador/length)*100;
-            var descripcion=document.getElementById("descripcion").value;
+            porcentaje=(contador/length)*100;
+            descripcion=document.getElementById("descripcion").value;
             document.getElementById("descripcion").value=null;
             document.getElementById("folio").value=null;
             setTimeout("$('#modal-default').modal('hide');", 1000);
             //console.log('%'+porcentaje);
-            var dat={'porcentaje':porcentaje, 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':'no'};
+            var surtio;
+            if(contador<(length-1)){
+                surtio='no';
+            }else{
+                surtio='si';
+            }
+            var dat={'porcentaje':porcentaje+'%', 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC': surtio};
             //var dat={'hola':'hola','hola2':'hola2'};
             $.ajax({
             headers: {
@@ -165,6 +176,8 @@
                     console.log("Correcto, escribiste : "+response);
                 }
             });
+            porcentaje=null;
+            descripcion=null;
         }
         function buscar() {
             var folio = document.getElementById("folio").value;
@@ -216,6 +229,8 @@
                                     console.log("Correcto, escribiste : "+response);
                                 }
                             });
+                            porcentaje=null;
+                            descripcion=null;
                             $('#modal-default').modal('show');
                         }
                     });
