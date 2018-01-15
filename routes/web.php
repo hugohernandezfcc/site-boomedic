@@ -11,6 +11,7 @@
 |
 */
 use Illuminate\Http\Request;
+use App\recipe_test;
 
 Route::get('medicines/{folio?}', ['as' => 'recetaa', 'uses' => 'recetaController@show']);
 
@@ -28,8 +29,8 @@ Route::get('/perfilTributario',['as'=>'perfilTributario.edit','uses'=>'perfilTri
 
 Route::post('/pru', ['as' => 'pru', 'uses' => 'recetaController@guardarJson']);
 
-Route::get('/prueba', function () { 
-	$user = DB::table('users')->get();
+Route::post('/prueba', function () { 
+	/*$user = DB::table('users')->get();
 	$recipe=DB::table('recipes_tests')->where('folio',15103161)->get();
     $doctor=DB::table('users')->where('id',$recipe[0]->doctor)->get();
     $patient=DB::table('users')->where('id',$recipe[0]->patient)->get();
@@ -39,7 +40,10 @@ Route::get('/prueba', function () {
     echo $recipe.'<br><br>';
     echo $doctor.'<br><br>';
     echo $patient.'<br><br>';
-    echo $medicines.'<br><br>';
+    echo $medicines.'<br><br>';*/
+    $receta = recipe_test::where('folio',$request->folio)->first();
+    $receta->Data_frontend=null;
+        $receta->save();
 });
 
 Auth::routes();

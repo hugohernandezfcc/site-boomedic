@@ -48,7 +48,7 @@ class recetaController extends Controller{
 	    //$receta->save();
 	    $x= array();
 	    array_push($x,$jsonC);
-	    /*for($i=0;$i<count($json);$i++){
+	    2for($i=0;$i<count($json);$i++){
 	        //$xt2=json_decode($xt);
 	        array_push($x,$json[$i]);
 	    }
