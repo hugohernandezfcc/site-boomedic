@@ -51,7 +51,7 @@ Route::get('/prueba', function () {
         $x= array();
         $json=json_decode($receta->Data_frontend);
         array_push($x,$jsonC);
-        for($i=0;$i<count($json);$i++){
+        for($i=0;$i<count(json_decode($json));$i++){
             //$xt2=json_decode($xt);
             echo json_encode($x);
             array_push($x,$json[$i]);
