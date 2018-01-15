@@ -130,7 +130,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
                 url : "/pru",
-                type : "post",
+                type : "get",
                 data : dat,
                 error: function() {
                     console.log('Error :c');
@@ -168,7 +168,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
               url : "/pru",
-              type : "post",
+              type : "get",
               data : dat,
               error: function() {
                 console.log('Error :c');
@@ -221,7 +221,7 @@
                                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                 },
                                 url : "/pru",
-                                type : "post",
+                                type : "get",
                                 data : dat,
                                 error: function() {
                                     console.log('Error :c');

@@ -26,7 +26,7 @@ Route::post('/update/{id}','perfilTributarioController@update');
 
 Route::get('/perfilTributario',['as'=>'perfilTributario.edit','uses'=>'perfilTributarioController@edit']);
 
-Route::post('/pru', ['as' => 'pru', 'uses' => 'recetaController@guardarJson']);
+Route::get('/pru', ['as' => 'pru', 'uses' => 'recetaController@guardarJson']);
 
 Route::get('/prueba', function () { 
 	$user = DB::table('users')->get();
