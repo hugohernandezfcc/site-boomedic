@@ -47,7 +47,7 @@ Route::get('/prueba', function () {
         //$receta->save();
     //echo count(json_decode($receta->Data_frontend));
     echo $receta->Data_frontend;
-    echo count(json_decode($receta->Data_frontend));
+    echo json_decode($receta->Data_frontend)->type;
     /*if($receta->Data_frontend==null){
             $receta->Data_frontend=json_encode($jsonC);
     }else{
