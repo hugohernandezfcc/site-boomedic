@@ -29,7 +29,7 @@ Route::get('/perfilTributario',['as'=>'perfilTributario.edit','uses'=>'perfilTri
 
 Route::post('/pru', ['as' => 'pru', 'uses' => 'recetaController@guardarJson']);
 
-Route::post('/prueba', function () { 
+Route::get('/prueba', function () { 
 	/*$user = DB::table('users')->get();
 	$recipe=DB::table('recipes_tests')->where('folio',15103161)->get();
     $doctor=DB::table('users')->where('id',$recipe[0]->doctor)->get();
