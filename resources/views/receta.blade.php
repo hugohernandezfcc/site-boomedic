@@ -118,6 +118,7 @@
             setTimeout("$('#modal-default').modal('hide');", 1000);
 
             var descripcion=document.getElementById("descripcion").value;
+            document.getElementById("descripcion").value=null;
             var dat={'porcentaje':'100', 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':'si'};
             //var dat={'hola':'hola','hola2':'hola2'};
             $.ajax({
@@ -144,9 +145,10 @@
             }
             var porcentaje=(contador/length)*100;
             var descripcion=document.getElementById("descripcion").value;
+            document.getElementById("descripcion").value=null;
             document.getElementById("folio").value=null;
             setTimeout("$('#modal-default').modal('hide');", 1000);
-            console.log('%'+porcentaje);
+            //console.log('%'+porcentaje);
             var dat={'porcentaje':porcentaje, 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':'no'};
             //var dat={'hola':'hola','hola2':'hola2'};
             $.ajax({
