@@ -64,8 +64,8 @@ class recetaController extends Controller{
 	        array_push($x,$json[$i]);
 	    }
 	    $json= json_encode($x);
-	    //$receta->Data_frontend=$json;
-	    //$receta->save();*/
+	    //$receta->Data_frontend=$json;*/
+	    $receta->save();
 		return $receta->Data_frontend;
 	}
 }
