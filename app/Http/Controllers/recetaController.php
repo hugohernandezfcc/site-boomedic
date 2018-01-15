@@ -52,10 +52,11 @@ class recetaController extends Controller{
 	        //$xt2=json_decode($xt);
 	        array_push($x,$json[$i]);
 	    }
+	    /*
 	    $json2= json_encode($x);
 	    $receta->Data_frontend=$json2;
-	    $receta->save();
-		return $json2;
+	    $receta->save();*/
+		return json_encode($x);
 	    /*if($receta->Data_frontend==null){
 	    	$receta->Data_frontend=json_encode($jsonC);
 	    }else{
