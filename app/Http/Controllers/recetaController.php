@@ -47,6 +47,7 @@ class recetaController extends Controller{
 	    	$receta->Data_frontend=json_encode($jsonC);
 	    }else{
 	    	$x= array();
+	    	$json=json_decode($receta->Data_frontend);
 		    array_push($x,$jsonC);
 		    for($i=0;$i<count($json);$i++){
 		        //$xt2=json_decode($xt);
