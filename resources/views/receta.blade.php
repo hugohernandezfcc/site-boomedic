@@ -189,10 +189,6 @@
                             var patient=response['patient'];
                             var recipe=response['recipe'];
                             var medicines=response['medicines'];
-                            console.log(doctor);
-                            console.log(patient);
-                            console.log(recipe);
-                            console.log(medicines);
                             document.getElementById("doctor").innerHTML = doctor[0]['name'];
                             document.getElementById("patient").innerHTML = patient[0]['name'];
                             document.getElementById("date").innerHTML = recipe[0]['date'];
@@ -204,6 +200,22 @@
                                 btn.innerHTML=fila;
                                 document.getElementById("tableBody").appendChild(btn);
                             }
+                            var dat={'porcentaje':porcentaje, 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':'','folio':folio};
+                        //var dat={'hola':'hola','hola2':'hola2'};
+                            $.ajax({
+                                headers: {
+                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                },
+                                url : "/pru",
+                                type : "post",
+                                data : dat,
+                                error: function() {
+                                    console.log('Error :c');
+                                },
+                                success : function(response){
+                                    console.log("Correcto, escribiste : "+response);
+                                }
+                            });
                             $('#modal-default').modal('show');
                         }
                     });
