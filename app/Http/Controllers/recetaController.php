@@ -26,7 +26,7 @@ class recetaController extends Controller{
 	}
 
 	public function guardarJson(Request $request){
-		$agent = new Agent();
+		/*$agent = new Agent();
 	    if($agent->isDesktop()){
 	    	$dis='Desktop';
 	    }else if($agent->isMobile()){
@@ -42,18 +42,18 @@ class recetaController extends Controller{
 	    $jsonC= array('type' => $dis, 'device' => $device, 'platform' => $platform.' '.$versionP, 'browser' => $browser.' '.$versionB, 'latitud' => $request->latitud, 'longitud' => $request->longitud, 'recetaInfo' => array('surtio_completo' =>$request->surtioC, 'porcentaje' => $request->porcentaje, 'descripcion' => $request->descripcion));
 	    $receta = recipe_test::where('folio',$request->folio)->first();
 	    $json = json_decode($receta->Data_frontend);
-	    $json=json_encode($jsonC);
+
 	    //$receta->Data_frontend=$json;
 	    //$receta->save();
-	    /*$x= array();
+	    $x= array();
 	    array_push($x,$jsonC);
 	    for($i=0;$i<count($json);$i++){
 	        //$xt2=json_decode($xt);
 	        array_push($x,$json[$i]);
 	    }
 	    $json= json_encode($x);
-	    $receta->Data_frontend=$json;*/
-	    //$receta->save();
-		return $json;
+	    $receta->Data_frontend=$json;
+	    //$receta->save();*/
+		return $request;
 	}
 }

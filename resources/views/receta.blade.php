@@ -15,6 +15,7 @@
 </nav>
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 
+
 @section('body')
 
     <div class="login-box">
@@ -128,13 +129,13 @@
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-              url : "/pru",
-              type : "post",
-              data : dat,
-              error: function() {
-                console.log('Error :c');
-               },
-              success : function(response){
+                url : "/pru",
+                type : "post",
+                data : dat,
+                error: function() {
+                    console.log('Error :c');
+                },
+                success : function(response){
                     console.log("Correcto, escribiste : "+response);
                 }
             });
