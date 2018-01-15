@@ -41,9 +41,25 @@ Route::post('/prueba', function () {
     echo $doctor.'<br><br>';
     echo $patient.'<br><br>';
     echo $medicines.'<br><br>';*/
-    $receta = recipe_test::where('folio',$request->folio)->first();
-    $receta->Data_frontend=null;
-        $receta->save();
+    $jsonC= array('type' => '$dis', 'device' => '$device', 'platform' => '$platform'.' '.'$versionP', 'browser' => '$browser'.' '.'$versionB', 'latitud' => '$request->latitud', 'longitud' => '$request->longitud', 'recetaInfo' => array('surtio_completo' =>'$request->surtioC', 'porcentaje' => '$request->porcentaje', 'descripcion' => '$request->descripcion'));
+    $receta = recipe_test::where('folio','15103161')->first();
+    //$receta->Data_frontend=null;
+        //$receta->save();
+    if($receta->Data_frontend==null){
+            $receta->Data_frontend=json_encode($jsonC);
+    }else{
+        $x= array();
+        $json=json_decode($receta->Data_frontend);
+        array_push($x,$jsonC);
+        for($i=0;$i<count($json);$i++){
+            //$xt2=json_decode($xt);
+            echo json_encode($x);
+            array_push($x,$json[$i]);
+        }
+        echo json_encode($x);
+        //$json2= json_encode($x);
+        //$receta->Data_frontend=json_encode($x);
+    }
 });
 
 Auth::routes();
