@@ -180,7 +180,7 @@
             descripcion=null;
         }
         function buscar() {
-            var folio = document.getElementById("folio").value;
+            folio = document.getElementById("folio").value;
             var log=folio.length;
             var hora=parseInt(folio.substring(0,2));
             var dia=parseInt(folio.substring(2,4));
@@ -213,7 +213,7 @@
                                 btn.innerHTML=fila;
                                 document.getElementById("tableBody").appendChild(btn);
                             }
-                            var dat={'porcentaje':porcentaje, 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':'','folio':folio};
+                            var dat={'porcentaje':porcentaje, 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':null,'folio':folio};
                         //var dat={'hola':'hola','hola2':'hola2'};
                             $.ajax({
                                 headers: {
