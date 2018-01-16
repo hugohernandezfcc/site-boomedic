@@ -123,7 +123,7 @@
 
             descripcion=document.getElementById("descripcion").value;
             document.getElementById("descripcion").value=null;
-            var dat={'porcentaje':'100%', 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':'si'};
+            var dat={'porcentaje':'100%', 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':'si','folio':folio};
             //var dat={'hola':'hola','hola2':'hola2'};
             $.ajax({
             headers: {
@@ -161,7 +161,7 @@
             }else{
                 surtio='si';
             }
-            var dat={'porcentaje':porcentaje+'%', 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC': surtio};
+            var dat={'porcentaje':porcentaje+'%', 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC': surtio,'folio':folio};
             //var dat={'hola':'hola','hola2':'hola2'};
             $.ajax({
             headers: {
