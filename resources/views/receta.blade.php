@@ -154,15 +154,13 @@
             document.getElementById("descripcion").value=null;
             document.getElementById("folio").value=null;
             setTimeout("$('#modal-default').modal('hide');", 1000);
-            //console.log('%'+porcentaje);
             var surtio;
-            if(contador<(length-1)){
+            if(contador<(length)){
                 surtio='no';
             }else{
                 surtio='si';
             }
             var dat={'porcentaje':porcentaje+'%', 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC': surtio,'folio':folio};
-            //var dat={'hola':'hola','hola2':'hola2'};
             $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -215,7 +213,6 @@
                                 document.getElementById("tableBody").appendChild(btn);
                             }
                             var dat={'porcentaje':porcentaje, 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':null,'folio':folio};
-                        //var dat={'hola':'hola','hola2':'hola2'};
                             $.ajax({
                                 headers: {
                                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

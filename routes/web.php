@@ -33,33 +33,12 @@ Route::get('/prueba', function () {
 	$receta = recipe_test::where('folio','15103161')->first();
     $jsonC= array('type' => '$dis', 'device' => '$device', 'platform' => '$platform'.' '.'$versionP', 'browser' => '$browser'.' '.'$versionB', 'latitud' => '$request->latitud', 'longitud' => '$request->longitud', 'recetaInfo' => array('surtio_completo' =>'$request->surtioC', 'porcentaje' => '$request->porcentaje', 'descripcion' => '$request->descripcion'));
     $x= array();
-    //$x=json_decode($receta->Data_frontend);
     array_push($x,$jsonC);
-    //array_push($x,json_decode($receta->Data_frontend));
-    /*$xt= json_encode($x);
-    $x= array();
-    for($i=0;$i<count(json_decode($xt));$i++){
-        $xt2=json_decode($xt);
-        array_push($x,$xt2[$i]);
-    }
-    $xt= json_encode($x);
-    //$x= array();
-    //array_push($x,json_decode($xt));
-    //array_push($x,json_decode($receta->Data_frontend));
-    //$xt= json_encode($x);
-    //$xt= json_encode($x);
-    //$x= json_encode(array(json_decode($receta->Data_frontend),json_decode($receta->Data_frontend)));
-    /*$x=json_encode(array(json_decode($x),json_decode($receta->Data_frontend)));
-    $x=json_encode(array(json_decode($x),json_decode($receta->Data_frontend)));*/
-    //$x=json_decode($x);
-    //$json_merge = json_encode($x);
-    //$x=;
+    
     $receta->Data_frontend=null;
-        //$receta->Data_frontend=$json;
     $receta->save();
-    echo count(json_decode($receta->Data_frontend)).'<br><br>';
-    //echo $x.'<br><br>';
-    //echo json_encode($x).'<br><br>';
+    //echo count(json_decode($receta->Data_frontend)).'<br><br>';
+    echo 'listo';
 });
 
 Auth::routes();
