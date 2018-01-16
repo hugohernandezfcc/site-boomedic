@@ -1,6 +1,6 @@
 @extends('adminlte::master')
 <style type="text/css">
-    body{background-image: url('../img/fondo-01.jpg');background-size: 100%;}
+    body{background-image: url('../img/fondo-03.jpg');background-size:  100% 100%;}
 </style>
 @section('adminlte_css')
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/css/auth.css') }}">
