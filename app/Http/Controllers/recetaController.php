@@ -77,7 +77,7 @@ class recetaController extends Controller{
 	    }
 	    $json= json_encode($x);*/
 	    //$receta->Data_frontend=null;
-	    $receta->save();
-		return $receta->Data_frontend;
+	    //$receta->save();
+		return json_encode($jsonC);
 	}
 }
