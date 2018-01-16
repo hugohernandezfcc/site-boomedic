@@ -54,9 +54,9 @@ Route::get('/prueba', function () {
     //$x=json_decode($x);
     //$json_merge = json_encode($x);
     //$x=;
-    echo count($x).'<br><br>';
+    echo count(json_decode($receta->Data_frontend)).'<br><br>';
     //echo $x.'<br><br>';
-    echo json_encode($x).'<br><br>';
+    //echo json_encode($x).'<br><br>';
 });
 
 Auth::routes();
