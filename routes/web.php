@@ -31,11 +31,12 @@ Route::post('/pru', ['as' => 'pru', 'uses' => 'recetaController@guardarJson']);
 
 Route::get('/prueba', function () { 
 	$receta = recipe_test::where('folio','15103161')->first();
+    $jsonC= array('type' => '$dis', 'device' => '$device', 'platform' => '$platform'.' '.'$versionP', 'browser' => '$browser'.' '.'$versionB', 'latitud' => '$request->latitud', 'longitud' => '$request->longitud', 'recetaInfo' => array('surtio_completo' =>'$request->surtioC', 'porcentaje' => '$request->porcentaje', 'descripcion' => '$request->descripcion'));
     $x= array();
     //$x=json_decode($receta->Data_frontend);
-    array_push($x,json_decode($receta->Data_frontend));
-    array_push($x,json_decode($receta->Data_frontend));
-    $xt= json_encode($x);
+    array_push($x,$jsonC);
+    //array_push($x,json_decode($receta->Data_frontend));
+    /*$xt= json_encode($x);
     $x= array();
     for($i=0;$i<count(json_decode($xt));$i++){
         $xt2=json_decode($xt);
@@ -53,9 +54,9 @@ Route::get('/prueba', function () {
     //$x=json_decode($x);
     //$json_merge = json_encode($x);
     //$x=;
-    echo count(json_decode($xt)).'<br><br>';
+    echo count($x).'<br><br>';
     //echo $x.'<br><br>';
-    echo $xt.'<br><br>';
+    echo json_encode($x).'<br><br>';
 });
 
 Auth::routes();
