@@ -30,34 +30,32 @@ Route::get('/perfilTributario',['as'=>'perfilTributario.edit','uses'=>'perfilTri
 Route::post('/pru', ['as' => 'pru', 'uses' => 'recetaController@guardarJson']);
 
 Route::get('/prueba', function () { 
-	/*$user = DB::table('users')->get();
-	$recipe=DB::table('recipes_tests')->where('folio',15103161)->get();
-    $doctor=DB::table('users')->where('id',$recipe[0]->doctor)->get();
-    $patient=DB::table('users')->where('id',$recipe[0]->patient)->get();
-    $medicines=DB::table('cli_recipes_tests')->where('cli_recipes_tests.recipe_test',$recipe[0]->id)
-        ->join('medicines', 'cli_recipes_tests.medicine', '=', 'medicines.id')
-        ->get();
-    echo $recipe.'<br><br>';
-    echo $doctor.'<br><br>';
-    echo $patient.'<br><br>';
-    echo $medicines.'<br><br>';*/
-    $jsonC= array('type' => '$dis', 'device' => '$device', 'platform' => '$platform'.' '.'$versionP', 'browser' => '$browser'.' '.'$versionB', 'latitud' => '$request->latitud', 'longitud' => '$request->longitud', 'recetaInfo' => array('surtio_completo' =>'$request->surtioC', 'porcentaje' => '$request->porcentaje', 'descripcion' => '$request->descripcion'));
-    $receta = recipe_test::where('folio','15103161')->first();
-
-    //$receta = recipe_test::where('folio',$request->folio)->first();
-        $json = json_decode($receta->Data_frontend);
-
-        //$receta->Data_frontend=$json;
-        //$receta->save();
-        $x= array();
-        array_push($x,$jsonC);
-        for($i=0;$i<count($json);$i++){
-            //$xt2=json_decode($xt);
-            array_push($x,$json[$i]);
-        }
-        $json= json_encode($x);
-        //$receta->Data_frontend=null;
-        $receta->save();
+	$receta = recipe_test::where('folio','15103161')->first();
+    $x= array();
+    //$x=json_decode($receta->Data_frontend);
+    array_push($x,json_decode($receta->Data_frontend));
+    array_push($x,json_decode($receta->Data_frontend));
+    $xt= json_encode($x);
+    $x= array();
+    for($i=0;$i<count(json_decode($xt));$i++){
+        $xt2=json_decode($xt);
+        array_push($x,$xt2[$i]);
+    }
+    $xt= json_encode($x);
+    //$x= array();
+    //array_push($x,json_decode($xt));
+    //array_push($x,json_decode($receta->Data_frontend));
+    //$xt= json_encode($x);
+    //$xt= json_encode($x);
+    //$x= json_encode(array(json_decode($receta->Data_frontend),json_decode($receta->Data_frontend)));
+    /*$x=json_encode(array(json_decode($x),json_decode($receta->Data_frontend)));
+    $x=json_encode(array(json_decode($x),json_decode($receta->Data_frontend)));*/
+    //$x=json_decode($x);
+    //$json_merge = json_encode($x);
+    //$x=;
+    echo count(json_decode($xt)).'<br><br>';
+    //echo $x.'<br><br>';
+    echo $xt.'<br><br>';
 });
 
 Auth::routes();
