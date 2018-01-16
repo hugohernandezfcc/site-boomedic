@@ -60,12 +60,14 @@ class recetaController extends Controller{
 		//return json_encode($x);
 		$x= array();
 		array_push($x,$jsonC);
-	    $json=json_decode($receta->Data_frontend);
-	    for($i=0;$i<count($json);$i++){
-	        //$xt2=json_decode($xt);
-	        array_push($x,$json[$i]);
+	    if($receta->Data_frontend!=null){
+	    	$json=json_decode($receta->Data_frontend);
+		    //array_push($x,$jsonC);
+		    for($i=0;$i<count($json);$i++){
+		        //$xt2=json_decode($xt);
+		        array_push($x,$json[$i]);
+		    }
 	    }
-		    //$json2= json_encode($x);
 	    $receta->Data_frontend=json_encode($x);
 	    //$receta->Data_frontend=$json;
 	    //$receta->save();
@@ -77,7 +79,7 @@ class recetaController extends Controller{
 	    }
 	    $json= json_encode($x);*/
 	    //$receta->Data_frontend=null;
-	    //$receta->save();
-		return json_encode($jsonC);
+	    $receta->save();
+		return json_encode($x);
 	}
 }
