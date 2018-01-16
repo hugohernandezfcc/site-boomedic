@@ -104,11 +104,17 @@
           <!-- text input -->
           <div class="form-group">
             <label>Empresa/Nombre legal</label>
-            <input id="company_legalName" name="company_legalName" type="text" class="form-control" placeholder="Enter ..." name="" >
+            <div class="form-group has-feedback" style="">
+              <input id="company_legalName" name="company_legalName" type="text" class="form-control" placeholder="Enter ..." name="" >
+              <span style="color: #f56954" class="glyphicon fa  form-control-feedback">*</span>
+            </div>
           </div>
           <div class="form-group">
             <label>RFC</label>
-            <input id="rfc" name="rfc" type="text" class="form-control" placeholder="Enter ..." >
+            <div class="form-group has-feedback" style="">
+              <input id="rfc" name="rfc" type="text" class="form-control" placeholder="Enter ..." >
+              <span style="color: #f56954" class="glyphicon fa  form-control-feedback">*</span>
+            </div>
           </div>
           <div class="form-group">
             <div class="checkbox">
@@ -118,15 +124,24 @@
               </label>
             </div>
             <label>País</label>
-            <input id="country" type="text" class="form-control" placeholder="Enter ..." value="" name="country">
+            <div class="form-group has-feedback" style="">
+             <input id="country" type="text" class="form-control" placeholder="Enter ..." value="" name="country">
+             <span style="color: #f56954" class="glyphicon fa  form-control-feedback">*</span>
+            </div>
           </div>
           <div class="form-group">
             <label>Estado</label>
-            <input id="state" type="text" class="form-control" placeholder="Enter ..." value="" name="state">
+            <div class="form-group has-feedback" style="">
+              <input id="state" type="text" class="form-control" placeholder="Enter ..." value="" name="state">
+              <span style="color: #f56954" class="glyphicon fa  form-control-feedback">*</span>
+            </div>
           </div>
           <div class="form-group">
             <label>Delegación/Municipio</label>
-            <input id="delegation" type="text" class="form-control" placeholder="Enter ..." value="" name="delegation">
+            <div class="form-group has-feedback" style="">
+              <input id="delegation" type="text" class="form-control" placeholder="Enter ..." value="" name="delegation">
+              <span style="color: #f56954" class="glyphicon fa  form-control-feedback">*</span>
+            </div>
           </div>
           <div class="form-group">
             <label>Colonia</label>
@@ -134,7 +149,10 @@
           </div>
           <div class="form-group">
             <label>Calle</label>
-            <input id="street" name="street" type="text" class="form-control" placeholder="Enter ..." value="" >
+            <div class="form-group has-feedback" style="">
+              <input id="street" name="street" type="text" class="form-control" placeholder="Enter ..." value="" >
+              <span style="color: #f56954" class="glyphicon fa  form-control-feedback">*</span>
+            </div>
           </div>
           <div class="form-group">
             <label>Número exterior</label>
@@ -146,7 +164,10 @@
           </div>
           <div class="form-group">
             <label>Código postal</label>
-            <input id="postalCode" type="text" class="form-control" placeholder="Enter ..." value="" name="postalCode">
+            <div class="form-group has-feedback" style="">
+              <input id="postalCode" type="text" class="form-control" placeholder="Enter ..." value="" name="postalCode">
+              <span style="color: #f56954" class="glyphicon fa  form-control-feedback">*</span>
+            </div>
           </div>
           <div class="box-footer">
             <button type="submit" class="btn btn-secondary">Guardar</button>
