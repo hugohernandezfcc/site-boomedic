@@ -181,6 +181,7 @@ return [
         'Collective\Html\HtmlServiceProvider',
 
         Jenssegers\Agent\AgentServiceProvider::class,
+        Krowinski\LaravelXSLT\XSLTServiceProvider::class,
 
     ],
 
