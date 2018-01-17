@@ -40,6 +40,16 @@ Route::get('/prueba', function () {
     //echo count(json_decode($receta->Data_frontend)).'<br><br>';
     echo 'listo';
 });
+Route::get('/prueba3', function () {
+ include(app_path() . '/SelladoTimbradoMF/SelladoTimbradoXML33.php');
+  $prices = pruebaTimbrado();
+  echo $prices;
+  /*$pricesClass = new ST();
+    $prices = $pricesClass->hola();
+    echo $prices;*/
+    //return view('pages.home', compact('prices'));
+
+});
 
 Auth::routes();
 
