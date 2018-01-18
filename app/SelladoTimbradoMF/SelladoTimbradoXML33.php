@@ -9,9 +9,11 @@
 date_default_timezone_set('America/Mexico_City');
 //include ("lib/nusoap.php");
 //include(app_path() . '/SelladoTimbradoMF/lib/nusoap.php');
-use App\Http\SelladoTimbradoMF\lib\nusoap_base;
+//use App\Http\SelladoTimbradoMF\lib\nusoap_base;
+//include(app_path() . '/SelladoTimbradoMF/lib/nusoap_base.php');
+//include(app_path() . '/SelladoTimbradoMF/lib/nusoap_client.php');
 use App\Http\SelladoTimbradoMF\lib\nusoap_client; 
-$respuesta_timbrado = pruebaTimbrado();
+//$respuesta_timbrado = pruebaTimbrado();
 
 /*
 $uuid = "0057fa0e-6c72-4340-ab54-790726748820";
@@ -39,32 +41,41 @@ function pruebaTimbrado() {
    
     // generar y sellar un XML con los CSD de pruebas
     $cfdi = generarXML($rfc_emisor);
-    echo 'CFDI sin sellar'.$cfdi;
-
+    //echo 'CFDI sin sellar'.simplexml_load_string($cfdi);
+    print_r(simplexml_load_string($cfdi));
+    echo '<br><br>';
+    
     $cfdi = sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
-    echo 'CFDI sellado'.$cfdi;
-
+    //echo 'CFDI sellado'.$cfdi;
+    //print_r(simplexml_load_string($cfdi));
+    echo '<br><br>';
+    
     $xml= base64_encode($cfdi);
     $usuario='DEMO700101XXX';
     $clave='DEMO700101XXX';
     $produccion='NO';   // [NO|SI]
     
     $pac=rand(1,10);//toma un servidor al azar
-    $soapclient = new nusoap_client("http://pac$pac.multifacturas.com/pac/?wsdl",
+    //$soapbase = new nusoap_base();
+    $soapclient = new nusoap_client($endpoint='http://pac$pac.multifacturas.com/pac/?wsdl',
 
     $esWSDL = true);
+    echo ($soapclient);
+    echo '<br><br>';
 
     //Generamos el arreglo con los parametros para timbrado
     $tim = array('rfc' => $usuario, 'clave' => $clave,'xml' => $xml,'produccion' => $produccion);
 
     $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
-    echo "<pre>";
+    //print_r(simplexml_load_string($respuesta_timbrado));
+    echo json_encode($respuesta_timbrado['uuid']);
+    /*echo "<pre>";
     print_r($respuesta_timbrado);
     echo "</pre>";
 
-    echo 'UUID: '.$respuesta_timbrado['uuid'];
+    echo 'UUID: '.$respuesta_timbrado['uuid'];*/
 
-    return $respuesta_timbrado;
+    //return $respuesta_timbrado;
 }
 
 function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem) {
