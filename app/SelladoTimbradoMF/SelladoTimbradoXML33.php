@@ -57,9 +57,7 @@ function pruebaTimbrado() {
     
     $pac=rand(1,10);//toma un servidor al azar
     //$soapbase = new nusoap_base();
-    $soapclient = new nusoap_client($endpoint='http://pac$pac.multifacturas.com/pac/?wsdl',
-
-    $esWSDL = true);
+    $soapclient = new nusoap_client('http://pac$pac.multifacturas.com/pac/?wsdl',$esWSDL = true);
     echo ($soapclient);
     echo '<br><br>';
 
