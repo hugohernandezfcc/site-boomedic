@@ -47,17 +47,19 @@ function pruebaTimbrado() {
     
     $cfdi = sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
     //echo 'CFDI sellado'.$cfdi;
-    //print_r(simplexml_load_string($cfdi));
+    print_r(simplexml_load_string($cfdi));
     echo '<br><br>';
     
     $xml= base64_encode($cfdi);
     $usuario='DEMO700101XXX';
     $clave='DEMO700101XXX';
     $produccion='NO';   // [NO|SI]
-    
+    //echo $xml;
+    echo '<br><br>';
     $pac=rand(1,10);//toma un servidor al azar
-    //$soapbase = new nusoap_base();
-    $soapclient = new nusoap_client('http://pac$pac.multifacturas.com/pac/?wsdl',$esWSDL = true);
+    $soapclient = new nusoap_client($endpoint="http://pac$pac.multifacturas.com/pac/?wsdl",
+
+    $esWSDL = true);
     echo ($soapclient);
     echo '<br><br>';
 
@@ -66,7 +68,7 @@ function pruebaTimbrado() {
 
     $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
     //print_r(simplexml_load_string($respuesta_timbrado));
-    echo json_encode($respuesta_timbrado['uuid']);
+    echo json_encode($respuesta_timbrado);
     /*echo "<pre>";
     print_r($respuesta_timbrado);
     echo "</pre>";
