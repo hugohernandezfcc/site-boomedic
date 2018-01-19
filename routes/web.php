@@ -43,7 +43,7 @@ Route::get('/prueba', function () {
 Route::get('/prueba3', function () {
  include(app_path() . '/SelladoTimbradoMF/SelladoTimbradoXML33.php');
   $prices = pruebaTimbrado();
-  echo $prices;
+  echo json_encode($prices);
   /*$pricesClass = new ST();
     $prices = $pricesClass->hola();
     echo $prices;*/

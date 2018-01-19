@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\SelladoTimbradoMF\lib;
 /*
-$Id: nusoap.php,v 1.123 2010/04/26 20:15:08 snichol Exp $
 
 NuSOAP - Web Services Toolkit for PHP
 
@@ -37,49 +36,14 @@ http://www.nusphere.com
 
 */
 
-/*
- *	Some of the standards implmented in whole or part by NuSOAP:
- *
- *	SOAP 1.1 (http://www.w3.org/TR/2000/NOTE-SOAP-20000508/)
- *	WSDL 1.1 (http://www.w3.org/TR/2001/NOTE-wsdl-20010315)
- *	SOAP Messages With Attachments (http://www.w3.org/TR/SOAP-attachments)
- *	XML 1.0 (http://www.w3.org/TR/2006/REC-xml-20060816/)
- *	Namespaces in XML 1.0 (http://www.w3.org/TR/2006/REC-xml-names-20060816/)
- *	XML Schema 1.0 (http://www.w3.org/TR/xmlschema-0/)
- *	RFC 2045 Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies
- *	RFC 2068 Hypertext Transfer Protocol -- HTTP/1.1
- *	RFC 2617 HTTP Authentication: Basic and Digest Access Authentication
- */
-
-/* load classes
-
-// necessary classes
-require_once('class.soapclient.php');
-require_once('class.soap_val.php');
-require_once('class.soap_parser.php');
-require_once('class.soap_fault.php');
-
-// transport classes
-require_once('class.soap_transport_http.php');
-
-// optional add-on classes
-require_once('class.xmlschema.php');
-require_once('class.wsdl.php');
-
-// server class
-require_once('class.soap_server.php');*/
-
-// class variable emulation
-// cf. http://www.webkreator.com/php/techniques/php-static-class-variables.html
-$GLOBALS['_transient']['static']['nusoap_base']['globalDebugLevel'] = 9;
-
 /**
 *
 * nusoap_base
 *
+* @author   Pouya Darabi <pouyyadarabi@gmail.com>
 * @author   Dietrich Ayala <dietrich@ganx4.com>
 * @author   Scott Nichol <snichol@users.sourceforge.net>
-* @version  $Id: nusoap.php,v 1.123 2010/04/26 20:15:08 snichol Exp $
+* @version  $Id: nusoap.php, 2016/01/26
 * @access   public
 */
 class nusoap_base {
@@ -104,6 +68,7 @@ class nusoap_base {
 	 * @access private
 	 */
 	var $revision = '$Revision: 1.123 $';
+	var $globalDebugLevel = 9;
     /**
      * Current error string (manipulated by getError/setError)
 	 *
@@ -222,8 +187,8 @@ class nusoap_base {
 	*
 	* @access	public
 	*/
-	function nusoap_base() {
-		$this->debugLevel = $GLOBALS['_transient']['static']['nusoap_base']['globalDebugLevel'];
+	function __construct() {
+		$this->debugLevel = $this->globalDebugLevel;
 	}
 
 	/**
@@ -233,7 +198,7 @@ class nusoap_base {
 	* @access	public
 	*/
 	function getGlobalDebugLevel() {
-		return $GLOBALS['_transient']['static']['nusoap_base']['globalDebugLevel'];
+		return $this->globalDebugLevel;
 	}
 
 	/**
@@ -243,7 +208,7 @@ class nusoap_base {
 	* @access	public
 	*/
 	function setGlobalDebugLevel($level) {
-		$GLOBALS['_transient']['static']['nusoap_base']['globalDebugLevel'] = $level;
+		$this->globalDebugLevel = $level;
 	}
 
 	/**
@@ -289,6 +254,7 @@ class nusoap_base {
 			// it would be nice to use a memory stream here to use
 			// memory more efficiently
 			$this->debug_str .= $string;
+			//file_put_contents('log.txt', $string,FILE_APPEND);
 		}
 	}
 
@@ -852,6 +818,7 @@ class nusoap_base {
     * @access public
     */
 	function getmicrotime() {
+		date_default_timezone_set('Asia/Tehran');
 		if (function_exists('gettimeofday')) {
 			$tod = gettimeofday();
 			$sec = $tod['sec'];
@@ -992,7 +959,7 @@ function usleepWindows($usec)
 	while ($timePassed < $usec);
 }
 
-?><?php
+
 
 
 
@@ -1001,7 +968,6 @@ function usleepWindows($usec)
 * Mainly used for returning faults from deployed functions
 * in a server instance.
 * @author   Dietrich Ayala <dietrich@ganx4.com>
-* @version  $Id: nusoap.php,v 1.123 2010/04/26 20:15:08 snichol Exp $
 * @access public
 */
 class nusoap_fault extends nusoap_base {
@@ -1038,8 +1004,8 @@ class nusoap_fault extends nusoap_base {
     * @param string $faultstring human readable error message
     * @param mixed $faultdetail detail, typically a string or array of string
 	*/
-	function nusoap_fault($faultcode,$faultactor='',$faultstring='',$faultdetail=''){
-		parent::nusoap_base();
+	function __construct($faultcode,$faultactor='',$faultstring='',$faultdetail=''){
+		parent::__construct();
 		$this->faultcode = $faultcode;
 		$this->faultactor = $faultactor;
 		$this->faultstring = $faultstring;
@@ -1079,7 +1045,7 @@ class nusoap_fault extends nusoap_base {
 class soap_fault extends nusoap_fault {
 }
 
-?><?php
+
 
 
 
@@ -1089,7 +1055,6 @@ class soap_fault extends nusoap_fault {
 *
 * @author   Dietrich Ayala <dietrich@ganx4.com>
 * @author   Scott Nichol <snichol@users.sourceforge.net>
-* @version  $Id: nusoap.php,v 1.123 2010/04/26 20:15:08 snichol Exp $
 * @access   public
 */
 class nusoap_xmlschema extends nusoap_base  {
@@ -1131,8 +1096,8 @@ class nusoap_xmlschema extends nusoap_base  {
 	* @param	string $namespaces namespaces defined in enclosing XML
 	* @access   public
 	*/
-	function nusoap_xmlschema($schema='',$xml='',$namespaces=array()){
-		parent::nusoap_base();
+	function __construct($schema='',$xml='',$namespaces=array()){
+		parent::__construct();
 		$this->debug('nusoap_xmlschema class instantiated, inside constructor');
 		// files
 		$this->schema = $schema;
@@ -2049,7 +2014,7 @@ class nusoap_xmlschema extends nusoap_base  {
 class XMLSchema extends nusoap_xmlschema {
 }
 
-?><?php
+
 
 
 
@@ -2061,7 +2026,6 @@ class XMLSchema extends nusoap_xmlschema {
 * xsd:anyType and user-defined types.
 *
 * @author   Dietrich Ayala <dietrich@ganx4.com>
-* @version  $Id: nusoap.php,v 1.123 2010/04/26 20:15:08 snichol Exp $
 * @access   public
 */
 class soapval extends nusoap_base {
@@ -2119,8 +2083,8 @@ class soapval extends nusoap_base {
 	* @param	mixed $attributes associative array of attributes to add to element serialization
 	* @access   public
 	*/
-  	function soapval($name='soapval',$type=false,$value=-1,$element_ns=false,$type_ns=false,$attributes=false) {
-		parent::nusoap_base();
+  	function __construct($name='soapval',$type=false,$value=-1,$element_ns=false,$type_ns=false,$attributes=false) {
+		parent::__construct();
 		$this->name = $name;
 		$this->type = $type;
 		$this->value = $value;
@@ -2153,7 +2117,7 @@ class soapval extends nusoap_base {
 
 
 
-?><?php
+
 
 
 
@@ -2163,7 +2127,6 @@ class soapval extends nusoap_base {
 *
 * @author   Dietrich Ayala <dietrich@ganx4.com>
 * @author   Scott Nichol <snichol@users.sourceforge.net>
-* @version  $Id: nusoap.php,v 1.123 2010/04/26 20:15:08 snichol Exp $
 * @access public
 */
 class soap_transport_http extends nusoap_base {
@@ -2211,8 +2174,8 @@ class soap_transport_http extends nusoap_base {
 	* @param boolean $use_curl Whether to try to force cURL use
 	* @access public
 	*/
-	function soap_transport_http($url, $curl_options = NULL, $use_curl = false){
-		parent::nusoap_base();
+	function __construct($url, $curl_options = NULL, $use_curl = false){
+		parent::__construct();
 		$this->debug("ctor url=$url use_curl=$use_curl curl_options:");
 		$this->appendDebug($this->varDump($curl_options));
 		$this->setURL($url);
@@ -3440,6 +3403,7 @@ class soap_transport_http extends nusoap_base {
 				}
 				if ((isset($cookie['path'])) && (! empty($cookie['path']))) {
 					$path = preg_quote($cookie['path']);
+
 					if (! preg_match("'^$path.*'i", $this->path)) {
 						$this->debug('cookie is for a different path');
 						continue;
@@ -3457,7 +3421,7 @@ class soap_transport_http extends nusoap_base {
   }
 }
 
-?><?php
+
 
 
 
@@ -3468,7 +3432,6 @@ class soap_transport_http extends nusoap_base {
 *
 * @author   Dietrich Ayala <dietrich@ganx4.com>
 * @author   Scott Nichol <snichol@users.sourceforge.net>
-* @version  $Id: nusoap.php,v 1.123 2010/04/26 20:15:08 snichol Exp $
 * @access   public
 */
 class nusoap_server extends nusoap_base {
@@ -3628,8 +3591,8 @@ class nusoap_server extends nusoap_base {
     * @param mixed $wsdl file path or URL (string), or wsdl instance (object)
 	* @access   public
 	*/
-	function nusoap_server($wsdl=false){
-		parent::nusoap_base();
+	function __construct($wsdl=false){
+		parent::__construct();
 		// turn on debugging?
 		global $debug;
 		global $HTTP_SERVER_VARS;
@@ -3714,6 +3677,7 @@ class nusoap_server extends nusoap_base {
 		if ($rm == 'POST') {
 			$this->debug("In service, invoke the request");
 			$this->parse_request($data);
+			
 			if (! $this->fault) {
 				$this->invoke_method();
 			}
@@ -4019,6 +3983,7 @@ class nusoap_server extends nusoap_base {
 			}
 		} else {
 			$method_to_compare = (substr(phpversion(), 0, 2) == '4.') ? strtolower($method) : $method;
+		
 			if (!in_array($method_to_compare, get_class_methods($class))) {
 				$this->debug("in invoke_method, method '$this->methodname' not found in class '$class'!");
 				$this->result = 'fault: method not found';
@@ -4084,8 +4049,10 @@ class nusoap_server extends nusoap_base {
 				$call_arg = array(&$instance, $method);
 			}
 			if (is_array($this->methodparams)) {
+			    
 				$this->methodreturn = call_user_func_array($call_arg, array_values($this->methodparams));
 			} else {
+			  
 				$this->methodreturn = call_user_func_array($call_arg, array());
 			}
 		}
@@ -4272,6 +4239,7 @@ class nusoap_server extends nusoap_base {
 			header($hdr, false);
 		}
 		print $payload;
+	//	file_put_contents('aaa.txt', $payload);
 		$this->response = join("\r\n",$this->outgoing_headers)."\r\n\r\n".$payload;
 	}
 
@@ -4581,17 +4549,12 @@ class nusoap_server extends nusoap_base {
 class soap_server extends nusoap_server {
 }
 
-?><?php
-
-
-
 /**
 * parses a WSDL file, allows access to it's data, other utility methods.
 * also builds WSDL structures programmatically.
 * 
 * @author   Dietrich Ayala <dietrich@ganx4.com>
 * @author   Scott Nichol <snichol@users.sourceforge.net>
-* @version  $Id: nusoap.php,v 1.123 2010/04/26 20:15:08 snichol Exp $
 * @access public 
 */
 class wsdl extends nusoap_base {
@@ -4651,8 +4614,8 @@ class wsdl extends nusoap_base {
 	 * @param boolean $use_curl try to use cURL
      * @access public 
      */
-    function wsdl($wsdl = '',$proxyhost=false,$proxyport=false,$proxyusername=false,$proxypassword=false,$timeout=0,$response_timeout=30,$curl_options=null,$use_curl=false){
-		parent::nusoap_base();
+    function __construct($wsdl = '',$proxyhost=false,$proxyport=false,$proxyusername=false,$proxypassword=false,$timeout=0,$response_timeout=30,$curl_options=null,$use_curl=false){
+		parent::__construct();
 		$this->debug("ctor wsdl=$wsdl timeout=$timeout response_timeout=$response_timeout");
         $this->proxyhost = $proxyhost;
         $this->proxyport = $proxyport;
@@ -5366,7 +5329,7 @@ class wsdl extends nusoap_base {
 			margin-left: 0px; margin-right: 0px;
 			padding-top: 10px; padding-bottom: 10px;}
 		    .hidden {
-			position: absolute; visibility: hidden; z-index: 200; left: 250px; top: 100px;
+			position: absolute; visibility: hidden; z-index: 200; left: 350px; top: 100px;
 			font-family: arial; overflow: hidden; width: 600;
 			padding: 20px; font-size: 10px; background-color: #999999;
 			layer-background-color:#FFFFFF; }
@@ -5426,7 +5389,7 @@ class wsdl extends nusoap_base {
 			<br><br>
 			<div class=title>'.$this->serviceName.'</div>
 			<div class=nav>
-				<p>View the <a href="'.$PHP_SELF.'?wsdl">WSDL</a> for the service.
+				<p>View the <a href="?wsdl">WSDL</a> for the service.
 				Click on an operation name to view it&apos;s details.</p>
 				<ul>';
 				foreach($this->getOperations() as $op => $data){
@@ -6129,7 +6092,7 @@ class wsdl extends nusoap_base {
 				$rows = sizeof($value);
 				$contents = '';
 				foreach($value as $k => $v) {
-					$this->debug("serializing array element: $k, $v of type: $typeDef[arrayType]");
+				//	$this->debug("serializing array element: $k, $v of type: $typeDef[arrayType]");
 					//if (strpos($typeDef['arrayType'], ':') ) {
 					if (!in_array($typeDef['arrayType'],$this->typemap['http://www.w3.org/2001/XMLSchema'])) {
 					    $contents .= $this->serializeType('item', $typeDef['arrayType'], $v, $use);
@@ -6516,8 +6479,6 @@ class wsdl extends nusoap_base {
 		return true;
 	} 
 }
-?><?php
-
 
 
 /**
@@ -6574,8 +6535,8 @@ class nusoap_parser extends nusoap_base {
 	* @param    string $decode_utf8 whether to decode UTF-8 to ISO-8859-1
 	* @access   public
 	*/
-	function nusoap_parser($xml,$encoding='UTF-8',$method='',$decode_utf8=true){
-		parent::nusoap_base();
+	function __construct($xml,$encoding='UTF-8',$method='',$decode_utf8=true){
+		parent::__construct();
 		$this->xml = $xml;
 		$this->xml_encoding = $encoding;
 		$this->method = $method;
@@ -7156,8 +7117,6 @@ class nusoap_parser extends nusoap_base {
 class soap_parser extends nusoap_parser {
 }
 
-?><?php
-
 
 
 /**
@@ -7177,7 +7136,6 @@ class soap_parser extends nusoap_parser {
 *
 * @author   Dietrich Ayala <dietrich@ganx4.com>
 * @author   Scott Nichol <snichol@users.sourceforge.net>
-* @version  $Id: nusoap.php,v 1.123 2010/04/26 20:15:08 snichol Exp $
 * @access   public
 */
 class nusoap_client extends nusoap_base  {
@@ -7252,8 +7210,8 @@ class nusoap_client extends nusoap_base  {
 	* @param	string $portName optional portName in WSDL document
 	* @access   public
 	*/
-	function nusoap_client($endpoint,$wsdl = false,$proxyhost = false,$proxyport = false,$proxyusername = false, $proxypassword = false, $timeout = 0, $response_timeout = 30, $portName = ''){
-		parent::nusoap_base();
+	function __construct($endpoint,$wsdl = false,$proxyhost = false,$proxyport = false,$proxyusername = false, $proxypassword = false, $timeout = 0, $response_timeout = 30, $portName = ''){
+		parent::__construct();
 		$this->endpoint = $endpoint;
 		$this->proxyhost = $proxyhost;
 		$this->proxyport = $proxyport;
@@ -8145,4 +8103,3 @@ if (!extension_loaded('soap')) {
 	class soapclient extends nusoap_client {
 	}
 }
-?>
