@@ -63,7 +63,7 @@ function pruebaTimbrado() {
     print_r($respuesta_timbrado);
     echo "</pre>";
 
-    //echo 'UUID: '.$respuesta_timbrado['uuid'];
+    echo 'UUID: '.$respuesta_timbrado['uuid'];
 
     return $respuesta_timbrado;
 }
