@@ -29,6 +29,8 @@ Route::get('/perfilTributario',['as'=>'perfilTributario.edit','uses'=>'perfilTri
 
 Route::post('/pru', ['as' => 'pru', 'uses' => 'recetaController@guardarJson']);
 
+Route::get('/timbrado',['as'=>'Timbrado.tim','uses'=>'selladoController@Timbrado']);
+
 Route::get('/prueba', function () { 
 	$receta = recipe_test::where('folio','15103161')->first();
     $jsonC= array('type' => '$dis', 'device' => '$device', 'platform' => '$platform'.' '.'$versionP', 'browser' => '$browser'.' '.'$versionB', 'latitud' => '$request->latitud', 'longitud' => '$request->longitud', 'recetaInfo' => array('surtio_completo' =>'$request->surtioC', 'porcentaje' => '$request->porcentaje', 'descripcion' => '$request->descripcion'));
