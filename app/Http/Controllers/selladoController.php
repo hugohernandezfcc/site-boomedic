@@ -149,6 +149,6 @@ XML;
 			</cfdi:Comprobante>
 XML;*/
 		//return $cfdi;
-return $conceptos->descripcion;
+return $conceptos[0]['descripcion'];
 	}
 }
