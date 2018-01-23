@@ -75,7 +75,8 @@ class selladoController extends Controller{
 	    echo 'UUID: '.$respuesta_timbrado['uuid'].'<br><br>';
 		*/
 	    //return $respuesta_timbrado;
-	    return $request;
+	    $conceptos = $request->conceptos;
+	    return $conceptos[0]['descripcion'];;
 	}
 
 	public function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem) {
