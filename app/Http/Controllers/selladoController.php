@@ -43,7 +43,7 @@ class selladoController extends Controller{
 	  	/**
 		* Generar y sellar un XML con los CSD de pruebas
 	  	*/
-	  	csrf_field();
+	  	//csrf_field();
 	    $cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
 	    /*$cfdi = $this->sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
 	    $xml = base64_encode($cfdi);
@@ -77,7 +77,7 @@ class selladoController extends Controller{
 		//$cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
 	    return $respuesta_timbrado;*/
 	    //$conceptos = $request->conceptos;
-	    return $cfdi;
+	    return 'hola?';
 	    //return $request->nombreEmisor.' '.$request->rfcEmisor.' '.$request->regimenFiscal.' '.$perfilT->company_legalName.' '.$perfilT->rfc.' '.$request->subtotal.' '.$request->total.' '.$request->lugarExpedicion.' '.$request->formaPago.' '.$request->condicionesPago.' '.$request->metodoPago;
 	}
 
