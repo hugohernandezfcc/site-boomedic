@@ -43,10 +43,8 @@ class selladoController extends Controller{
 	  	/**
 		* Generar y sellar un XML con los CSD de pruebas
 	  	*/
-	  	//csrf_field();
-	    //$cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
-	    $cfdi = $this->generarXML($request->conceptos);
-	    /*$cfdi = $this->sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
+	    $cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
+	    $cfdi = $this->sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
 	    $xml = base64_encode($cfdi);
 	    $usuario ='DEMO700101XXX';
 	    $clave = 'DEMO700101XXX';
@@ -58,7 +56,7 @@ class selladoController extends Controller{
 	    
 	    /**
 		* Toma un servidor al azar.
-	    *//*
+	    */
 	    $pac = rand(1,10);
 
 	    $soapclient = new nusoap_client("http://pac".$pac.".multifacturas.com/pac/?wsdl",
@@ -66,7 +64,7 @@ class selladoController extends Controller{
 
 	    /**
 	    * Generamos el arreglo con los parametros para timbrado.
-	    *//*
+	    */
 	    $tim = array('rfc' => $usuario, 'clave' => $clave,'xml' => $xml,'produccion' => $produccion);
 
 	    $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
@@ -76,10 +74,8 @@ class selladoController extends Controller{
 
 	    echo 'UUID: '.$respuesta_timbrado['uuid'].'<br><br>';
 		//$cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
-	    return $respuesta_timbrado;*/
-	    //$conceptos = $request->conceptos;
+	    return $respuesta_timbrado;
 	    return $cfdi;
-	    //return $request->nombreEmisor.' '.$request->rfcEmisor.' '.$request->regimenFiscal.' '.$perfilT->company_legalName.' '.$perfilT->rfc.' '.$request->subtotal.' '.$request->total.' '.$request->lugarExpedicion.' '.$request->formaPago.' '.$request->condicionesPago.' '.$request->metodoPago;
 	}
 
 	public function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem) {
@@ -109,21 +105,8 @@ class selladoController extends Controller{
 	    return $xdoc->saveXML();
 	}
 
-	//public function generarXML ($nombreEmisor,$rfcEmisor,$regimenFiscal,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,Array $conceptos,$formaPago,$condicionesPago,$metodoPago) {
-	public function generarXML ( $conceptos){    
-	    /*$fecha_actual = substr( date('c'), 0, 19);
-	    $nombreEmisor = 'EMISOR PRUEBA SA DE CV';
-	   	$rfcEmisor = 'LAN7008173R5';
-	   	$regimenFiscal = '601';
-	   	$nombreReceptor = 'PUBLICO EN GENERAL';
-	   	$rfcReceptor = 'XAXX010101000';
-	   	$subtotal = 1850;
-	   	$total = 1850.00; 
-	   	$lugarExpedicion =68050;
-	   	//$conceptos = es un array con los conceptos
-	   	$formaPago = 03;
-	   	$condicionesPago = 'CONTADO'
-	   	$metodoPago = 'PUE';
+	public function generarXML ($nombreEmisor,$rfcEmisor,$regimenFiscal,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,Array $conceptos,$formaPago,$condicionesPago,$metodoPago) {
+		$fecha_actual = substr( date('c'), 0, 19);
 	    $cfdi = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 			<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd" Version="3.3" Fecha="$fecha_actual" Sello="" FormaPago="$formaPago" NoCertificado="" Certificado="" CondicionesDePago="$condicionesPago" SubTotal="$subtotal" Total="$total" TipoDeComprobante="I" MetodoPago="$metodoPago" LugarExpedicion="$lugarExpedicion">
@@ -132,13 +115,13 @@ class selladoController extends Controller{
 			  	<cfdi:Conceptos>
 XML;
 					for($i = 0;$i < count($conceptos);$i++){
-					    $claveProdServ = $conceptos[$i]->claveProdServ;
-					    $cantidad = $conceptos[$i]->cantidad;
-					    $claveUnidad = $conceptos[$i]->claveUnidad;
-					    $tipoUnidad = $conceptos[$i]->tipoUnidad;
-					    $descripcion = $conceptos[$i]->descripcion;
-					    $valorUnitario = $conceptos[$i]->valorUnitario;
-					    $importe = $conceptos[$i]->importe;
+					    $claveProdServ = $conceptos[$i]['claveProdServ'];
+					    $cantidad = $conceptos[$i]['cantidad'];
+					    $claveUnidad = $conceptos[$i]['claveUnidad'];
+					    $tipoUnidad = $conceptos[$i]['tipoUnidad'];
+					    $descripcion = $conceptos[$i]['descripcion'];
+					    $valorUnitario = $conceptos[$i]['valorUnitario'];
+					    $importe = $conceptos[$i]['importe'];
 					    $cfdi = $cfdi.<<<XML
 					    <cfdi:Concepto ClaveProdServ="$claveProdServ"  Cantidad="$cantidad" ClaveUnidad="$claveUnidad" Unidad="$tipoUnidad" Descripcion="$descripcion" ValorUnitario="$valorUnitario" Importe="$importe" >
 					    </cfdi:Concepto>
@@ -147,8 +130,7 @@ XML;
 					$cfdi = $cfdi.<<<XML
 				</cfdi:Conceptos>
 			</cfdi:Comprobante>
-XML;*/
-		//return $cfdi;
-return $conceptos[0]['descripcion'];
+XML;
+		return $cfdi;
 	}
 }
