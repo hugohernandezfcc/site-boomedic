@@ -115,80 +115,53 @@
             $('#modal-default').modal('hide');
         };
         function completado() {
-            for(var i=0;i<length;i++){
-                document.getElementById(i).checked=true;
+            for(var i = 0;i < length;i++){
+                document.getElementById(i).checked = true;
             }
-            document.getElementById("folio").value=null;
+            document.getElementById("folio").value = null;
             setTimeout("$('#modal-default').modal('hide');", 1000);
 
-            descripcion=document.getElementById("descripcion").value;
-            document.getElementById("descripcion").value=null;
-            var dat={'porcentaje':'100%', 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':'si','folio':folio};
-            //var dat={'hola':'hola','hola2':'hola2'};
-            $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-                url : "/pru",
-                type : "post",
-                data : dat,
-                error: function() {
-                    console.log('Error :c');
-                },
-                success : function(response){
-                    console.log("Correcto, escribiste : "+response);
-                }
-            });
-            porcentaje=null;
-            descripcion=null;
+            descripcion = document.getElementById("descripcion").value;
+            document.getElementById("descripcion").value = null;
+            var dat = {'porcentaje':'100%', 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':'si','folio':folio};
+            ajaxreceta(dat);
+            porcentaje = null;
+            descripcion = null;
         };
         function incompleto(){
-            var contador=0;
-            for(var i=0;i<length;i++){
-                if(document.getElementById(i).checked==true){
+            var contador = 0;
+            for(var i = 0; i < length; i++){
+                if(document.getElementById(i).checked == true){
                     contador++;
                 }
             }
-            porcentaje=(contador/length)*100;
-            descripcion=document.getElementById("descripcion").value;
-            document.getElementById("descripcion").value=null;
-            document.getElementById("folio").value=null;
+            porcentaje = (contador / length) * 100;
+            descripcion = document.getElementById("descripcion").value;
+            document.getElementById("descripcion").value = null;
+            document.getElementById("folio").value = null;
             setTimeout("$('#modal-default').modal('hide');", 1000);
             var surtio;
-            if(contador<(length)){
-                surtio='no';
+            if(contador < (length)){
+                surtio = 'no';
             }else{
-                surtio='si';
+                surtio = 'si';
             }
-            var dat={'porcentaje':porcentaje+'%', 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC': surtio,'folio':folio};
-            $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-              url : "/pru",
-              type : "post",
-              data : dat,
-              error: function() {
-                console.log('Error :c');
-               },
-              success : function(response){
-                    console.log("Correcto, escribiste : "+response);
-                }
-            });
-            porcentaje=null;
-            descripcion=null;
+            var dat = {'porcentaje':porcentaje+'%', 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC': surtio,'folio':folio};
+            ajaxreceta(dat);
+            porcentaje = null;
+            descripcion = null;
         }
         function buscar() {
             folio = document.getElementById("folio").value;
-            var log=folio.length;
-            var hora=parseInt(folio.substring(0,2));
-            var dia=parseInt(folio.substring(2,4));
-            if(log>=7){
-                if(hora<25 && dia<32){
-                    document.getElementById("carga2").className="overlay";
-                    document.getElementById("carga2").innerHTML="<i class='fa fa-refresh fa-spin' id='imgCarga'></i>";
+            var log = folio.length;
+            var hora = parseInt(folio.substring(0,2));
+            var dia = parseInt(folio.substring(2,4));
+            if(log >= 7){
+                if(hora < 25 && dia < 32){
+                    document.getElementById("carga2").className = "overlay";
+                    document.getElementById("carga2").innerHTML = "<i class='fa fa-refresh fa-spin' id='imgCarga'></i>";
                     $.ajax({
-                        url : "/medicines/"+folio,
+                        url : "/medicines/" + folio,
                         type : "get",
                         error: function() {
                             $('#carga2').removeClass();
@@ -197,44 +170,31 @@
                         success : function(response){
                             $('#carga2').removeClass();
                             $('#imgCarga').remove();
-                            var doctor=response['doctor'];
-                            var patient=response['patient'];
-                            var recipe=response['recipe'];
-                            var medicines=response['medicines'];
+                            var doctor = response['doctor'];
+                            var patient = response['patient'];
+                            var recipe = response['recipe'];
+                            var medicines = response['medicines'];
                             document.getElementById("doctor").innerHTML = doctor[0]['name'];
                             document.getElementById("patient").innerHTML = patient[0]['name'];
                             document.getElementById("date").innerHTML = recipe[0]['date'];
                             $('#tableBody').empty();
-                            length=medicines.length;
-                            for(var i=0;i<medicines.length;i++){
-                                var fila="<td><div class='checkbox' id=''><label><input id='"+i+"' type='checkbox' onclick='press();'></label></div></td> <td>"+medicines[i]['name']+"</td><td>"+medicines[i]['description']+"</td><td>"+medicines[i]['code']+"</td>";
+                            length = medicines.length;
+                            for(var i = 0; i < medicines.length; i++){
+                                var fila = "<td><div class='checkbox' id=''><label><input id='"+i+"' type='checkbox' onclick='press();'></label></div></td> <td>"+medicines[i]['name']+"</td><td>"+medicines[i]['description']+"</td><td>"+medicines[i]['code']+"</td>";
                                 var btn = document.createElement("TR");
-                                btn.innerHTML=fila;
+                                btn.innerHTML = fila;
                                 document.getElementById("tableBody").appendChild(btn);
                             }
-                            var dat={'porcentaje':porcentaje, 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':null,'folio':folio};
-                            $.ajax({
-                                headers: {
-                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                },
-                                url : "/pru",
-                                type : "post",
-                                data : dat,
-                                error: function() {
-                                    console.log('Error :c');
-                                },
-                                success : function(response){
-                                    console.log("Correcto, escribiste : "+response);
-                                }
-                            });
-                            porcentaje=null;
-                            descripcion=null;
+                            var dat = {'porcentaje':porcentaje, 'descripcion':descripcion, 'latitud':latitud,'longitud':longitud,'surtioC':null,'folio':folio};
+                            ajaxreceta(dat);
+                            porcentaje = null;
+                            descripcion = null;
                             $('#modal-default').modal('show');
                         }
                     });
                 }
             }else{
-                if((hora>24 || dia>31) && folio.length>=4){
+                if((hora > 24 || dia > 31) && folio.length >= 4){
                     $("#menjError").html('<b>Error:</b> Folio inexistente');
                 }
                 if(folio.length<4){
@@ -242,8 +202,24 @@
                 }
             }
         }  
+        function ajaxreceta(dat){
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url : "/pru",
+                type : "post",
+                data : dat,
+                error: function() {
+                    console.log('Error :c');
+                },
+                success : function(response){
+                    console.log("Correcto, escribiste : " + response);
+                }
+            });
+        }
         function press(){
-            document.getElementById("incom").style.display='inline';
+            document.getElementById("incom").style.display = 'inline';
         }
         function getLocation() {
             if (navigator.geolocation) {
@@ -253,8 +229,8 @@
             }
         }
         function showPosition(position) {
-            latitud=position.coords.latitude;
-            longitud=position.coords.longitude;
+            latitud = position.coords.latitude;
+            longitud = position.coords.longitude;
         }
     </script>
     @yield('js')

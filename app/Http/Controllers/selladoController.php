@@ -4,18 +4,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-//include 'nusoap.php';
 use nusoap_client;
-//use DOMDocument;
-//use App\Controllers\selladoController;
-//include(app_path() . '/SelladoTimbradoMF/SelladoTimbradoXML33.php');
 
 class selladoController extends Controller{
     
-    public function Timbrado() {
+    public function Timbrado(Request $request,$id) {
 	    
 	    # Archivos del CSD de prueba proporcionados por el SAT.
-	    $numero_certificado = "20001000000300022815"; //SERIAL de 20 digitos integrado en el archivo .cer
+	    # SERIAL de 20 digitos integrado en el archivo .cer
+	    $numero_certificado = "20001000000300022815";
 	    $archivo_cer = "csd/lan7008173r5.cer";
 	    $archivo_key = "csd/lan7008173r5.key";
 	    $key_pass = "12345678a";
@@ -24,39 +21,45 @@ class selladoController extends Controller{
 		* Se ejecutan una sola vez para generar los archivos .cer.pem desde .cer y key.pem desde .key dada su password
 	    */
 	    $archivo_pem = "csd/lan7008173r5.key.pem";
-	   	$nombreEmisor = 'EMISOR PRUEBA SA DE CV';
 
-	   	# RFC utilizado para el ambiente de pruebas
+	   	/**
+	   	* RFC utilizado para el ambiente de pruebas
+	   	*/
+	   	$nombreEmisor = 'EMISOR PRUEBA SA DE CV';
 	   	$rfcEmisor = 'LAN7008173R5';
 	   	$nombreReceptor = 'PUBLICO EN GENERAL';
 	   	$rfcReceptor = 'XAXX010101000';
 	   	$subtotal = 1850;
 	   	$total = 1850.00;
 	   	$lugarExpedicion =68050;
+	   	$perfilT = tributaryProfile::where('user',$id)->first();
 
-	   	$x2 = array('claveProdServ'=>'01010101','noIdent'=>'AULOG001','cantidad'=>'5','claveUnidad'=>'H87','tipoUnidad'=>'Pieza','descripcion'=>'Aurriculares USB Logitech','valorUnitario'=>'350.00','importe'=>'1750.00');
-	 	$x = array();
-		array_push($x,$x2);
-		$x2 = array('claveProdServ'=>'43201800','noIdent'=>'USB','cantidad'=>'1','claveUnidad'=>'H87','tipoUnidad'=>'Pieza','descripcion'=>'Memoria USB 32gb marca Kingston','valorUnitario'=>'100.00','importe'=>'100.00');
-		array_push($x,$x2);
-		$conceptos = $x;
-
-	  	# Generar y sellar un XML con los CSD de pruebas
-	    $cfdi = $this->generarXML($nombreEmisor,$rfcEmisor,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,$conceptos);
+	  	/**
+		* Generar y sellar un XML con los CSD de pruebas
+	  	*/
+	    //$cfdi = $this->generarXML($nombreEmisor,$rfcEmisor,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,$conceptos);
+	    $cfdi = $this->generarXML($request->nombreEmisor,$request->rfcEmisor,$perfilT->company_legalName,$perfilT->rfc,$request->subtotal,$request->total,$request->lugarExpedicion,$request->conceptos);
 	    $cfdi = $this->sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
 	    $xml = base64_encode($cfdi);
 	    $usuario ='DEMO700101XXX';
 	    $clave = 'DEMO700101XXX';
-	    # [NO|SI]
+
+	    /**
+		* [NO|SI] para declarar si se está en producción o no.
+	    */
 	    $produccion ='NO';
 	    
-	    #toma un servidor al azar
+	    /**
+		* Toma un servidor al azar.
+	    */
 	    $pac = rand(1,10);
 
 	    $soapclient = new nusoap_client("http://pac".$pac.".multifacturas.com/pac/?wsdl",
 	    $esWSDL = true);
 
-	    #Generamos el arreglo con los parametros para timbrado
+	    /**
+	    * Generamos el arreglo con los parametros para timbrado.
+	    */
 	    $tim = array('rfc' => $usuario, 'clave' => $clave,'xml' => $xml,'produccion' => $produccion);
 
 	    $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
