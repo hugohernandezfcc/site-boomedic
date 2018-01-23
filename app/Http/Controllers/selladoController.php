@@ -43,7 +43,7 @@ class selladoController extends Controller{
 	  	/**
 		* Generar y sellar un XML con los CSD de pruebas
 	  	*/
-	    $cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
+	    //$cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
 	    /*$cfdi = $this->sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
 	    $xml = base64_encode($cfdi);
 	    $usuario ='DEMO700101XXX';
@@ -75,8 +75,8 @@ class selladoController extends Controller{
 	    echo 'UUID: '.$respuesta_timbrado['uuid'].'<br><br>';
 		
 	    return $respuesta_timbrado;*/
-	    //$conceptos = $request->conceptos;
-	    return $cfdi;
+	    $conceptos = $request->conceptos;
+	    return $conceptos;
 	}
 
 	public function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem) {
@@ -108,7 +108,7 @@ class selladoController extends Controller{
 
 	public function generarXML ($nombreEmisor,$rfcEmisor,$regimenFiscal,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,$conceptos,$formaPago,$condicionesPago,$metodoPago) {
 	    $fecha_actual = substr( date('c'), 0, 19);
-	    dd(json_encode($conceptos));
+	    //dd(json_encode($conceptos));
 	    $cfdi = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 			<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd" Version="3.3" Fecha="$fecha_actual" Sello="" FormaPago="$formaPago" NoCertificado="" Certificado="" CondicionesDePago="$condicionesPago" SubTotal="$subtotal" Total="$total" TipoDeComprobante="I" MetodoPago="$metodoPago" LugarExpedicion="$lugarExpedicion">
