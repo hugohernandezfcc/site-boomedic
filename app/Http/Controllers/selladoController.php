@@ -76,7 +76,7 @@ class selladoController extends Controller{
 		*/
 	    //return $respuesta_timbrado;
 	    //$conceptos = $request->conceptos;
-	    return json_encode($request->conceptos);
+	    return json_encode($request->conceptos[0]);
 	}
 
 	public function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem) {
