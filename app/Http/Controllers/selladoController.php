@@ -43,7 +43,7 @@ class selladoController extends Controller{
 	  	/**
 		* Generar y sellar un XML con los CSD de pruebas
 	  	*/
-	    //$cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
+	    $cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
 	    /*$cfdi = $this->sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
 	    $xml = base64_encode($cfdi);
 	    $usuario ='DEMO700101XXX';
@@ -76,7 +76,8 @@ class selladoController extends Controller{
 		//$cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
 	    return $respuesta_timbrado;*/
 	    //$conceptos = $request->conceptos;
-	    return $request->nombreEmisor.' '.$request->rfcEmisor.' '.$request->regimenFiscal.' '.$perfilT->company_legalName.' '.$perfilT->rfc.' '.$request->subtotal.' '.$request->total.' '.$request->lugarExpedicion.' '.$request->formaPago.' '.$request->condicionesPago.' '.$request->metodoPago;
+	    return $cfdi;
+	    //return $request->nombreEmisor.' '.$request->rfcEmisor.' '.$request->regimenFiscal.' '.$perfilT->company_legalName.' '.$perfilT->rfc.' '.$request->subtotal.' '.$request->total.' '.$request->lugarExpedicion.' '.$request->formaPago.' '.$request->condicionesPago.' '.$request->metodoPago;
 	}
 
 	public function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem) {
@@ -118,7 +119,6 @@ class selladoController extends Controller{
 XML;
 					for($i = 0;$i < count($conceptos);$i++){
 					    $claveProdServ = $conceptos[$i]->claveProdServ;
-					    $noIdent = $conceptos[$i]->noIdent;//NoIdentificacion="$noIdent"no es necesario
 					    $cantidad = $conceptos[$i]->cantidad;
 					    $claveUnidad = $conceptos[$i]->claveUnidad;
 					    $tipoUnidad = $conceptos[$i]->tipoUnidad;
