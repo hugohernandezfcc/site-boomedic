@@ -108,9 +108,8 @@ class selladoController extends Controller{
 	    return $xdoc->saveXML();
 	}
 
-	public function generarXML ($nombreEmisor,$rfcEmisor,$regimenFiscal,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,$conceptos,$formaPago,$condicionesPago,$metodoPago) {
+	public function generarXML ($nombreEmisor,$rfcEmisor,$regimenFiscal,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,Array $conceptos,$formaPago,$condicionesPago,$metodoPago) {
 	    $fecha_actual = substr( date('c'), 0, 19);
-	    //dd(json_encode($conceptos));
 	    $cfdi = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 			<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd" Version="3.3" Fecha="$fecha_actual" Sello="" FormaPago="$formaPago" NoCertificado="" Certificado="" CondicionesDePago="$condicionesPago" SubTotal="$subtotal" Total="$total" TipoDeComprobante="I" MetodoPago="$metodoPago" LugarExpedicion="$lugarExpedicion">
