@@ -113,6 +113,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default" onclick="timbrado();">Facturar</button>
             <button type="button" class="btn btn-secondary">Guardar cambios</button>
           </div>
         </div>
@@ -215,10 +216,10 @@
       }else if(valor5 == '1'){
           document.getElementById("radio1").checked = 1;
       }
-    }
-    function timbrado(dat){
+    };
+    function timbrado(){
       var conceptos = {'claveProdServ' : '01010101', 'noIdent' : 'AULOG001', 'cantidad' : 5, 'claveUnidad' : 'H87', 'tipoUnidad' : 'Pieza', 'descripcion' : 'Aurriculares USB Logitech', 'valorUnitario' : montoM, 'importe' : montoM};
-      var dat = {'nombreEmisor' : 'EMISOR PRUEBA SA DE CV', 'rfcEmisor' : 'LAN7008173R5', 'regimenFiscal' : '601', 'subtotal' : montoM, 'total' : montoM, 'lugarExpedicion' : codigoPostalM, 'formaPago' : 03, 'condicionesPago' : 'CONTADO', 'metodoPago' : 'PUE', 'conceptos' : conceptos;
+      var dat = {'nombreEmisor' : 'EMISOR PRUEBA SA DE CV', 'rfcEmisor' : 'LAN7008173R5', 'regimenFiscal' : '601', 'subtotal' : montoM, 'total' : montoM, 'lugarExpedicion' : codigoPostalM, 'formaPago' : 03, 'condicionesPago' : 'CONTADO', 'metodoPago' : 'PUE', 'conceptos' : conceptos};
       $.ajax({
           headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
