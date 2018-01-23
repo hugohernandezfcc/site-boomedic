@@ -78,7 +78,7 @@ class selladoController extends Controller{
 		//$cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
 	    return $respuesta_timbrado;*/
 	    //$conceptos = $request->conceptos;
-	    return 'hola?';
+	    return $cfdi;
 	    //return $request->nombreEmisor.' '.$request->rfcEmisor.' '.$request->regimenFiscal.' '.$perfilT->company_legalName.' '.$perfilT->rfc.' '.$request->subtotal.' '.$request->total.' '.$request->lugarExpedicion.' '.$request->formaPago.' '.$request->condicionesPago.' '.$request->metodoPago;
 	}
 
@@ -110,8 +110,8 @@ class selladoController extends Controller{
 	}
 
 	//public function generarXML ($nombreEmisor,$rfcEmisor,$regimenFiscal,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,Array $conceptos,$formaPago,$condicionesPago,$metodoPago) {
-	public function generarXML ($conceptos){    
-	    $fecha_actual = substr( date('c'), 0, 19);
+	public function generarXML ( $conceptos){    
+	    /*$fecha_actual = substr( date('c'), 0, 19);
 	    $nombreEmisor = 'EMISOR PRUEBA SA DE CV';
 	   	$rfcEmisor = 'LAN7008173R5';
 	   	$regimenFiscal = '601';
@@ -147,8 +147,8 @@ XML;
 					$cfdi = $cfdi.<<<XML
 				</cfdi:Conceptos>
 			</cfdi:Comprobante>
-XML;
+XML;*/
 		//return $cfdi;
-return 'ok';
+return $conceptos[0];
 	}
 }
