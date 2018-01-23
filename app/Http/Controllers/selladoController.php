@@ -44,7 +44,7 @@ class selladoController extends Controller{
 		* Generar y sellar un XML con los CSD de pruebas
 	  	*/
 	    $cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
-	    $cfdi = $this->sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
+	    /*$cfdi = $this->sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
 	    $xml = base64_encode($cfdi);
 	    $usuario ='DEMO700101XXX';
 	    $clave = 'DEMO700101XXX';
@@ -56,7 +56,7 @@ class selladoController extends Controller{
 	    
 	    /**
 		* Toma un servidor al azar.
-	    */
+	    *//*
 	    $pac = rand(1,10);
 
 	    $soapclient = new nusoap_client("http://pac".$pac.".multifacturas.com/pac/?wsdl",
@@ -64,7 +64,7 @@ class selladoController extends Controller{
 
 	    /**
 	    * Generamos el arreglo con los parametros para timbrado.
-	    */
+	    *//*
 	    $tim = array('rfc' => $usuario, 'clave' => $clave,'xml' => $xml,'produccion' => $produccion);
 
 	    $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
@@ -74,9 +74,9 @@ class selladoController extends Controller{
 
 	    echo 'UUID: '.$respuesta_timbrado['uuid'].'<br><br>';
 		
-	    return $respuesta_timbrado;
+	    return $respuesta_timbrado;*/
 	    //$conceptos = $request->conceptos;
-	    //return json_encode($request->conceptos[0]);
+	    return $cfdi;
 	}
 
 	public function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem) {
