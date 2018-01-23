@@ -69,9 +69,9 @@ class selladoController extends Controller{
 
 	    $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
 
-	    dd($respuesta_timbrado);
+	    //dd($respuesta_timbrado);
 		//return $respuesta_timbrado['uuid'];
-	    return $respuesta_timbrado['uuid'];
+	    return $respuesta_timbrado;
 	}
 
 	public function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem) {
