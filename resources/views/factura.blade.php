@@ -122,7 +122,7 @@
 @stop
 
 @section('css')
-  <style type = "text/css">
+  <style type="text/css">
     .th{border-style: none;}
     input[type = "radio"]{ display:none;}
     .labelEstrellas : hover{color:orange;}
