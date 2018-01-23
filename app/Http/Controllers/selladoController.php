@@ -71,7 +71,7 @@ class selladoController extends Controller{
 
 	    //dd($respuesta_timbrado);
 		//return $respuesta_timbrado['uuid'];
-	    return $respuesta_timbrado;
+	    return json_encode($respuesta_timbrado);
 	}
 
 	public function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem) {
