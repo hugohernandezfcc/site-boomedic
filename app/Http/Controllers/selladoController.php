@@ -43,7 +43,7 @@ class selladoController extends Controller{
 	  	/**
 		* Generar y sellar un XML con los CSD de pruebas
 	  	*/
-	    //$cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
+	    $cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
 	    /*$cfdi = $this->sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
 	    $xml = base64_encode($cfdi);
 	    $usuario ='DEMO700101XXX';
@@ -75,8 +75,8 @@ class selladoController extends Controller{
 	    echo 'UUID: '.$respuesta_timbrado['uuid'].'<br><br>';
 		
 	    return $respuesta_timbrado;*/
-	    $conceptos = $request->conceptos;
-	    return $conceptos;
+	    //$conceptos = $request->conceptos;
+	    return $cfdi;
 	}
 
 	public function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem) {
@@ -134,6 +134,7 @@ XML;
 				</cfdi:Conceptos>
 			</cfdi:Comprobante>
 XML;
-		return $cfdi;
+		//return $cfdi;
+return 'ok';
 	}
 }
