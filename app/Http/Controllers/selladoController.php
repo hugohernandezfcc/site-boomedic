@@ -42,7 +42,7 @@ class selladoController extends Controller{
 
 	  	/**
 		* Generar y sellar un XML con los CSD de pruebas
-	  	*//*
+	  	*/
 	    $cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
 	    $cfdi = $this->sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
 	    $xml = base64_encode($cfdi);
@@ -56,7 +56,7 @@ class selladoController extends Controller{
 	    
 	    /**
 		* Toma un servidor al azar.
-	    *//*
+	    */
 	    $pac = rand(1,10);
 
 	    $soapclient = new nusoap_client("http://pac".$pac.".multifacturas.com/pac/?wsdl",
@@ -64,7 +64,7 @@ class selladoController extends Controller{
 
 	    /**
 	    * Generamos el arreglo con los parametros para timbrado.
-	    *//*
+	    */
 	    $tim = array('rfc' => $usuario, 'clave' => $clave,'xml' => $xml,'produccion' => $produccion);
 
 	    $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
@@ -73,10 +73,10 @@ class selladoController extends Controller{
 	    echo "</pre>";
 
 	    echo 'UUID: '.$respuesta_timbrado['uuid'].'<br><br>';
-		*/
-	    //return $respuesta_timbrado;
+		
+	    return $respuesta_timbrado;
 	    //$conceptos = $request->conceptos;
-	    return json_encode($request->conceptos[0]);
+	    //return json_encode($request->conceptos[0]);
 	}
 
 	public function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem) {
@@ -117,14 +117,14 @@ class selladoController extends Controller{
 			  	<cfdi:Conceptos>
 XML;
 					for($i = 0;$i < count($conceptos);$i++){
-					    $claveProdServ = $conceptos[$i]['claveProdServ'];
-					    $noIdent = $conceptos[$i]['noIdent'];//NoIdentificacion="$noIdent"no es necesario
-					    $cantidad = $conceptos[$i]['cantidad'];
-					    $claveUnidad = $conceptos[$i]['claveUnidad'];
-					    $tipoUnidad = $conceptos[$i]['tipoUnidad'];
-					    $descripcion = $conceptos[$i]['descripcion'];
-					    $valorUnitario = $conceptos[$i]['valorUnitario'];
-					    $importe = $conceptos[$i]['importe'];
+					    $claveProdServ = $conceptos[$i]->claveProdServ;
+					    $noIdent = $conceptos[$i]->noIdent;//NoIdentificacion="$noIdent"no es necesario
+					    $cantidad = $conceptos[$i]->cantidad;
+					    $claveUnidad = $conceptos[$i]->claveUnidad;
+					    $tipoUnidad = $conceptos[$i]->tipoUnidad;
+					    $descripcion = $conceptos[$i]->descripcion;
+					    $valorUnitario = $conceptos[$i]->valorUnitario;
+					    $importe = $conceptos[$i]->importe;
 					    $cfdi = $cfdi.<<<XML
 					    <cfdi:Concepto ClaveProdServ="$claveProdServ"  Cantidad="$cantidad" ClaveUnidad="$claveUnidad" Unidad="$tipoUnidad" Descripcion="$descripcion" ValorUnitario="$valorUnitario" Importe="$importe" >
 					    </cfdi:Concepto>
