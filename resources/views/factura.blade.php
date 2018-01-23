@@ -36,12 +36,12 @@
               @foreach ($join as $key => $citas)
                 <tr>
                   <td>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal('5.0','{{$citas->name}}','{{$citas->email}}','{{$citas->specialty}}','{{$citas->latitude}}','{{$citas->longitude}}','3','{{$citas->profile_photo}}')">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal('{{$citas->general_amount}}','{{$citas->name}}','{{$citas->email}}','{{$citas->specialty}}','{{$citas->latitude}}','{{$citas->longitude}}','3','{{$citas->profile_photo}}')">
                       Detalles
                     </button>
                   </td>
                   <td>{{$citas->name}}</td>
-                  <td>1.0</td>
+                  <td>{{$citas->general_amount}}</td>
                   <td>{{$citas->workplace}}</td>
                   <td>{{$citas->delegation}}</td>
                   <td>PayPal</td>
