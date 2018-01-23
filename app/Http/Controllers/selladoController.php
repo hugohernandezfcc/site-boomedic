@@ -74,7 +74,7 @@ class selladoController extends Controller{
 
 	    echo 'UUID: '.$respuesta_timbrado['uuid'].'<br><br>';*/
 		//$cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
-	    return json_decode($respuesta_timbrado);
+	    return $respuesta_timbrado['codigo_mf_texto'];
 	}
 
 	public function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem) {
