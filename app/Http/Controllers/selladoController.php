@@ -44,7 +44,8 @@ class selladoController extends Controller{
 		* Generar y sellar un XML con los CSD de pruebas
 	  	*/
 	  	//csrf_field();
-	    $cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
+	    //$cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
+	    $cfdi = $this->generarXML($request->conceptos);
 	    /*$cfdi = $this->sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
 	    $xml = base64_encode($cfdi);
 	    $usuario ='DEMO700101XXX';
