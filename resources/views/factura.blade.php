@@ -225,7 +225,7 @@
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
           url : "/timbrado",
-          type : "get",
+          type : "post",
           data : dat,
           error: function() {
               console.log('Error :c');
