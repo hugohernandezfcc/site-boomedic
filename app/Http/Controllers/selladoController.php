@@ -69,8 +69,6 @@ class selladoController extends Controller{
 
 	    $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
 
-	    //dd($respuesta_timbrado);
-		//return $respuesta_timbrado['uuid'];
 	    return json_encode($respuesta_timbrado);
 	}
 

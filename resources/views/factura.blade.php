@@ -234,6 +234,7 @@
               console.log("Correcto Response: " + response);
           }
       });
+      $('#modal-default').modal('hide');
     }
   </script>
 @stop
