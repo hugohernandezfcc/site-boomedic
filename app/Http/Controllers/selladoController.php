@@ -108,8 +108,21 @@ class selladoController extends Controller{
 	    return $xdoc->saveXML();
 	}
 
-	public function generarXML ($nombreEmisor,$rfcEmisor,$regimenFiscal,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,Array $conceptos,$formaPago,$condicionesPago,$metodoPago) {
+	//public function generarXML ($nombreEmisor,$rfcEmisor,$regimenFiscal,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,Array $conceptos,$formaPago,$condicionesPago,$metodoPago) {
+	public function generarXML ($conceptos){    
 	    $fecha_actual = substr( date('c'), 0, 19);
+	    $nombreEmisor = 'EMISOR PRUEBA SA DE CV';
+	   	$rfcEmisor = 'LAN7008173R5';
+	   	$regimenFiscal = '601';
+	   	$nombreReceptor = 'PUBLICO EN GENERAL';
+	   	$rfcReceptor = 'XAXX010101000';
+	   	$subtotal = 1850;
+	   	$total = 1850.00; 
+	   	$lugarExpedicion =68050;
+	   	//$conceptos = es un array con los conceptos
+	   	$formaPago = 03;
+	   	$condicionesPago = 'CONTADO'
+	   	$metodoPago = 'PUE';
 	    $cfdi = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 			<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd" Version="3.3" Fecha="$fecha_actual" Sello="" FormaPago="$formaPago" NoCertificado="" Certificado="" CondicionesDePago="$condicionesPago" SubTotal="$subtotal" Total="$total" TipoDeComprobante="I" MetodoPago="$metodoPago" LugarExpedicion="$lugarExpedicion">
