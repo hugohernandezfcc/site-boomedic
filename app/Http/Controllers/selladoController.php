@@ -1,14 +1,14 @@
 <?php
-
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use nusoap_client;
+use Auth;
+use App\tributaryProfile;
 
 class selladoController extends Controller{
     
-    public function Timbrado(Request $request,$id) {
+    public function Timbrado(Request $request) {
 	    
 	    # Archivos del CSD de prueba proporcionados por el SAT.
 	    # SERIAL de 20 digitos integrado en el archivo .cer
@@ -23,22 +23,27 @@ class selladoController extends Controller{
 	    $archivo_pem = "csd/lan7008173r5.key.pem";
 
 	   	/**
-	   	* RFC utilizado para el ambiente de pruebas
+	   	* utilizado para el ambiente de pruebas pero son obligatorios
+	   	* $nombreEmisor = 'EMISOR PRUEBA SA DE CV';
+	   	* $rfcEmisor = 'LAN7008173R5';
+	   	* $regimenFiscal = '601';
+	   	* $nombreReceptor = 'PUBLICO EN GENERAL';
+	   	* $rfcReceptor = 'XAXX010101000';
+	   	* $subtotal = 1850;
+	   	* $total = 1850.00; 
+	   	* $lugarExpedicion =68050;
+	   	* $conceptos = es un array con los conceptos
+	   	* $formaPago = 03;
+	   	* $condicionesPago = 'CONTADO'
+	   	* $metodoPago = 'PUE';
 	   	*/
-	   	$nombreEmisor = 'EMISOR PRUEBA SA DE CV';
-	   	$rfcEmisor = 'LAN7008173R5';
-	   	$nombreReceptor = 'PUBLICO EN GENERAL';
-	   	$rfcReceptor = 'XAXX010101000';
-	   	$subtotal = 1850;
-	   	$total = 1850.00;
-	   	$lugarExpedicion =68050;
-	   	$perfilT = tributaryProfile::where('user',$id)->first();
+
+	   	$perfilT = tributaryProfile::where('user',Auth::id())->first();
 
 	  	/**
 		* Generar y sellar un XML con los CSD de pruebas
-	  	*/
-	    //$cfdi = $this->generarXML($nombreEmisor,$rfcEmisor,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,$conceptos);
-	    $cfdi = $this->generarXML($request->nombreEmisor,$request->rfcEmisor,$perfilT->company_legalName,$perfilT->rfc,$request->subtotal,$request->total,$request->lugarExpedicion,$request->conceptos);
+	  	*//*
+	    $cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
 	    $cfdi = $this->sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
 	    $xml = base64_encode($cfdi);
 	    $usuario ='DEMO700101XXX';
@@ -51,7 +56,7 @@ class selladoController extends Controller{
 	    
 	    /**
 		* Toma un servidor al azar.
-	    */
+	    *//*
 	    $pac = rand(1,10);
 
 	    $soapclient = new nusoap_client("http://pac".$pac.".multifacturas.com/pac/?wsdl",
@@ -59,7 +64,7 @@ class selladoController extends Controller{
 
 	    /**
 	    * Generamos el arreglo con los parametros para timbrado.
-	    */
+	    *//*
 	    $tim = array('rfc' => $usuario, 'clave' => $clave,'xml' => $xml,'produccion' => $produccion);
 
 	    $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
@@ -68,8 +73,9 @@ class selladoController extends Controller{
 	    echo "</pre>";
 
 	    echo 'UUID: '.$respuesta_timbrado['uuid'].'<br><br>';
-
-	    return $respuesta_timbrado;
+		*/
+	    //return $respuesta_timbrado;
+	    return $request;
 	}
 
 	public function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem) {
@@ -99,13 +105,13 @@ class selladoController extends Controller{
 	    return $xdoc->saveXML();
 	}
 
-	public function generarXML ($nombreEmisor,$rfcEmisor,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,$conceptos) {
+	public function generarXML ($nombreEmisor,$rfcEmisor,$regimenFiscal,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,$conceptos,$formaPago,$condicionesPago,$metodoPago) {
 	    $fecha_actual = substr( date('c'), 0, 19);
 
 	    $cfdi = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
-			<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd" Version="3.3" Serie="A" Folio="01" Fecha="$fecha_actual" Sello="" FormaPago="03" NoCertificado="" Certificado="" CondicionesDePago="CONTADO" SubTotal="$subtotal" Moneda="MXN" Total="$total" TipoDeComprobante="I" MetodoPago="PUE" LugarExpedicion="$lugarExpedicion">
-			  	<cfdi:Emisor Rfc="$rfcEmisor" Nombre="$nombreEmisor" RegimenFiscal="601"/>
+			<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd" Version="3.3" Fecha="$fecha_actual" Sello="" FormaPago="$formaPago" NoCertificado="" Certificado="" CondicionesDePago="$condicionesPago" SubTotal="$subtotal" Total="$total" TipoDeComprobante="I" MetodoPago="$metodoPago" LugarExpedicion="$lugarExpedicion">
+			  	<cfdi:Emisor Rfc="$rfcEmisor" Nombre="$nombreEmisor" RegimenFiscal="$regimenFiscal"/>
 			  	<cfdi:Receptor Rfc="$rfcReceptor" Nombre="$nombreReceptor" UsoCFDI="G01"/>
 			  	<cfdi:Conceptos>
 XML;

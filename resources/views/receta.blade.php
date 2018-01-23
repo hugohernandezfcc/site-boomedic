@@ -207,7 +207,7 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url : "/pru",
+                url : "/infoReceta",
                 type : "post",
                 data : dat,
                 error: function() {

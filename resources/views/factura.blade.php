@@ -36,7 +36,7 @@
               @foreach ($join as $key => $citas)
                 <tr>
                   <td>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal('{{$citas->general_amount}}','{{$citas->name}}','{{$citas->email}}','{{$citas->specialty}}','{{$citas->latitude}}','{{$citas->longitude}}','3','{{$citas->profile_photo}}')">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal('{{$citas->general_amount}}','{{$citas->name}}','{{$citas->email}}','{{$citas->specialty}}','{{$citas->latitude}}','{{$citas->longitude}}','3','{{$citas->profile_photo}}','{{$citas->postalcode}}')">
                       Detalles
                     </button>
                   </td>
@@ -113,6 +113,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default" onclick="timbrado();">Facturar</button>
             <button type="button" class="btn btn-secondary">Guardar cambios</button>
           </div>
         </div>
@@ -122,43 +123,43 @@
 @stop
 
 @section('css')
-  <style type="text/css">
+  <style type = "text/css">
     .th{border-style: none;}
     input[type = "radio"]{ display:none;}
-    .labelEstrellas:hover{color:orange;}
-    .labelEstrellas:hover ~ label{color:orange;}
+    .labelEstrellas : hover{color:orange;}
+    .labelEstrellas : hover ~ label{color:orange;}
     input[type = "radio"]:checked ~ .labelEstrellas{color:orange;}
     .clasificacion{
-      direction: rtl;/* right to left */
-      unicode-bidi: bidi-override;/* bidi de bidireccional */
+      direction : rtl;/* right to left */
+      unicode-bidi : bidi-override;/* bidi de bidireccional */
     }
     .datos{
-      border: 1px;
-      display: inline-block;
-      width: 30%;
-      margin: auto;
-      font-size: 14px;
-      margin-left: 2em;
+      border : 1px;
+      display : inline-block;
+      width : 30%;
+      margin : auto;
+      font-size : 14px;
+      margin-left : 2em;
     }
     .datosMedico{
-      border: 1px;
-      display: inline-block;
-      width: 60%;
-      margin: auto;
-      font-size: 14px;
-      margin-left: 1em;
+      border : 1px;
+      display : inline-block;
+      width : 60%;
+      margin : auto;
+      font-size : 14px;
+      margin-left : 1em;
     }
     .labelEstrellas{
-      color:grey;
+      color : grey;
     }
     .label1{
-      text-align: right;
-      display: block;
+      text-align : right;
+      display : block;
     }
     .label2{
-      font-weight: normal;
-      text-align: left;
-      display: block;
+      font-weight : normal;
+      text-align : left;
+      display : block;
     }
   </style>
 @stop
@@ -172,46 +173,67 @@
         'ordering'    : true,
         'autoWidth'   : false,
         'info'    : false,
-        "language": {
-          "search": "Buscar",
-            "paginate": {
-              "first":      "Primero",
-              "last":       "Último",
-              "next":       "Siguiente",
-              "previous":   "Anterior"
+        "language" : {
+          "search" : "Buscar",
+            "paginate" : {
+              "first" :      "Primero",
+              "last" :       "Último",
+              "next" :       "Siguiente",
+              "previous" :   "Anterior"
           },
         }
       })
     });
-
-    function datosmodal(monto,nombre,email,especialidad,latitude,longitude,valor5,photo) {
-      document.getElementById("idlabelMonto").innerHTML=monto;
-      document.getElementById("nombre").innerHTML=nombre;
-      document.getElementById("email").innerHTML=email;
-      document.getElementById("especialidad").innerHTML=especialidad;
+    var montoM;
+    var codigoPostalM;
+    function datosmodal(monto,nombre,email,especialidad,latitude,longitude,valor5,photo,codigoPostal) {
+      montoM = monto;
+      codigoPostalM = codigoPostal;
+      document.getElementById("idlabelMonto").innerHTML = monto;
+      document.getElementById("nombre").innerHTML = nombre;
+      document.getElementById("email").innerHTML = email;
+      document.getElementById("especialidad").innerHTML = especialidad;
       $("#photo").attr("src",photo);
       $("#map").attr("src", 'https://maps.googleapis.com/maps/api/staticmap?maptype=roadmap&center='+latitude+','+longitude+'&zoom=16&size=600x200&markers=color:black|'+latitude+','+longitude+'&key=AIzaSyDFFuMEwcwH3OpA8go3AVElVcocm6o5WBQ');
-      if(valor5=='5'){
-        document.getElementById("radio1").checked=1;
-        document.getElementById("radio2").checked=1;
-        document.getElementById("radio3").checked=1;
-        document.getElementById("radio4").checked=1;
-        document.getElementById("radio5").checked=1;
-      }else if(valor5=='4'){
-          document.getElementById("radio1").checked=1;
-          document.getElementById("radio2").checked=1;
-          document.getElementById("radio3").checked=1;
-          document.getElementById("radio4").checked=1;
-      }else if(valor5=='3'){
-          document.getElementById("radio1").checked=1;
-          document.getElementById("radio2").checked=1;
-          document.getElementById("radio3").checked=1;
-      }else if(valor5=='2'){
-          document.getElementById("radio1").checked=1;
-          document.getElementById("radio2").checked=1;
-      }else if(valor5=='1'){
-          document.getElementById("radio1").checked=1;
+      if(valor5 == '5'){
+        document.getElementById("radio1").checked = 1;
+        document.getElementById("radio2").checked = 1;
+        document.getElementById("radio3").checked = 1;
+        document.getElementById("radio4").checked = 1;
+        document.getElementById("radio5").checked = 1;
+      }else if(valor5 == '4'){
+          document.getElementById("radio1").checked = 1;
+          document.getElementById("radio2").checked = 1;
+          document.getElementById("radio3").checked = 1;
+          document.getElementById("radio4").checked = 1;
+      }else if(valor5 == '3'){
+          document.getElementById("radio1").checked = 1;
+          document.getElementById("radio2").checked = 1;
+          document.getElementById("radio3").checked = 1;
+      }else if(valor5 == '2'){
+          document.getElementById("radio1").checked = 1;
+          document.getElementById("radio2").checked = 1;
+      }else if(valor5 == '1'){
+          document.getElementById("radio1").checked = 1;
       }
+    }
+    function timbrado(dat){
+      var conceptos = {'claveProdServ' : '01010101', 'noIdent' : 'AULOG001', 'cantidad' : 5, 'claveUnidad' : 'H87', 'tipoUnidad' : 'Pieza', 'descripcion' : 'Aurriculares USB Logitech', 'valorUnitario' : montoM, 'importe' : montoM};
+      var dat = {'nombreEmisor' : 'EMISOR PRUEBA SA DE CV', 'rfcEmisor' : 'LAN7008173R5', 'regimenFiscal' : '601', 'subtotal' : montoM, 'total' : montoM, 'lugarExpedicion' : codigoPostalM, 'formaPago' : 03, 'condicionesPago' : 'CONTADO', 'metodoPago' : 'PUE', 'conceptos' : conceptos;
+      $.ajax({
+          headers: {
+              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          url : "/timbrado",
+          type : "post",
+          data : dat,
+          error: function() {
+              console.log('Error :c');
+          },
+          success : function(response){
+              console.log("Correcto Response: " + response);
+          }
+      });
     }
   </script>
 @stop

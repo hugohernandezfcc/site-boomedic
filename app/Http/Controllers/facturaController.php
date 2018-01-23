@@ -18,9 +18,9 @@ class facturaController extends Controller
         	->join('users', 'medical_appointments.user_doctor', '=', 'users.id')
         	->join('professional_information', 'medical_appointments.user_doctor', '=', 'professional_information.user')
         	->join('labor_information', 'medical_appointments.workplace', '=', 'labor_information.id')
-        	->select('medical_appointments.*', 'users.name', 'users.email', 'users.occupation', 'users.profile_photo', 'professional_information.specialty', 'labor_information.workplace', 'labor_information.delegation','labor_information.latitude','labor_information.longitude','labor_information.general_amount')
+        	->select('medical_appointments.*', 'users.name', 'users.email', 'users.occupation', 'users.profile_photo', 'professional_information.specialty', 'labor_information.workplace', 'labor_information.delegation','labor_information.latitude','labor_information.longitude','labor_information.general_amount', 'labor_information.postalcode')
         	->get();
-        $professional_inf= DB::table('professional_information')->where('user',Auth::id())->get();
+        //$professional_inf= DB::table('professional_information')->where('user',Auth::id())->get();
     	return view('factura',['join' => $join, 'user' => $user]);
 	}
 }
