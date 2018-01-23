@@ -68,13 +68,10 @@ class selladoController extends Controller{
 	    $tim = array('rfc' => $usuario, 'clave' => $clave,'xml' => $xml,'produccion' => $produccion);
 
 	    $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
-	    /*echo "<pre>";
-	    dd($respuesta_timbrado);
-	    echo "</pre>";
 
-	    echo 'UUID: '.$respuesta_timbrado['uuid'].'<br><br>';*/
-		//$cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
-	    return $respuesta_timbrado['codigo_mf_texto'];
+	    dd($respuesta_timbrado);
+		//return $respuesta_timbrado['uuid'];
+	    return $respuesta_timbrado['uuid'];
 	}
 
 	public function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem) {
