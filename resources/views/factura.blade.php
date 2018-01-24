@@ -8,6 +8,11 @@
       <h3>Consultas</h3>
     </div>
     <div class="box-body">
+      @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
       <center>
         <div style="width: 90%">
           <table id="example" class="table table-bordered table-hove" width="100%">
