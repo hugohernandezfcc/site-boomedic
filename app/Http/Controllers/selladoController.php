@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use nusoap_client;
 use Auth;
@@ -71,13 +72,13 @@ class selladoController extends Controller{
 
 		    $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
 		    //if($respuesta_timbrado['uuid'] != null){
-			    /*Mail::send('emails.factura_email', $data, function ($message) {
+			    Mail::send('emails.factura_email', $data, function ($message) {
 	                $message->subject('Facturación Boomedic');
 	                $message->to('jazielleiz@gmail.com');
 	                //$message->attach($cfdi);
-	            });*/
+	            });
 		    //}
-	        Mail::to('jazielleiz@gmail.com')->send('emails.factura_email');
+	        //Mail::to('jazielleiz@gmail.com')->send('emails.factura_email');
 		    return ($respuesta_timbrado['uuid']);
 		}
 		else{
