@@ -55,9 +55,13 @@ return [
     |
     */
 
-    'from' => [
+    /*'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
+    ],*/
+    'from' => [
+        'address' => 'jaziel.moran@doitcloud.consulting',
+        'name' => 'Boomedic',
     ],
 
     /*
@@ -84,9 +88,12 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    /*'username' => env('MAIL_USERNAME'),
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => env('MAIL_PASSWORD'),*/
+
+    'username' => 'postmaster@sandbox17b4931395db42479457e358c2801167.mailgun.org',
+    'password' => 'd5d750368384442c12be13ce1f9c3953',
 
     /*
     |--------------------------------------------------------------------------
