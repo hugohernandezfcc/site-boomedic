@@ -60,9 +60,9 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],*/
     'from' => [
-        'address' => 'jaziel.moran@doitcloud.consulting',
+        'address' => 'contacto@doitcloud.consulting',
         'name' => 'Boomedic',
-    ],
+    ]
 
     /*
     |--------------------------------------------------------------------------
