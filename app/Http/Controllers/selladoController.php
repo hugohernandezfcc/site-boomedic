@@ -70,7 +70,7 @@ class selladoController extends Controller{
 
 		    $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
 
-		    return json_encode($respuesta_timbrado);
+		    return json_encode($respuesta_timbrado)->with('success','Facturación completa');;
 		}
 		else{
 			return 'no tiene perfil tributario';
