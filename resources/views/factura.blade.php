@@ -8,11 +8,6 @@
       <h3>Consultas</h3>
     </div>
     <div class="box-body">
-      @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-    @endif
       <center>
         <div style="width: 90%">
           <table id="example" class="table table-bordered table-hove" width="100%">
@@ -78,6 +73,7 @@
           <h4 class="modal-title">Detalles de consulta</h4>
         </div>
         <div class="modal-body" style="display: inline-block;padding-right: 0px;padding-left: 0px;padding-top: 0px;">
+          <div id="alert"></div>
           <center>
             <img id="map" style="width: 100%;" />
           </center>
@@ -236,6 +232,7 @@
               console.log('Error :c');
           },
           success : function(response){
+              document.getElementById("alert").innerHTML = '<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Factura Realizada!</h4>Se ha enviado un XML y PDF a su correo.</div>';
               console.log("Correcto Response: " + response);
           }
       });
