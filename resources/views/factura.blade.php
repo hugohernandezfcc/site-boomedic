@@ -66,7 +66,7 @@
 
   <div class="modal fade" id="modal-default">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="box modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
@@ -116,6 +116,10 @@
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
             <button type="button" class="btn btn-default" onclick="timbrado();">Facturar</button>
             <button type="button" class="btn btn-secondary">Guardar cambios</button>
+          </div>
+        </div>
+        <div id="carga" class="box" style="border:none; width: 100%">
+          <div id="carga2">
           </div>
         </div>
       </div>
@@ -221,6 +225,9 @@
     function timbrado(){
       var conceptos = [{'claveProdServ' : '01010101', 'cantidad' : 1, 'claveUnidad' : 'H87', 'tipoUnidad' : 'Pieza', 'descripcion' : 'Aurriculares USB Logitech', 'valorUnitario' : montoM, 'importe' : montoM}];
       var dat = {'nombreEmisor' : 'EMISOR PRUEBA SA DE CV', 'rfcEmisor' : 'LAN7008173R5', 'regimenFiscal' : '601', 'subtotal' : montoM, 'total' : montoM, 'lugarExpedicion' : codigoPostalM, 'formaPago' : '03', 'condicionesPago' : 'CONTADO', 'metodoPago' : 'PUE', 'conceptos' : conceptos};
+
+      document.getElementById("carga2").className = "overlay";
+      document.getElementById("carga2").innerHTML = "<i class='fa fa-refresh fa-spin' id='imgCarga'></i>";
       $.ajax({
           headers: {
               'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -229,9 +236,13 @@
           type : "get",
           data : dat,
           error: function() {
+              $('#carga2').removeClass();
+              $('#imgCarga').remove();
               console.log('Error :c');
           },
           success : function(response){
+              $('#carga2').removeClass();
+              $('#imgCarga').remove();
               document.getElementById("alert").innerHTML = '<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Factura Realizada!</h4>Se ha enviado un XML y PDF a su correo.</div>';
               console.log("Correcto Response: " + response);
           }
