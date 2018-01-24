@@ -66,13 +66,13 @@
 
   <div class="modal fade" id="modal-default">
     <div class="modal-dialog">
-      <div class="box modal-content">
+      <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Detalles de consulta</h4>
         </div>
-        <div class="modal-body" style="display: inline-block;padding-right: 0px;padding-left: 0px;padding-top: 0px;">
+        <div class="box modal-body" style="display: inline-block;padding-right: 0px;padding-left: 0px;padding-top: 0px;">
           <div id="alert"></div>
           <center>
             <img id="map" style="width: 100%;" />
@@ -117,9 +117,9 @@
             <button type="button" class="btn btn-default" onclick="timbrado();">Facturar</button>
             <button type="button" class="btn btn-secondary">Guardar cambios</button>
           </div>
-        </div>
-        <div id="carga" class="box" style="border:none; width: 100%">
-          <div id="carga2">
+          <div id="carga" class="box" style="border:none; width: 100%">
+            <div id="carga2">
+            </div>
           </div>
         </div>
       </div>
