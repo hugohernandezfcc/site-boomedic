@@ -236,7 +236,7 @@
               console.log("Correcto Response: " + response);
           }
       });
-      $('#modal-default').modal('hide');
+      //$('#modal-default').modal('hide');
     }
   </script>
 @stop
