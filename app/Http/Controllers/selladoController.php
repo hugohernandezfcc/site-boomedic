@@ -70,7 +70,7 @@ class selladoController extends Controller{
 
 		    $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
 
-		    return ($respuesta_timbrado['UUID']);
+		    return ($respuesta_timbrado['uuid']);
 		}
 		else{
 			return 'no tiene perfil tributario';
