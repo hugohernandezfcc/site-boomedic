@@ -30,10 +30,8 @@
             <div class="modal-footer" >
             </div>
           <!-- /.box -->
-            <div id="carga" class="box" style="border:none; width: 100%">
                 <div id="carga2">
                 </div>
-            </div>
         </div>
     </div><!-- /.login-box -->
 
