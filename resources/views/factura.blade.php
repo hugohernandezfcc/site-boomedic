@@ -243,7 +243,7 @@
           success : function(response){
               $('#carga2').removeClass();
               $('#imgCarga').remove();
-              if(response != null){
+              if(response != null || response == 'no tiene perfil tributario'){
                 document.getElementById("alert").innerHTML = '<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Factura Realizada!</h4>Se ha enviado un XML y PDF a su correo.</div>';
                 console.log("Correcto Response: " + response);
               }else{
