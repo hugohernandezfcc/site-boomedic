@@ -238,12 +238,17 @@
               $('#carga2').removeClass();
               $('#imgCarga').remove();
               console.log('Error :c');
+              document.getElementById("alert").innerHTML = '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Error!</h4>Ha ocurrido un error al facturar.</div>'
           },
           success : function(response){
               $('#carga2').removeClass();
               $('#imgCarga').remove();
-              document.getElementById("alert").innerHTML = '<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Factura Realizada!</h4>Se ha enviado un XML y PDF a su correo.</div>';
-              console.log("Correcto Response: " + response);
+              if(response != null){
+                document.getElementById("alert").innerHTML = '<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Factura Realizada!</h4>Se ha enviado un XML y PDF a su correo.</div>';
+                console.log("Correcto Response: " + response);
+              }else{
+                  document.getElementById("alert").innerHTML = '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Error!</h4>Ha ocurrido un error al facturar.</div>'
+              }
           }
       });
       //$('#modal-default').modal('hide');
