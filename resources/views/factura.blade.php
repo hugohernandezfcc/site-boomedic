@@ -72,7 +72,7 @@
             <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Detalles de consulta</h4>
         </div>
-        <div class="box modal-body" style="display: inline-block;padding-right: 0px;padding-left: 0px;padding-top: 0px;">
+        <div class="modal-body box" style="display: inline-block;padding-right: 0px;padding-left: 0px;padding-top: 0px;">
           <div id="alert"></div>
           <center>
             <img id="map" style="width: 100%;" />
@@ -117,6 +117,7 @@
             <button type="button" class="btn btn-default" onclick="timbrado();">Facturar</button>
             <button type="button" class="btn btn-secondary">Guardar cambios</button>
           </div>
+          
           <div id="carga" class="box" style="border:none; width: 100%">
             <div id="carga2">
             </div>
