@@ -40,36 +40,41 @@ class selladoController extends Controller{
 
 	   	$perfilT = tributaryProfile::where('user',Auth::id())->first();
 
-	  	/**
-		* Generar y sellar un XML con los CSD de pruebas
-	  	*/
-	    $cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
-	    $cfdi = $this->sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
-	    $xml = base64_encode($cfdi);
-	    $usuario ='DEMO700101XXX';
-	    $clave = 'DEMO700101XXX';
+	   	if($perfilT!= null){
+		  	/**
+			* Generar y sellar un XML con los CSD de pruebas
+		  	*/
+		    $cfdi = $this->generarXML($request->nombreEmisor, $request->rfcEmisor, $request->regimenFiscal, $perfilT->company_legalName, $perfilT->rfc,$request->subtotal, $request->total,$request->lugarExpedicion, $request->conceptos, $request->formaPago, $request->condicionesPago, $request->metodoPago);
+		    $cfdi = $this->sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem);
+		    $xml = base64_encode($cfdi);
+		    $usuario ='DEMO700101XXX';
+		    $clave = 'DEMO700101XXX';
 
-	    /**
-		* [NO|SI] para declarar si se está en producción o no.
-	    */
-	    $produccion ='NO';
-	    
-	    /**
-		* Toma un servidor al azar.
-	    */
-	    $pac = rand(1,10);
+		    /**
+			* [NO|SI] para declarar si se está en producción o no.
+		    */
+		    $produccion ='NO';
+		    
+		    /**
+			* Toma un servidor al azar.
+		    */
+		    $pac = rand(1,10);
 
-	    $soapclient = new nusoap_client("http://pac".$pac.".multifacturas.com/pac/?wsdl",
-	    $esWSDL = true);
+		    $soapclient = new nusoap_client("http://pac".$pac.".multifacturas.com/pac/?wsdl",
+		    $esWSDL = true);
 
-	    /**
-	    * Generamos el arreglo con los parametros para timbrado.
-	    */
-	    $tim = array('rfc' => $usuario, 'clave' => $clave,'xml' => $xml,'produccion' => $produccion);
+		    /**
+		    * Generamos el arreglo con los parametros para timbrado.
+		    */
+		    $tim = array('rfc' => $usuario, 'clave' => $clave,'xml' => $xml,'produccion' => $produccion);
 
-	    $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
+		    $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
 
-	    return json_encode($respuesta_timbrado);
+		    return json_encode($respuesta_timbrado);
+		}
+		else{
+			return 'no tiene perfil tributario';
+		}
 	}
 
 	public function sellarXML($cfdi, $numero_certificado, $archivo_cer, $archivo_pem) {
