@@ -79,7 +79,7 @@ class selladoController extends Controller{
 	                //$message->attach($cfdi);
 	            });
 		    //}*/
-	        //Mail::to('jazielleiz@gmail.com')->send('emails.factura_email');
+	        Mail::to('jaziel.moran@doitcloud.consulting')->send('emails.factura_email');
 		    return ($respuesta_timbrado['uuid']);
 		}
 		else{
