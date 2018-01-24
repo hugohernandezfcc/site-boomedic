@@ -92,8 +92,8 @@ return [
 
     'password' => env('MAIL_PASSWORD'),
 */
-    'username' => 'postmaster@sandbox17b4931395db42479457e358c2801167.mailgun.org',
-    'password' => 'd5d750368384442c12be13ce1f9c3953',
+    'username' => 'sandboxb9958997302b4be6b4eab16df7ac681a.mailgun.org',
+    'password' => '97a26d5ed063856942f0a68f0005d8d7',
     /*
     |--------------------------------------------------------------------------
     | Sendmail System Path
