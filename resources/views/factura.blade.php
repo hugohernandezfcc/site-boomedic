@@ -117,11 +117,9 @@
             <button type="button" class="btn btn-default" onclick="timbrado();">Facturar</button>
             <button type="button" class="btn btn-secondary">Guardar cambios</button>
           </div>
-          
-          <div id="carga" class="box" style="border:none; width: 100%">
+
             <div id="carga2">
             </div>
-          </div>
         </div>
       </div>
     </div>
