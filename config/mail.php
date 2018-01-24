@@ -60,9 +60,9 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],*/
     'from' => [
-        'address' => 'contacto@doitcloud.consulting',
+        'address' => 'jaziel.moran@doitcloud.consulting',
         'name' => 'Boomedic',
-    ]
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -87,14 +87,13 @@ return [
     | connection. You may also set the "password" value below this one.
     |
     */
+/*
+    'username' => env('MAIL_USERNAME'),
 
-    /*'username' => env('MAIL_USERNAME'),
-
-    'password' => env('MAIL_PASSWORD'),*/
-
+    'password' => env('MAIL_PASSWORD'),
+*/
     'username' => 'postmaster@sandbox17b4931395db42479457e358c2801167.mailgun.org',
     'password' => 'd5d750368384442c12be13ce1f9c3953',
-
     /*
     |--------------------------------------------------------------------------
     | Sendmail System Path
