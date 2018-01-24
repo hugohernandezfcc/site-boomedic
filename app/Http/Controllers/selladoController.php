@@ -74,7 +74,7 @@ class selladoController extends Controller{
 		    //if($respuesta_timbrado['uuid'] != null){
 			    Mail::send('emails.factura_email', $data, function ($message) {
 	                $message->subject('Facturación Boomedic');
-	                $message->to('jazielleiz@gmail.com');
+	                $message->to('jaziel.moran@doitcloud.consulting');
 	                //$message->attach($cfdi);
 	            });
 		    //}
