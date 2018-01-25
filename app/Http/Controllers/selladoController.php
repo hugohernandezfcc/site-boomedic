@@ -114,7 +114,7 @@ class selladoController extends Controller{
 
 	    $c->setAttribute('Sello', $sello);
 	    
-	    return $xdoc->saveXML('factura.xml');
+	    return $xdoc->saveXML('factura');
 	}
 
 	public function generarXML ($nombreEmisor,$rfcEmisor,$regimenFiscal,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,Array $conceptos,$formaPago,$condicionesPago,$metodoPago) {
