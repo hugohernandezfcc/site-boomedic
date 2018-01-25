@@ -82,6 +82,7 @@ class selladoController extends Controller{
                         $message->subject('Transacción de pago en Boomedic');
                         $message->to('jaziel.moran@doitcloud.consulting');
                     });
+             return $respuesta_timbrado['uuid'];
 		}
 		else{
 			return 'no tiene perfil tributario';
