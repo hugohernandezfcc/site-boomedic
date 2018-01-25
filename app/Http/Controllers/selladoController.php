@@ -75,30 +75,31 @@ class selladoController extends Controller{
 		    $cfdiC = new \DOMDocument();
 	    	$cfdiC->loadXML($cfdi);
 
-	    	$tfd=json_decode($respuesta_timbrado['mensaje_original_pac_json']);
+	    	$tfd =json_decode($respuesta_timbrado['mensaje_original_pac_json']);
 
 		    $doctfd = new \DOMDocument();
 		    $doctfd->formatOutput = true;
 		    $doctfd->loadXML($tfd->data->tfd);
 
-		    $nodotfd=$doctfd->getElementsByTagNameNS('http://www.sat.gob.mx/TimbreFiscalDigital', 'TimbreFiscalDigital')->item(0);
-		    $nodotfd=$cfdiC->importNode($nodotfd, true);
+		    $nodotfd = $doctfd->getElementsByTagNameNS('http://www.sat.gob.mx/TimbreFiscalDigital', 'TimbreFiscalDigital')->item(0);
+		    $nodotfd = $cfdiC->importNode($nodotfd, true);
 	    	$cfdiC->documentElement->appendChild($nodotfd);
 
-	        $v1=simplexml_load_string($cfdiC->saveXML());
+	        $xmlSinProcesar = simplexml_load_string($cfdiC->saveXML());
 	        
 		    //$v1->getNamespaces(true);
 		    //print_r(htmlentities($v1->saveXML()));
-	       	$data=htmlentities ($v1->saveXML());
-	       	$data=str_replace('&lt;', '<', $data);
-	       	$data=str_replace('&gt;', '>', $data);
-	       	$data=str_replace('&quot;', '"', $data);
-
+	       	$xmlCompleto = htmlentities ($xmlSinProcesar->saveXML());
+	       	$xmlCompleto = str_replace('&lt;', '<', $xmlCompleto);
+	       	$xmlCompleto = str_replace('&gt;', '>', $xmlCompleto);
+	       	$xmlCompleto = str_replace('&quot;', '"', $xmlCompletoa);
+	       	$data = ['xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].substr( date('c'), 0, 19)]
 	        //createAttachmentFromData($x, 'factura.xml')
+
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) use($data){
                 $message->subject('Facturación Boomedic');
                 $message->to('jazielleiz@gmail.com');
-                $message->attachData($data, 'factura.xml', [
+                $message->attachData($data->xml, $data->xmlnombre, [
                 	'mime' => 'text/xml',
             	]);
             	//$message->AddAttachment($ata , 'filename + file extension');
