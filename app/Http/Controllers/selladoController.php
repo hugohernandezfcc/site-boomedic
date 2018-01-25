@@ -72,15 +72,12 @@ class selladoController extends Controller{
 
 		    $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
 		    //if($respuesta_timbrado['uuid'] != null){
-		    /*$data = 'hola';
-			    Mail::send('emails.factura_email', $data, function ($message) {
+			    Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) {
 	                $message->subject('Facturación Boomedic');
 	                $message->to('jaziel.moran@doitcloud.consulting');
 	                //$message->attach($cfdi);
 	            });
-		    //}*/
-	        Mail::to('jaziel.moran@doitcloud.consulting')->send('emails.factura_email');
-		    return ($respuesta_timbrado['uuid']);
+		    //}
 		}
 		else{
 			return 'no tiene perfil tributario';
