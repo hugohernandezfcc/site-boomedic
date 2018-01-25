@@ -79,7 +79,7 @@ class selladoController extends Controller{
 	            });*/
 		    //}
              Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) {
-                        $message->subject('Transacción de pago en Boomedic');
+                        $message->subject('Facturación Boomedic');
                         $message->to('jazielleiz@gmail.com');
                         $message->attach($cfdi);
                     });
@@ -114,7 +114,7 @@ class selladoController extends Controller{
 
 	    $c->setAttribute('Sello', $sello);
 	    
-	    return $xdoc->saveXML();
+	    return $xdoc->saveXML('factura.xml');
 	}
 
 	public function generarXML ($nombreEmisor,$rfcEmisor,$regimenFiscal,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,Array $conceptos,$formaPago,$condicionesPago,$metodoPago) {
