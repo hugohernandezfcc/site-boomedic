@@ -84,10 +84,8 @@ class selladoController extends Controller{
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) {
                         $message->subject('Facturación Boomedic');
                         $message->to('jazielleiz@gmail.com');
-                        $message->attachData($cfdi, 'factura.xml');
-                        $message->attach($cfdi, array(
-					        'as' => 'factura.xml', 
-					    );
+                        $message->createAttachmentFromData($cfdi, 'factura.xml');
+                        //$message->file($cfdi);
                     });
             return $respuesta_timbrado['uuid'];
 		}
