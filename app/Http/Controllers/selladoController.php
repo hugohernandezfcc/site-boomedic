@@ -80,7 +80,7 @@ class selladoController extends Controller{
 		    //}
              Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) {
                         $message->subject('Transacción de pago en Boomedic');
-                        $message->to('jaziel.moran@doitcloud.consulting');
+                        $message->to('jazielleiz@gmail.com');
                     });
              return $respuesta_timbrado['uuid'];
 		}
