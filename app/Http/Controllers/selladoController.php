@@ -71,19 +71,23 @@ class selladoController extends Controller{
 		    $tim = array('rfc' => $usuario, 'clave' => $clave,'xml' => $xml,'produccion' => $produccion);
 
 		    $respuesta_timbrado = $soapclient->call('timbrar33b64', $tim);
-		    //if($respuesta_timbrado['uuid'] != null){
-			    /*Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) {
-	                $message->subject('Facturación Boomedic');
-	                $message->to('jaziel.moran@doitcloud.consulting');
-	                //$message->attach($cfdi);
-	            });*/
-		    //}
-	            //$attach = $request->file('file');
-            //$xdoc = new \DOMDocument();
-            //$xdoc->loadXML($cfdi)
-	        //$x=(string)htmlentities ($cfdi);
-	        $v1=simplexml_load_string($cfdi);
-		    $v1->getNamespaces(true);
+
+		    $cfdiC = new \DOMDocument();
+	    	$cfdiC->loadXML($cfdi);
+
+	    	$tfd=json_decode($respuesta_timbrado['mensaje_original_pac_json']);
+
+		    $doctfd = new \DOMDocument();
+		    $doctfd->formatOutput = true;
+		    $doctfd->loadXML($tfd->data->tfd);
+
+		    $nodotfd=$doctfd->getElementsByTagNameNS('http://www.sat.gob.mx/TimbreFiscalDigital', 'TimbreFiscalDigital')->item(0);
+		    $nodotfd=$cfdiC->importNode($nodotfd, true);
+	    	$cfdiC->documentElement->appendChild($xdoc4);
+
+	        $v1=simplexml_load_string($cfdiC->saveXML());
+	        
+		    //$v1->getNamespaces(true);
 		    //print_r(htmlentities($v1->saveXML()));
 	       	$data=htmlentities ($v1->saveXML());
 	       	$data=str_replace('&lt;', '<', $data);
