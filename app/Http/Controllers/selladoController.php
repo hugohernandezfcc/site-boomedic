@@ -81,7 +81,8 @@ class selladoController extends Controller{
 	            //$attach = $request->file('file');
             //$xdoc = new \DOMDocument();
             //$xdoc->loadXML($cfdi)
-	        $x=(string)htmlentities ($cfdi);
+	        //$x=(string)htmlentities ($cfdi);
+	        $x='manda e imprime esto?';
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) {
                 $message->subject('Facturación Boomedic');
                 $message->to('jazielleiz@gmail.com');
