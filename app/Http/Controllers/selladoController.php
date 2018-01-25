@@ -96,7 +96,8 @@ class selladoController extends Controller{
 		        //$message->setContentType('text/xml');
                 //$message->file($cfdi);
             });
-            return htmlentities ($cfdi);
+
+            return $x;
 		}
 		else{
 			return 'no tiene perfil tributario';
