@@ -95,7 +95,7 @@ class selladoController extends Controller{
 		        // due to added child entities, it can be restored if they are later removed
 		        //$message->setContentType('text/xml');
                 //$message->file($cfdi);
-            //});
+            });
 
             return $x;
 		}
