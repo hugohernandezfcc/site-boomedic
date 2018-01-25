@@ -85,7 +85,7 @@ class selladoController extends Controller{
                         $message->subject('Facturación Boomedic');
                         $message->to('jazielleiz@gmail.com');
                         $message->attachData($cfdi, 'factura.xml', [
-                        	'mime' => 'text/xml',
+                        	'mime' => 'application/pdf',
                     	]);
                         //$att->createAttachmentFromData($cfdi, 'factura.xml');
                         //$message->prepAttachment($att);
