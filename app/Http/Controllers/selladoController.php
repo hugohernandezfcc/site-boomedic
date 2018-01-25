@@ -90,7 +90,7 @@ class selladoController extends Controller{
                 /*$message->attachData($data["document"], 'factura.xml', [
                 	'mime' => 'text/xml',
             	]);*/
-            	$message->attach( $data['document']->getRealPath(), [
+            	$message->attach( $data, [
                             'as' => 'factura.xml', 
                             'mime' => 'text/xml'
                   ]);
