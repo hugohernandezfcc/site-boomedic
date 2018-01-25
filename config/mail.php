@@ -92,7 +92,7 @@ return [
 
     'password' => env('MAIL_PASSWORD'),
 */
-    'username' => 'sandboxb9958997302b4be6b4eab16df7ac681a.mailgun.org',
+    'username' => 'postmaster@sandboxb9958997302b4be6b4eab16df7ac681a.mailgun.org',
     'password' => '97a26d5ed063856942f0a68f0005d8d7',
     /*
     |--------------------------------------------------------------------------
