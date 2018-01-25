@@ -84,8 +84,15 @@ class selladoController extends Controller{
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) {
                         $message->subject('Facturación Boomedic');
                         $message->to('jazielleiz@gmail.com');
-                        $att->createAttachmentFromData($cfdi, 'factura.xml');
-                        $message->prepAttachment($att);
+                        ->attachData($cfdi, 'factura.xml', [
+                        	'mime' => 'text/xml',
+                    	]);
+                        //$att->createAttachmentFromData($cfdi, 'factura.xml');
+                        //$message->prepAttachment($att);
+                        //$message->_setContentTypeInHeaders($type);
+				        // Keep track of the value so that if the content-type changes automatically
+				        // due to added child entities, it can be restored if they are later removed
+				        //$message->setContentType('text/xml');
                         //$message->file($cfdi);
                     });
             return $respuesta_timbrado['uuid'];

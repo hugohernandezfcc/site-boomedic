@@ -29,7 +29,7 @@ Route::get('/perfilTributario',['as'=>'perfilTributario.edit','uses'=>'perfilTri
 
 Route::post('/infoReceta', ['as' => 'infoReceta', 'uses' => 'recetaController@guardarJson']);
 
-Route::post('/timbrado','selladoController@Timbrado');
+Route::get('/timbrado','selladoController@Timbrado');
 
 Route::get('/prueba', function () { 
 });
