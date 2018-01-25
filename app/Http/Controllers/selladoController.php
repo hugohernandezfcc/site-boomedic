@@ -83,7 +83,7 @@ class selladoController extends Controller{
 
 		    $nodotfd=$doctfd->getElementsByTagNameNS('http://www.sat.gob.mx/TimbreFiscalDigital', 'TimbreFiscalDigital')->item(0);
 		    $nodotfd=$cfdiC->importNode($nodotfd, true);
-	    	$cfdiC->documentElement->appendChild($xdoc4);
+	    	$cfdiC->documentElement->appendChild($nodotfd);
 
 	        $v1=simplexml_load_string($cfdiC->saveXML());
 	        
