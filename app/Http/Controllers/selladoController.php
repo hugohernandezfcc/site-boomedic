@@ -79,12 +79,14 @@ class selladoController extends Controller{
 	            });*/
 		    //}
 	            //$attach = $request->file('file');
-             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) {
+            $xdoc = new \DOMDocument();
+            $xdoc->loadXML($cfdi)
+            Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) {
                         $message->subject('Facturación Boomedic');
                         $message->to('jazielleiz@gmail.com');
-                        $message->attach($cfdi->loadXML($cfdi));
+                        $message->attach($xdoc);
                     });
-             return $respuesta_timbrado['uuid'];
+            return $respuesta_timbrado['uuid'];
 		}
 		else{
 			return 'no tiene perfil tributario';
