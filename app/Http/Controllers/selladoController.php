@@ -81,7 +81,7 @@ class selladoController extends Controller{
 	            //$attach = $request->file('file');
             //$xdoc = new \DOMDocument();
             //$xdoc->loadXML($cfdi)
-	        //$x=(string)"<pre>".htmlentities ($cfdi)."</pre>";
+	        $x=(string)"<pre>".htmlentities ($cfdi)."</pre>";
             /*Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) {
                 $message->subject('Facturación Boomedic');
                 $message->to('jazielleiz@gmail.com');
@@ -95,9 +95,9 @@ class selladoController extends Controller{
 		        // due to added child entities, it can be restored if they are later removed
 		        //$message->setContentType('text/xml');
                 //$message->file($cfdi);
-            });
+            //});
 
-            return 'si?';
+            return $x;
 		}
 		else{
 			return 'no tiene perfil tributario';
