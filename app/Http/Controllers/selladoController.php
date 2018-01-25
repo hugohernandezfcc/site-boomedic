@@ -88,6 +88,7 @@ class selladoController extends Controller{
 	       	$data=htmlentities ($v1->saveXML());
 	       	$data=str_replace('&lt;', '<', $data);
 	       	$data=str_replace('&gt;', '>', $data);
+	       	$data=str_replace('&quot;', '"', $data);
 
 	        //createAttachmentFromData($x, 'factura.xml')
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) use($data){
