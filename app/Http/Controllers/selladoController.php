@@ -81,11 +81,11 @@ class selladoController extends Controller{
 	            //$attach = $request->file('file');
             //$xdoc = new \DOMDocument();
             //$xdoc->loadXML($cfdi)
-	        $x=(string)"<pre>".htmlentities ($cfdi)."</pre>";
+	        //$x=(string)"<pre>".htmlentities ($cfdi)."</pre>";
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) {
                         $message->subject('Facturación Boomedic');
                         $message->to('jazielleiz@gmail.com');
-                        $message->attachData(echo($x), 'factura.xml', [
+                        $message->attachData(htmlentities ($cfdi), 'factura.xml', [
                         	'mime' => 'text/xml',
                     	]);
                         //$att->createAttachmentFromData($cfdi, 'factura.xml');
