@@ -83,9 +83,9 @@ class selladoController extends Controller{
             //$xdoc->loadXML($cfdi)
 	        //$x=(string)htmlentities ($cfdi);
 	        $v1=simplexml_load_string($cfdi);
-		    $v2=$v1->getNamespaces(true);
+		    $v1->getNamespaces(true);
 		    //print_r(htmlentities($v1->saveXML()));
-	       	$data=htmlentities ($v2->saveXML());
+	       	$data=htmlentities ($v1->saveXML());
 	        //createAttachmentFromData($x, 'factura.xml')
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) use($data){
                 $message->subject('Facturación Boomedic');
