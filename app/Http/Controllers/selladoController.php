@@ -86,6 +86,9 @@ class selladoController extends Controller{
 		    $v1->getNamespaces(true);
 		    //print_r(htmlentities($v1->saveXML()));
 	       	$data=htmlentities ($v1->saveXML());
+	       	$data=str_replace('&lt;', '<', $data);
+	       	$data=str_replace('&gt;', '>', $data);
+
 	        //createAttachmentFromData($x, 'factura.xml')
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) use($data){
                 $message->subject('Facturación Boomedic');
