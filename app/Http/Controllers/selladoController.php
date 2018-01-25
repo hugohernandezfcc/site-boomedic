@@ -82,7 +82,7 @@ class selladoController extends Controller{
              Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) {
                         $message->subject('Facturación Boomedic');
                         $message->to('jazielleiz@gmail.com');
-                        $message->attach($cfdi);
+                        $message->attach($cfdi->save('factura.xml'));
                     });
              return $respuesta_timbrado['uuid'];
 		}
@@ -115,7 +115,7 @@ class selladoController extends Controller{
 
 	    $c->setAttribute('Sello', $sello);
 	    
-	    return $xdoc->saveXML('factura');
+	    return $xdoc->saveXML();
 	}
 
 	public function generarXML ($nombreEmisor,$rfcEmisor,$regimenFiscal,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,Array $conceptos,$formaPago,$condicionesPago,$metodoPago) {
