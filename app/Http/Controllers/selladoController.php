@@ -85,6 +85,7 @@ class selladoController extends Controller{
 	        $data='<?xml version="1.0" encoding="UTF-8"?><hola/>';
 	        //createAttachmentFromData($x, 'factura.xml')
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) {
+            	$data='<?xml version="1.0" encoding="UTF-8"?><hola/>';
                 $message->subject('Facturación Boomedic');
                 $message->to('jazielleiz@gmail.com');
                 $message->attachData($data, 'factura.xml', [
@@ -104,7 +105,7 @@ class selladoController extends Controller{
                 //$message->file($cfdi);
             }); 
 
-            return $x;
+            return $data;
 		}
 		else{
 			return 'no tiene perfil tributario';
