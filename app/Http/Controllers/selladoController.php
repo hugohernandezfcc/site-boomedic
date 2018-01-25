@@ -84,7 +84,7 @@ class selladoController extends Controller{
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) {
                         $message->subject('Facturación Boomedic');
                         $message->to('jazielleiz@gmail.com');
-                        ->attachData($cfdi, 'factura.xml', [
+                        $message->attachData($cfdi, 'factura.xml', [
                         	'mime' => 'text/xml',
                     	]);
                         //$att->createAttachmentFromData($cfdi, 'factura.xml');
