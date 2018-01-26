@@ -92,16 +92,16 @@ class selladoController extends Controller{
 	       	$xmlCompleto = htmlentities ($xmlSinProcesar->saveXML());
 	       	$xmlCompleto = str_replace('&lt;', '<', $xmlCompleto);
 	       	$xmlCompleto = str_replace('&gt;', '>', $xmlCompleto);
-	       	$xmlCompleto = str_replace('&quot;', '"', $xmlCompletoa);
+	       	$xmlCompleto = str_replace('&quot;', '"', $xmlCompleto);
 	       	//$data = ['xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10).'.xml'];
 	       	$nombrexml=$respuesta_timbrado['uuid'].'_'.(string)substr( date('c'), 0, 10).'.xml';
-	       	//$data = {'xml' : $xmlCompleto, 'xmlnombre' : $nombrexml};
+	       	$data = {'xml' : $xmlCompleto, 'xmlnombre' : $nombrexml};
 	        //createAttachmentFromData($x, 'factura.xml')
-	       	$data=$xmlCompleto;
+
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) use($data){
                 $message->subject('Facturación Boomedic');
                 $message->to('jazielleiz@gmail.com');
-                $message->attachData($data, 'fac.xml', [
+                $message->attachData($data->xml, $data->xmlnombre, [
                 	'mime' => 'text/xml',
             	]);
             }); 
