@@ -98,10 +98,12 @@ class selladoController extends Controller{
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) use($data){
                 $message->subject('Facturación Boomedic');
                 $message->to($data['email']);
-                $message->attachData($data['xml'], $data['xmlnombre'], [
+                /*$message->attachData($data['xml'], $data['xmlnombre'], [
                 	'mime' => 'text/xml',
-            	]);
-            	$message->attachData('emails.factura_email',['as' => 'pdf.pdf', 'mime' => 'application/pdf']);
+            	]);*/
+            	$message->attachData('emails.factura_email', 'document.pdf', [
+                	'mime' => 'application/pdf',
+                ]);
             }); 
 
             return $respuesta_timbrado['uuid'];
