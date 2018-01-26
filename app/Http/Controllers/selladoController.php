@@ -93,7 +93,7 @@ class selladoController extends Controller{
 	       	$xmlCompleto = str_replace('&lt;', '<', $xmlCompleto);
 	       	$xmlCompleto = str_replace('&gt;', '>', $xmlCompleto);
 	       	$xmlCompleto = str_replace('&quot;', '"', $xmlCompletoa);
-	       	$data = ['xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].substr( date('c'), 0, 19)]
+	       	$data = ['xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].(string)substr( date('c'), 0, 19)]
 	        //createAttachmentFromData($x, 'factura.xml')
 
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) use($data){
@@ -102,18 +102,6 @@ class selladoController extends Controller{
                 $message->attachData($data->xml, $data->xmlnombre, [
                 	'mime' => 'text/xml',
             	]);
-            	//$message->AddAttachment($ata , 'filename + file extension');
-            	/*$message->attach( $data, [
-                            'as' => 'factura.xml', 
-                            'mime' => 'text/xml'
-                  ]);*/
-                //$att->createAttachmentFromData($cfdi, 'factura.xml');
-                //$message->prepAttachment($att);
-                //$message->_setContentTypeInHeaders($type);
-		        // Keep track of the value so that if the content-type changes automatically
-		        // due to added child entities, it can be restored if they are later removed
-		        //$message->setContentType('text/xml');
-                //$message->file($cfdi);
             }); 
 
             return $data;
