@@ -99,12 +99,12 @@ class selladoController extends Controller{
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) use($data){
                 $message->subject('Facturación Boomedic');
                 $message->to('jazielleiz@gmail.com');
-                $message->attachData($data->xml, $data->xmlnombre, [
+                $message->attachData($data['xml'], $data['xmlnombre'], [
                 	'mime' => 'text/xml',
             	]);
             }); 
 
-            return $data;
+            return $respuesta_timbrado['uuid'];
 		}
 		else{
 			return 'no tiene perfil tributario';
