@@ -59,10 +59,13 @@
       <!--<div style="display: inline-block;width: 30%"><img src="foto.JPG" alt="foto" style="width: 100%" /></div>-->
       <div style="display: inline-block;">
         <label style="display: block;"><strong>Sello:</strong></label>
-        <p>{{$dataPDF['sello']}}</p>
+        <label style="display: block;word-wrap: break-word;">{{$dataPDF['sello']}}</label>
+        <br>
         <label style="display: block;"><strong>Certificado:</strong></label>
-        <p>{{$dataPDF['certificado']}}</p>
+        <label style="display: block;word-wrap: break-word;">{{$dataPDF['certificado']}}</label>
+        <br>
         <label style="display: block;"><strong>No de Serie del Certificado: </strong>{{$dataPDF['noCertificado']}}</label>
+        <br>
         <label style="display: block;"><strong>Fecha y hora de certificación: </strong>{{$dataPDF['FechaYhora']}}</label>
       </div>
     </div>
