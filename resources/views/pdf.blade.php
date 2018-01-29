@@ -55,6 +55,18 @@
         </tbody>
       </table>
     </div>
+    <br>
+    <div style="text-align: right;">
+      <div style="display: inline-block;">
+        <label style="display: block;">Subtotal:</label>
+        <label style="display: block;">Total:</label>
+      </div>
+      <div style="display: inline-block; margin-left: 2em">
+        <label style="display: block;">{{$dataPDF['data']->subtotal}}</label>
+        <label style="display: block;">{{$dataPDF['data']->total}}</label>
+      </div>
+    </div>
+    <br>
     <div>
       <div style="width: 30%"><img src="data:image/png;base64,{{$dataPDF['img']}}" style="width: 100%" /></div>
       <div style="display: inline-block;word-wrap: break-word;">
