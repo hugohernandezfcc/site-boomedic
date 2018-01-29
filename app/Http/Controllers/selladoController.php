@@ -90,10 +90,10 @@ class selladoController extends Controller{
 
 	        $v1=simplexml_load_string($cfdi);
 	        $dataPDF = ['data' => $request,'receptor' => $perfilT, 'fecha' => substr( date('c'), 0, 10), 'sello' => $v1->attributes()->Sello, 'certificado' => $v1->attributes()->Certificado, 'noCertificado' => $v1->attributes()->NoCertificado, 'FechaYhora' => $v1->attributes()->Fecha];
-	        dd($dataPDF);
+	        //dd($dataPDF);
 		    //$v1->getNamespaces(true);
 		    //print_r(htmlentities($v1->saveXML()));
-	       	$xmlCompleto = htmlentities ($xmlSinProcesar->saveXML());
+	       	/*$xmlCompleto = htmlentities ($xmlSinProcesar->saveXML());
 	       	$xmlCompleto = str_replace('&lt;', '<', $xmlCompleto);
 	       	$xmlCompleto = str_replace('&gt;', '>', $xmlCompleto);
 	       	$xmlCompleto = str_replace('&quot;', '"', $xmlCompleto);
@@ -114,9 +114,9 @@ class selladoController extends Controller{
             	$message->attachData($data['pdf']->output(), 'Factura.pdf', [
                 	'mime' => 'application/pdf',
                 ]);
-            }); 
+            }); */
 
-            return $respuesta_timbrado['uuid'];
+            return json_encode($dataPDF);
 		}
 		else{
 			return 'no tiene perfil tributario';
