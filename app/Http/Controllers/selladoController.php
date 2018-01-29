@@ -94,10 +94,13 @@ class selladoController extends Controller{
 	       	$xmlCompleto = str_replace('&lt;', '<', $xmlCompleto);
 	       	$xmlCompleto = str_replace('&gt;', '>', $xmlCompleto);
 	       	$xmlCompleto = str_replace('&quot;', '"', $xmlCompleto);
-	       	$data = ['email' => 'jazielleiz@gmail.com','xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10).'.xml'];
 
 	       	$dataPDF = $request;
 	       	$pdf = PDF::loadView('pdf', $dataPDF);
+
+	       	$data = ['email' => 'jazielleiz@gmail.com','xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10).'.xml', 'pdf' => $pdf];
+
+	       	
 
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) use($data){
                 $message->subject('Facturación Boomedic');
@@ -105,7 +108,7 @@ class selladoController extends Controller{
                 /*$message->attachData($data['xml'], $data['xmlnombre'], [
                 	'mime' => 'text/xml',
             	]);*/
-            	$message->attachData($pdf, 'Factura.pdf', [
+            	$message->attachData($data['pdf'], 'Factura.pdf', [
                 	'mime' => 'application/pdf',
                 ]);
             }); 
