@@ -49,8 +49,8 @@
               <td>{{$dataPDF['data']->conceptos[0]['cantidad']}}</td>
               <td>{{$dataPDF['data']->conceptos[0]['claveProdServ']}}</td>
               <td>{{$dataPDF['data']->conceptos[0]['descripcion']}}</td>
-              <td>{{$dataPDF['data']->conceptos[0]['subtotal']}}</td>
-              <td>{{$dataPDF['data']->conceptos[0]['total']}}</td>
+              <td>{{$dataPDF['data']->conceptos[0]['valorUnitario']}}</td>
+              <td>{{$dataPDF['data']->conceptos[0]['importe']}}</td>
             </tr>
         </tbody>
       </table>
