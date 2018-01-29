@@ -98,7 +98,7 @@ class selladoController extends Controller{
 	       	$dataPDF = $request;
 	       	$pdf = PDF::loadView('pdf', $dataPDF);
 	       	//$pdfPath = $pdf->download(BUDGETS_DIR.'/pdf.pdf');
-	       	$data = ['email' => 'jazielleiz@gmail.com','xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10).'.xml', 'pdf' => $pdf->output()];//->download
+	       	$data = ['email' => 'jazielleiz@gmail.com','xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10).'.xml', 'pdf' => $pdf];//->download
 
 	       	
 
@@ -108,7 +108,7 @@ class selladoController extends Controller{
                 /*$message->attachData($data['xml'], $data['xmlnombre'], [
                 	'mime' => 'text/xml',
             	]);*/
-            	$message->attachData($data['pdf'], "Factura.pdf";
+            	$message->attachData($data['pdf']->output(), "Factura.pdf";
             }); 
 
             return $respuesta_timbrado['uuid'];
