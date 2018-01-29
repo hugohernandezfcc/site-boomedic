@@ -5,9 +5,8 @@
     <title></title>
   </head>
   <body>
-    <!--<label>{{$dataPDF->nombreEmisor}}</label>
+    <label>{{$dataPDF->nombreEmisor}}</label>
     <label>{{$dataPDF->rfc}}</label>
-    <label>{{$dataPDF->regimenFiscal}}</label>-->
-    hola mundo!
+    <label>{{$dataPDF->regimenFiscal}}</label>
   </body>
 </html>
