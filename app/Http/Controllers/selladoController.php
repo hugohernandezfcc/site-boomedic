@@ -93,7 +93,7 @@ class selladoController extends Controller{
 	        //dd($dataPDF);
 		    //$v1->getNamespaces(true);
 		    //print_r(htmlentities($v1->saveXML()));
-	       	/*$xmlCompleto = htmlentities ($xmlSinProcesar->saveXML());
+	       	$xmlCompleto = htmlentities ($xmlSinProcesar->saveXML());
 	       	$xmlCompleto = str_replace('&lt;', '<', $xmlCompleto);
 	       	$xmlCompleto = str_replace('&gt;', '>', $xmlCompleto);
 	       	$xmlCompleto = str_replace('&quot;', '"', $xmlCompleto);
@@ -114,7 +114,7 @@ class selladoController extends Controller{
             	$message->attachData($data['pdf']->output(), 'Factura.pdf', [
                 	'mime' => 'application/pdf',
                 ]);
-            }); */
+            }); 
 
             return json_encode($dataPDF);
 		}
