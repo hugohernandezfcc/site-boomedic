@@ -101,17 +101,17 @@ class selladoController extends Controller{
 	       	/*$dataPDF = ['data' => $request,'receptor' => $perfilT, 'fecha' => substr( date('c'), 0, 10), 'sello' => $v1->attributes()->Sello];//, 'complementos' => ['fecha' => substr( date('c'), 0, 10)]];*/
 	       	$pdf = PDF::loadView('pdf', compact('dataPDF'));
 	       	//$pdfPath = $pdf->download(BUDGETS_DIR.'/pdf.pdf');
-	       	$data = ['email' => 'jazielleiz@gmail.com','xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10).'.xml', 'pdf' => $pdf];
+	       	$data = ['email' => 'jazielleiz@gmail.com','xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10), 'pdf' => $pdf];
 
 	       	
 
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) use($data){
                 $message->subject('Facturación Boomedic');
                 $message->to($data['email']);
-                $message->attachData($data['xml'], $data['xmlnombre'], [
+                $message->attachData($data['xml'], $data['xmlnombre'].'xml', [
                 	'mime' => 'text/xml',
             	]);
-            	$message->attachData($data['pdf']->output(), 'Factura.pdf', [
+            	$message->attachData($data['pdf']->output(), $data['xmlnombre'].'pdf', [
                 	'mime' => 'application/pdf',
                 ]);
             }); 
