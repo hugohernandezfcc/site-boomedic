@@ -7,6 +7,7 @@ use nusoap_client;
 use Auth;
 use App\tributaryProfile;
 use Mail;
+use PDF;
 
 class selladoController extends Controller{
     
@@ -95,13 +96,16 @@ class selladoController extends Controller{
 	       	$xmlCompleto = str_replace('&quot;', '"', $xmlCompleto);
 	       	$data = ['email' => 'jazielleiz@gmail.com','xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10).'.xml'];
 
+	       	$dataPDF = $request;
+	       	$pdf = PDF::loadView('pdf', $dataPDF);
+
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) use($data){
                 $message->subject('Facturación Boomedic');
                 $message->to($data['email']);
                 /*$message->attachData($data['xml'], $data['xmlnombre'], [
                 	'mime' => 'text/xml',
             	]);*/
-            	$message->attachData('emails.factura_email', 'document.pdf', [
+            	$message->attachData($pdf, 'Factura.pdf', [
                 	'mime' => 'application/pdf',
                 ]);
             }); 

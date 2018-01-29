@@ -183,6 +183,8 @@ return [
         Jenssegers\Agent\AgentServiceProvider::class,
         Krowinski\LaravelXSLT\XSLTServiceProvider::class,
 
+        Barryvdh\DomPDF\ServiceProvider::class,
+
     ],
 
     /*
@@ -235,6 +237,8 @@ return [
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
+
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 
