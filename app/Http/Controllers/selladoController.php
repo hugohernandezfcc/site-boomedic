@@ -87,7 +87,7 @@ class selladoController extends Controller{
 	    	$cfdiC->documentElement->appendChild($nodotfd);
 
 	        $xmlSinProcesar = simplexml_load_string($cfdiC->saveXML());
-	        $dataPDF = ['data' => $request,'receptor' => $perfilT, 'fecha' => substr( date('c'), 0, 10), 'sello' => $xmlSinProcesar->attributes()->Sello, 'Certificado' => $xmlSinProcesar->attributes()->Certificado, 'noCertificado' => $xmlSinProcesar->attributes()->NoCertificado, 'FechaYhora' => $xmlSinProcesar->attributes()->Fecha];
+	        $dataPDF = ['data' => $request,'receptor' => $perfilT, 'fecha' => substr( date('c'), 0, 10), 'sello' => $xmlSinProcesar->attributes()->Sello, 'certificado' => $xmlSinProcesar->attributes()->Certificado, 'noCertificado' => $xmlSinProcesar->attributes()->NoCertificado, 'FechaYhora' => $xmlSinProcesar->attributes()->Fecha];
 		    //$v1->getNamespaces(true);
 		    //print_r(htmlentities($v1->saveXML()));
 	       	$xmlCompleto = htmlentities ($xmlSinProcesar->saveXML());
