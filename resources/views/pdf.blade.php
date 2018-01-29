@@ -6,7 +6,7 @@
   </head>
   <body>
     <div style="text-align: right;">
-      <label>Fecha de Factura: </label>
+      <label>Fecha de Factura: {{$dataPDF['fecha']}}</label>
     </div>
     <div>
       <h3><strong>Emisor</strong></h3>
@@ -46,11 +46,11 @@
         </thead>
         <tbody >
             <tr>
-              <td>1</td>
-              <td>01010101</td>
-              <td>Aurriculares USB Logitech</td>
-              <td>500.00</td>
-              <td>500.00</td>
+              <td>{{$dataPDF['data']->conceptos[0]->cantidad}}</td>
+              <td>{{$dataPDF['data']->conceptos[0]->claveProdServ}}</td>
+              <td>{{$dataPDF['data']->conceptos[0]->descripcion}}</td>
+              <td>{{$dataPDF['data']->conceptos[0]->subtotal}}</td>
+              <td>{{$dataPDF['data']->conceptos[0]->total}}</td>
             </tr>
         </tbody>
       </table>
