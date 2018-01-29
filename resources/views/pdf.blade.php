@@ -6,7 +6,7 @@
   </head>
   <body>
     <div style="text-align: right;">
-      <label>Fecha de Factura: {{$dataPDF['complementos']->['fecha']}}</label>
+      <label>Fecha de Factura: </label>
     </div>
     <div>
       <h3><strong>Emisor</strong></h1>
@@ -16,9 +16,9 @@
         <label style="display: block;">Regimen Fiscal:</label>
       </div>
       <div style="display: inline-block; margin-left: 2em">
-        <label style="display: block;">{{$dataPDF['data']->nombreEmisor}}</label>
-        <label style="display: block;">{{$dataPDF['data']->rfcEmisor}}</label>
-        <label style="display: block;">{{$dataPDF['data']->regimenFiscal}}</label>
+        <label style="display: block;"></label>
+        <label style="display: block;"></label>
+        <label style="display: block;"></label>
       </div>
   </div>
     <div>
@@ -28,8 +28,8 @@
         <label style="display: block;">RFC:</label>
       </div>
       <div style="display: inline-block; margin-left: 2em">
-        <label style="display: block;">{{$dataPDF['receptor']->company_legalName}}</label>
-        <label style="display: block;">{{$dataPDF['receptor']->rfc}}</label>
+        <label style="display: block;"></label>
+        <label style="display: block;"></label>
       </div>
     </div>
     <div style="width: 100%">
