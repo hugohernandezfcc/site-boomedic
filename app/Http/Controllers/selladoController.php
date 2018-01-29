@@ -99,7 +99,7 @@ class selladoController extends Controller{
 	       	$xmlCompleto = str_replace('&quot;', '"', $xmlCompleto);
 
 	       	$dataPDF = ['data' => $request,'receptor' => $perfilT, 'fecha' => substr( date('c'), 0, 10), 'sello' => $v1->attributes()->Sello];//, 'complementos' => ['fecha' => substr( date('c'), 0, 10)]];
-	       	$pdf = PDF::loadView('pdf', compact('dataPDF'));
+	       	/*$pdf = PDF::loadView('pdf', compact('dataPDF'));
 	       	//$pdfPath = $pdf->download(BUDGETS_DIR.'/pdf.pdf');
 	       	$data = ['email' => 'jazielleiz@gmail.com','xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10).'.xml', 'pdf' => $pdf];
 
@@ -114,9 +114,9 @@ class selladoController extends Controller{
             	$message->attachData($data['pdf']->output(), 'Factura.pdf', [
                 	'mime' => 'application/pdf',
                 ]);
-            }); 
+            }); */
 
-            return json_encode($dataPDF);
+            return $dataPDF['noCertificado'];
 		}
 		else{
 			return 'no tiene perfil tributario';
