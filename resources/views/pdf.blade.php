@@ -56,7 +56,7 @@
       </table>
     </div>
     <div>
-      <!--<div style="display: inline-block;width: 30%"><img src="foto.JPG" alt="foto" style="width: 100%" /></div>-->
+      <div style="display: inline-block;width: 30%"><img src="data:image/png;base64,{{$dataPDF['img']}}" alt="foto" style="width: 100%" /></div>
       <div style="display: inline-block;">
         <label style="display: block;"><strong>Sello:</strong></label>
         <label style="display: block;word-wrap: break-word;">{{$dataPDF['sello']}}</label>
