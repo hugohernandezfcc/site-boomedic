@@ -9,20 +9,20 @@
       <label>Fecha de Factura: </label>
     </div>
     <div>
-      <h3><strong>Emisor</strong></h1>
+      <h3 style="display: block;"><strong>Emisor</strong></h1>
       <div style="display: inline-block;">
         <label style="display: block;">Nombre:</label>
         <label style="display: block;">RFC:</label>
         <label style="display: block;">Regimen Fiscal:</label>
       </div>
       <div style="display: inline-block; margin-left: 2em">
-        <label style="display: block;"></label>
-        <label style="display: block;"></label>
-        <label style="display: block;"></label>
+        <label style="display: block;">{{$dataPDF['data']->nombreEmisor}}</label>
+        <label style="display: block;">{{$dataPDF['data']->rfcEmisor}}</label>
+        <label style="display: block;">{{$dataPDF['data']->regimenFiscal}}</label>
       </div>
   </div>
     <div>
-      <h3><strong>Receptor</strong></h1>
+      <h3 style="display: block;"><strong>Receptor</strong></h1>
       <div style="display: inline-block;">
         <label style="display: block;">Nombre:</label>
         <label style="display: block;">RFC:</label>
