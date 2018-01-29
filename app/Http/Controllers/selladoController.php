@@ -96,7 +96,7 @@ class selladoController extends Controller{
 	       	$xmlCompleto = str_replace('&quot;', '"', $xmlCompleto);
 
 	       	$dataPDF = $request;
-	       	$pdf = PDF::loadView('pdf', $dataPDF);
+	       	$pdf = PDF::loadView('pdf', compact('dataPDF'));
 	       	//$pdfPath = $pdf->download(BUDGETS_DIR.'/pdf.pdf');
 	       	$data = ['email' => 'jazielleiz@gmail.com','xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10).'.xml', 'pdf' => $pdf];
 
