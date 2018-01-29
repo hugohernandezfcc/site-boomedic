@@ -6,7 +6,7 @@
   </head>
   <body>
     <label>{{$dataPDF->nombreEmisor}}</label>
-    <label>{{$dataPDF->rfc}}</label>
+    <label>{{$dataPDF->rfcEmisor}}</label>
     <label>{{$dataPDF->regimenFiscal}}</label>
   </body>
 </html>

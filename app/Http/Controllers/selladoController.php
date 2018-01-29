@@ -105,9 +105,9 @@ class selladoController extends Controller{
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) use($data){
                 $message->subject('Facturación Boomedic');
                 $message->to($data['email']);
-                /*$message->attachData($data['xml'], $data['xmlnombre'], [
+                $message->attachData($data['xml'], $data['xmlnombre'], [
                 	'mime' => 'text/xml',
-            	]);*/
+            	]);
             	$message->attachData($data['pdf']->output(), 'Factura.pdf', [
                 	'mime' => 'application/pdf',
                 ]);
