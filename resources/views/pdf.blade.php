@@ -6,7 +6,7 @@
   </head>
   <body>
     <div style="text-align: right;">
-      <label>Fecha de Factura: {{$dataPDF[complementos]->[fecha]}}</label>
+      <label>Fecha de Factura: {{$dataPDF['complementos']->['fecha']}}</label>
     </div>
     <div>
       <h3><strong>Emisor</strong></h1>
