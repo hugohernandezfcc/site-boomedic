@@ -191,6 +191,7 @@
     var montoM;
     var codigoPostalM;
     function datosmodal(monto,nombre,email,especialidad,latitude,longitude,valor5,photo,codigoPostal) {
+      $("#alert").empty();
       montoM = monto;
       codigoPostalM = codigoPostal;
       document.getElementById("idlabelMonto").innerHTML = monto;
