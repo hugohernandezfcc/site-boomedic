@@ -71,17 +71,17 @@
     </div>
     <br>
     <div>
-      <div style="width: 20%"><img src="data:image/png;base64,{{$dataPDF['img']}}" style="width: 100%" /></div>
+      <div style="width: 20%;display: inline-block;"><img src="data:image/png;base64,{{$dataPDF['img']}}" style="width: 100%" /></div>
       <div style="display: inline-block;word-wrap: break-word;width: 70%">
         <label style="display: block;"><strong>Sello CFD:</strong></label>
-        <label style="display: block;word-wrap: break-word;">{{$dataPDF['selloCFD']}}</label>
+        <label style="display: block;word-wrap: break-word;font-size: 10px;">{{$dataPDF['selloCFD']}}</label>
         <br>
         <label style="display: block;"><strong>Sello SAT:</strong></label>
-        <label style="display: block;word-wrap: break-word;">{{$dataPDF['selloSAT']}}</label>
+        <label style="display: block;word-wrap: break-word;font-size: 10px;">{{$dataPDF['selloSAT']}}</label>
         <br
-        <label style="display: block;"><strong>No de Serie del Certificado SAT: </strong>{{$dataPDF['noCertificado']}}</label>
+        <label style="display: block;"><strong>No de Serie del Certificado SAT: </strong><span style="font-size: 10px">{{$dataPDF['noCertificado']}}</span></label>
         <br>
-        <label style="display: block;"><strong>Fecha y hora de certificación: </strong>{{$dataPDF['FechaYhora']}}</label>
+        <label style="display: block;"><strong>Fecha y hora de certificación: </strong><span style="font-size: 10px">{{$dataPDF['FechaYhora']}}</span></label>
       </div>
     </div>
     <div style="height: 50px;right: -2.7em;left: -2.7em; bottom: -2.7em; position: fixed;">
