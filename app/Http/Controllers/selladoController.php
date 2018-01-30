@@ -79,6 +79,7 @@ class selladoController extends Controller{
 	    	$cfdiC->loadXML($cfdi);
 
 	    	$tfd =json_decode($respuesta_timbrado['mensaje_original_pac_json']);
+	    	$tfd2 = simplexml_load_string($tfd->data->tfd);
 
 		    $doctfd = new \DOMDocument();
 		    $doctfd->formatOutput = true;
@@ -91,7 +92,7 @@ class selladoController extends Controller{
 	        $xmlSinProcesar = simplexml_load_string($cfdiC->saveXML());
 
 	        $v1=simplexml_load_string($cfdi);
-	        $dataPDF = ['data' => $request,'receptor' => $perfilT, 'fecha' => substr( date('c'), 0, 10), 'sello' => $v1->attributes()->Sello, 'certificado' => $v1->attributes()->Certificado, 'noCertificado' => $v1->attributes()->NoCertificado, 'FechaYhora' => $v1->attributes()->Fecha, 'img' => $respuesta_timbrado['png']];
+	        $dataPDF = ['data' => $request,'receptor' => $perfilT, 'fecha' => substr( date('c'), 0, 10), 'selloCFD' => $tfd2->attributes()->SelloCFD, 'selloSAT' => $tfd2->attributes()->SelloSAT, 'noCertificado' => $tfd2->attributes()->NoCertificadoSAT, 'FechaYhora' => $tfd2->attributes()->FechaTimbrado, 'img' => $respuesta_timbrado['png']];
 
 	       	$xmlCompleto = htmlentities ($xmlSinProcesar->saveXML());
 	       	$xmlCompleto = str_replace('&lt;', '<', $xmlCompleto);
