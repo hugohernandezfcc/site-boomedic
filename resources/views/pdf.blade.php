@@ -5,7 +5,11 @@
     <title></title>
     <style type="text/css">
       .header, .footer{
-        position: absolute;
+        position: fixed;
+        background-image: url('img/footer.png');
+        background-size: 100% 100%;
+        left: 0;
+        right: 0;
       }
       .footer{
         bottom:0;
