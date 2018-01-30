@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <style type="text/css">
-      header{ position: fixed; left: 0px; top: 0px; right: 0px; height: 150px; text-align: center; background-image: url('img/footer.png'); background-size: 100% 100%;}
-      footer{position: fixed; left: 0px; bottom: 0px; right: 0px; height: 150px; text-align: center; background-image: url('img/footer.png'); background-size: 100% 100%;}
+      header{ position: fixed; margin-left: 0px; margin-top: 0px; margin-right: 0px; height: 150px; text-align: center; background-image: url('img/footer.png'); background-size: 100% 100%;}
+      footer{position: fixed; margin-left: 0px; margin-bottom: 0px; margin-right: 0px; height: 150px; text-align: center; background-image: url('img/footer.png'); background-size: 100% 100%;}
     </style>
   </head>
   <body>
@@ -78,9 +78,9 @@
         <label style="display: block;"><strong>Sello:</strong></label>
         <label style="display: block;word-wrap: break-word;">{{$dataPDF['sello']}}</label>
         <br>
-        <label style="display: block;"><strong>Certificado:</strong></label>
+        <!--<label style="display: block;"><strong>Certificado:</strong></label>
         <label style="display: block;word-wrap: break-word;">{{$dataPDF['certificado']}}</label>
-        <br>
+        <br>-->
         <label style="display: block;"><strong>No de Serie del Certificado: </strong>{{$dataPDF['noCertificado']}}</label>
         <br>
         <label style="display: block;"><strong>Fecha y hora de certificación: </strong>{{$dataPDF['FechaYhora']}}</label>
