@@ -3,26 +3,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-    <style type="text/css">
-      .header, .footer{
-        position: fixed;
-        background-image: url('img/footer.png');
-        background-size: 100% 100%;
-        left: 0;
-        right: 0;
-      }
-      .footer{
-        bottom:0;
-        height: 40px;
-      }
-      .header{
-        top: 0;
-        height: 40px;
-      } 
-    </style>
   </head>
   <body>
-    <div class="header"></div>
+    <div style="background-image: url('img/footer.png');background-size: 100% 100%;height: 40px;margin-right: 0px;margin-left: 0px;margin-top: 0px;"></div>
     <div style="text-align: right;">
       <label>Fecha de Factura: {{$dataPDF['fecha']}}</label>
     </div>
@@ -74,7 +57,7 @@
       </table>
     </div>
     <br>
-    <div style="text-align: right;">
+    <div style="text-align: right;margin-right: 6em">
       <div style="display: inline-block;margin-right: 2em">
         <label style="display: block;">Subtotal:</label>
         <label style="display: block;">Total:</label>
@@ -99,6 +82,6 @@
         <label style="display: block;"><strong>Fecha y hora de certificación: </strong>{{$dataPDF['FechaYhora']}}</label>
       </div>
     </div>
-    <div class="footer"></div>
+    <div style="background-image: url('img/footer.png');background-size: 100% 100%;height: 40px;margin-right: 0px;margin-left: 0px;margin-bottom: 0px;"></div>
   </body>
 </html>
