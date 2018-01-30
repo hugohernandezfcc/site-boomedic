@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body>
-    <div style="background-image: url('img/footer.png');background-size: 100% 100%;height: 40px;width: 100%; position: fixed;"></div>
+    <div style="background-image: url('img/footer.png');background-size: 100% 100%;height: 40px;width: 100%; position: fixed;">hola</div>
     <div style="text-align: right;">
       <label>Fecha de Factura: {{$dataPDF['fecha']}}</label>
     </div>
@@ -82,6 +82,6 @@
         <label style="display: block;"><strong>Fecha y hora de certificación: </strong>{{$dataPDF['FechaYhora']}}</label>
       </div>
     </div>
-    <div style="background-image: url('img/footer.png');background-size: 100% 100%;height: 40px;width: 100%; position: fixed;"></div>
+    <div style="background-image: url('img/footer.png');background-size: 100% 100%;height: 40px;width: 100%;">Hola</div>
   </body>
 </html>
