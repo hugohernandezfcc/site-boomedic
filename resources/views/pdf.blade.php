@@ -3,8 +3,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <style type="text/css">
+      .header{ position: fixed; left: 0px; top: 0px; right: 0px; height: 150px; text-align: center; background-image: url('img/footer.png'); background-size: 100% 100%;}
+      .footer{position: fixed; left: 0px; bottom: 0px; right: 0px; height: 150px; text-align: center; background-image: url('img/footer.png'); background-size: 100% 100%;}
+    </style>
   </head>
   <body>
+    <header ></header>
     <div style="text-align: right;">
       <label>Fecha de Factura: {{$dataPDF['fecha']}}</label>
     </div>
@@ -56,12 +61,12 @@
       </table>
     </div>
     <br>
-    <div style="text-align: right;">
-      <div style="display: inline-block;">
+    <div style="text-align: right;margin-right: 4em;">
+      <div style="display: inline-block;margin-right: 2em">
         <label style="display: block;">Subtotal:</label>
         <label style="display: block;">Total:</label>
       </div>
-      <div style="display: inline-block; margin-left: 2em">
+      <div style="display: inline-block; ">
         <label style="display: block;">{{$dataPDF['data']->subtotal}}</label>
         <label style="display: block;">{{$dataPDF['data']->total}}</label>
       </div>
@@ -81,5 +86,6 @@
         <label style="display: block;"><strong>Fecha y hora de certificación: </strong>{{$dataPDF['FechaYhora']}}</label>
       </div>
     </div>
+    <footer></footer>
   </body>
 </html>

@@ -90,17 +90,14 @@ class selladoController extends Controller{
 
 	        $v1=simplexml_load_string($cfdi);
 	        $dataPDF = ['data' => $request,'receptor' => $perfilT, 'fecha' => substr( date('c'), 0, 10), 'sello' => $v1->attributes()->Sello, 'certificado' => $v1->attributes()->Certificado, 'noCertificado' => $v1->attributes()->NoCertificado, 'FechaYhora' => $v1->attributes()->Fecha, 'img' => $respuesta_timbrado['png']];
-	        //dd($dataPDF);
-		    //$v1->getNamespaces(true);
-		    //print_r(htmlentities($v1->saveXML()));
+
 	       	$xmlCompleto = htmlentities ($xmlSinProcesar->saveXML());
 	       	$xmlCompleto = str_replace('&lt;', '<', $xmlCompleto);
 	       	$xmlCompleto = str_replace('&gt;', '>', $xmlCompleto);
 	       	$xmlCompleto = str_replace('&quot;', '"', $xmlCompleto);
 
-	       	/*$dataPDF = ['data' => $request,'receptor' => $perfilT, 'fecha' => substr( date('c'), 0, 10), 'sello' => $v1->attributes()->Sello];//, 'complementos' => ['fecha' => substr( date('c'), 0, 10)]];*/
 	       	$pdf = PDF::loadView('pdf', compact('dataPDF'));
-	       	//$pdfPath = $pdf->download(BUDGETS_DIR.'/pdf.pdf');
+	       	
 	       	$data = ['email' => 'jazielleiz@gmail.com','xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10), 'pdf' => $pdf];
 
 	       	
