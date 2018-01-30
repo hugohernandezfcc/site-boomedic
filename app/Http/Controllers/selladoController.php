@@ -8,6 +8,7 @@ use Auth;
 use App\tributaryProfile;
 use Mail;
 use PDF;
+use App\User;
 
 class selladoController extends Controller{
     
@@ -42,6 +43,7 @@ class selladoController extends Controller{
 	   	*/
 
 	   	$perfilT = tributaryProfile::where('user',Auth::id())->first();
+	   	$user = user::find(Auth::id());
 
 	   	if($perfilT!= null){
 		  	/**
@@ -98,7 +100,7 @@ class selladoController extends Controller{
 
 	       	$pdf = PDF::loadView('pdf', compact('dataPDF'));
 	       	
-	       	$data = ['email' => 'jazielleiz@gmail.com','xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10), 'pdf' => $pdf];
+	       	$data = ['email' => $user->email,'xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10), 'pdf' => $pdf];
 
 	       	
 

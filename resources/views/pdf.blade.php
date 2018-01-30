@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <style type="text/css">
-      .header{ position: fixed; left: 0px; top: 0px; right: 0px; height: 150px; text-align: center; background-image: url('img/footer.png'); background-size: 100% 100%;}
-      .footer{position: fixed; left: 0px; bottom: 0px; right: 0px; height: 150px; text-align: center; background-image: url('img/footer.png'); background-size: 100% 100%;}
+      header{ position: fixed; left: 0px; top: 0px; right: 0px; height: 150px; text-align: center; background-image: url('img/footer.png'); background-size: 100% 100%;}
+      footer{position: fixed; left: 0px; bottom: 0px; right: 0px; height: 150px; text-align: center; background-image: url('img/footer.png'); background-size: 100% 100%;}
     </style>
   </head>
   <body>
