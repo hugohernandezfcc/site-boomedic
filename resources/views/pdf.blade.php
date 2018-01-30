@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
   </head>
-  <body>
-    <header style="height: 40px;margin-right: -3em;margin-left: -3em;"><img src="img/footer.png" style="width: 100%;height: 100%" /></header>
+  <body style="height: 100%">
+    <header style="height: 40px;margin-right: -3em;margin-left: -3em;margin-top: -2em;"><img src="img/footer.png" style="width: 100%;height: 100%" /></header>
     <div style="text-align: right;">
       <label>Fecha de Factura: {{$dataPDF['fecha']}}</label>
     </div>
@@ -82,6 +82,6 @@
         <label style="display: block;"><strong>Fecha y hora de certificación: </strong>{{$dataPDF['FechaYhora']}}</label>
       </div>
     </div>
-    <footer style="height: 40px;margin-right: -3em;margin-left: -3em;margin-bottom: 0em;"><img src="img/footer.png" style="width: 100%;height: 100%" /></footer>
+    <footer style="height: 40px;margin-right: -3em;margin-left: -3em;margin-bottom: 0px;"><img src="img/footer.png" style="width: 100%;height: 100%" /></footer>
   </body>
 </html>
