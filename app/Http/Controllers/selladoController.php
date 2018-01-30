@@ -103,7 +103,7 @@ class selladoController extends Controller{
 	       	$data = ['email' => $user->email,'xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10), 'pdf' => $pdf];
 
 	       	
-	       	/*
+	       	
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) use($data){
                 $message->subject('Facturación Boomedic');
                 $message->to($data['email']);
@@ -113,7 +113,7 @@ class selladoController extends Controller{
             	$message->attachData($data['pdf']->output(), $data['xmlnombre'].'pdf', [
                 	'mime' => 'application/pdf',
                 ]);
-            }); */
+            }); 
 
             return $respuesta_timbrado['uuid'];
 		}
