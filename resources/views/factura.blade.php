@@ -223,7 +223,7 @@
       }
     };
     function timbrado(){
-      var conceptos = [{'claveProdServ' : '01010101', 'cantidad' : 1, 'claveUnidad' : 'H87', 'tipoUnidad' : 'Pieza', 'descripcion' : 'Consulta en el área de '+document.getElementById("especialidad").value, 'valorUnitario' : montoM, 'importe' : montoM}];
+      var conceptos = [{'claveProdServ' : '01010101', 'cantidad' : 1, 'claveUnidad' : 'H87', 'tipoUnidad' : 'Pieza', 'descripcion' : 'Consulta en el área de '+$("#especialidad").text(), 'valorUnitario' : montoM, 'importe' : montoM}];
       var dat = {'nombreEmisor' : 'EMISOR PRUEBA SA DE CV', 'rfcEmisor' : 'LAN7008173R5', 'regimenFiscal' : '601', 'subtotal' : montoM, 'total' : montoM, 'lugarExpedicion' : codigoPostalM, 'formaPago' : '03', 'condicionesPago' : 'CONTADO', 'metodoPago' : 'PUE', 'conceptos' : conceptos};
 
       document.getElementById("carga2").className = "overlay";
