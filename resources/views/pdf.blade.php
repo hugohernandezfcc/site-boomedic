@@ -5,7 +5,7 @@
     <title></title>
   </head>
   <body style="">
-    <div style="height: 10px;right: -2.7em;left: -2.8em; top: -2.8em; position: fixed;">
+    <div style="height: 10px;right: -2.8em;left: -2.8em; top: -2.8em; position: fixed;">
       <img src="img/header.png" style="width: 100%;height: 100%" />
     </div>
     <div style="text-align: right;">
@@ -89,7 +89,7 @@
         <label style="display: block;"><strong>Fecha y hora de Timbrado: </strong><span style="">{{$dataPDF['FechaYhora']}}</span></label>
       </div>
     </div>
-    <div style="height: 50px;right: -2.7em;left: -2.7em; bottom: -2.7em; position: fixed;">
+    <div style="height: 150px;right: -2.8em;left: -2.8em; bottom: -2.8em; position: fixed;">
       <img src="img/footer.png" style="width: 100%;height: 100%" />
     </div>
   </body>
