@@ -2,6 +2,9 @@
 
 @section('adminlte_css')
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/css/auth.css') }}">
+    <style type="text/css">
+    body{background-image: url('../img/fondo-03.jpg');background-size:  auto 100%;}
+</style>
     @yield('css')
 @stop
 
