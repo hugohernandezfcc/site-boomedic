@@ -5,9 +5,9 @@
     <title></title>
   </head>
   <body style="">
-    <!--<div style="height: 40px;right: -2em;left: -2em; top: -2.5em; position: fixed;">
-      <img src="img/footer.png" style="width: 100%;height: 100%" />
-    </div>-->
+    <div style="right: -2.7em;left: -2.7em; top: -2.7em; position: fixed;">
+      <img src="img/header.png" style="" />
+    </div>
     <div style="text-align: right;">
       <label>Fecha de Factura: {{$dataPDF['fecha']}}</label>
     </div>
@@ -84,13 +84,13 @@
       </div>
       <br>
       <div>
-        <label style="display: block;"><strong>No de Serie del Certificado SAT: </strong><span style="font-size: 11px">{{$dataPDF['noCertificado']}}</span></label>
+        <label style="display: block;"><strong>No de Serie del Certificado SAT: </strong><span style="">{{$dataPDF['noCertificado']}}</span></label>
         <br>
-        <label style="display: block;"><strong>Fecha y hora de Timbrado: </strong><span style="font-size: 11px">{{$dataPDF['FechaYhora']}}</span></label>
+        <label style="display: block;"><strong>Fecha y hora de Timbrado: </strong><span style="">{{$dataPDF['FechaYhora']}}</span></label>
       </div>
     </div>
-    <div style="height: 50px;right: -2.7em;left: -2.7em; bottom: -2.7em; position: fixed;">
-      <img src="img/footer.png" style="width: 100%;height: 100%" />
+    <div style="right: -2.7em;left: -2.7em; bottom: -2.7em; position: fixed;">
+      <img src="img/footer.png" style="" />
     </div>
   </body>
 </html>
