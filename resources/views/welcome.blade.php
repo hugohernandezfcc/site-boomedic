@@ -183,14 +183,14 @@
       <div class="container">
         <h2>@lang('main.text_contact2')</h2>
         <ul class="list-inline list-social">
-          <li class="list-inline-item social-twitter">
-            <a href="#">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
           <li class="list-inline-item social-facebook">
             <a href="#">
               <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li class="list-inline-item social-twitter">
+            <a href="#">
+              <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li class="list-inline-item social-google-plus">
