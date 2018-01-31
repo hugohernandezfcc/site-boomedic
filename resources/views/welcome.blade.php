@@ -179,7 +179,7 @@
       <div class="overlay"></div>
     </section>
 
-    <section class="contact " id="contact" style="background-image: url('img/fondo-04.jpg');background-size: 100% auto;bottom: 0; color: white;">
+    <section class="contact " id="contact" style="bottom: 0;background-image: url('img/fondo-04.jpg');background-size: 100% auto; color: white;">
       <div class="container">
         <h2>@lang('main.text_contact2')</h2>
         <ul class="list-inline list-social">
