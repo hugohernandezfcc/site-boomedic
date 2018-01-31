@@ -58,7 +58,7 @@ class selladoController extends Controller{
 		    /**
 			* [NO|SI] para declarar si se está en producción o no.
 		    */
-		    $produccion ='NO';
+		    $produccion ='NO'; 
 		    
 		    /**
 			* Toma un servidor al azar.
