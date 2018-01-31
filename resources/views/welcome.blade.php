@@ -203,7 +203,7 @@
     </section>
 
     <!-- Receta médica -->
-    <section class="contact " id="receta" style="width: 100%; color: white;-moz-transform: scaleY(-1);-o-transform: scaleY(-1);-webkit-transform: scaleY(-1);transform: scaleY(-1);filter: FlipV;background-image: url('img/fondo-04.jpg');background-size: 100% auto;bottom: 0;">
+    <section class="contact " id="receta" style="width: 100%; color: white;-moz-transform: scaleY(-1);-o-transform: scaleY(-1);-webkit-transform: scaleY(-1);transform: scaleY(-1);filter: FlipV;background-image: url('img/fondo-04.jpg');background-size: 100% auto;background-position: bottom;">
       <div class="container" style="-moz-transform: scaleY(-1);-o-transform: scaleY(-1);-webkit-transform: scaleY(-1);transform: scaleY(-1);filter: FlipV;">
             <a href="/receta" class="btn btn-outline btn-xl js-scroll-trigger" >@lang('main.prescription')</a>
         </div>
