@@ -76,7 +76,7 @@
       </div>
     </nav>
 
-    <header class="masthead" style="background-image: url('img/fondo-03.jpg');width: 100%;background-size: auto 100%;">
+    <header class="masthead" style="background-image: url('img/fondo-03.jpg');width: 100%;background-size: auto 125%;">
       <div class="container h-100">
         <div class="row h-100">
           <div class="col-lg-7 my-auto">
@@ -203,7 +203,7 @@
     </section>
 
     <!-- Receta médica -->
-    <section class="contact " id="receta" style="background-image: url('img/fondo-04.jpg');background-size: auto 100% width: 100%; color: white;">
+    <section class="contact " id="receta" style="background-image: url('img/fondo-04.jpg');background-size: auto 100% width: 100%; color: white;-moz-transform: scaleY(-1);-o-transform: scaleY(-1);-webkit-transform: scaleY(-1);transform: scaleY(-1);filter: FlipV;">
       <div class="container">
             <a href="/receta" class="btn btn-outline btn-xl js-scroll-trigger" >@lang('main.prescription')</a>
         
