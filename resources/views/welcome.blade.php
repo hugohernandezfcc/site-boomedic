@@ -179,7 +179,7 @@
       <div class="overlay"></div>
     </section>
 
-    <section class="contact " id="contact" style="background-image: url('img/fondo-04.jpg');background-size: 100% auto; color: white;">
+    <section class="contact " id="contact" style="background-image: url('img/fondo-04.jpg');background-size: 100% auto;bottom: 0; color: white;">
       <div class="container">
         <h2>@lang('main.text_contact2')</h2>
         <ul class="list-inline list-social">
@@ -203,10 +203,10 @@
     </section>
 
     <!-- Receta médica -->
-    <section class="contact " id="receta" style="width: 100%; color: white;-moz-transform: scaleY(-1);-o-transform: scaleY(-1);-webkit-transform: scaleY(-1);transform: scaleY(-1);filter: FlipV;background-image: url('img/fondo-04.jpg');background-size: 100% auto;-moz-transform: scaleY(-1);-o-transform: scaleY(-1);-webkit-transform: scaleY(-1);transform: scaleY(-1);filter: FlipV;">
-      <div class="container">
+    <section class="contact " id="receta" style="width: 100%; color: white;-moz-transform: scaleY(-1);-o-transform: scaleY(-1);-webkit-transform: scaleY(-1);transform: scaleY(-1);filter: FlipV;background-image: url('img/fondo-04.jpg');background-size: 100% auto;bottom: 0;">
+      <div class="container" style="-moz-transform: scaleY(-1);-o-transform: scaleY(-1);-webkit-transform: scaleY(-1);transform: scaleY(-1);filter: FlipV;">
             <a href="/receta" class="btn btn-outline btn-xl js-scroll-trigger" >@lang('main.prescription')</a>
-        
+        </div>
     </section>
 
     <footer>
