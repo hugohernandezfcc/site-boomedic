@@ -36,6 +36,14 @@
           background-color: #696969; 
           border-color: #444; 
         }
+        .contacto{
+          background-color: black;
+          color: white;
+        }
+        .contacto:hover{
+          background-color: white;
+          color: black;
+        }
       </style>
       <title>Boomedic</title>
   </head>
@@ -181,8 +189,8 @@
 
     <section class="contact " id="contact" style="background-image: url('img/fondo-04.jpg');background-size: cover; color: white; background-position: bottom;">
       <div class="container">
-        <h2>@lang('main.text_contact2')</h2>
-        <ul class="list-inline list-social">
+        <h2 style="filter: drop-shadow(5px 5px 10px #444);color: black;">@lang('main.text_contact2')</h2>
+        <ul class="list-inline list-social" style="filter: drop-shadow(5px 5px 10px #444)">
           <li class="list-inline-item social-facebook">
             <a href="#">
               <i class="fa fa-facebook"></i>
@@ -205,7 +213,7 @@
     <!-- Receta médica -->
     <section class="contact " id="receta" style="width: 100%; color: white;-moz-transform: scaleY(-1);-o-transform: scaleY(-1);-webkit-transform: scaleY(-1);transform: scaleY(-1);filter: FlipV;background-image: url('img/fondo-04.jpg');background-size: cover;background-position: bottom;">
       <div class="container" style="-moz-transform: scaleY(-1);-o-transform: scaleY(-1);-webkit-transform: scaleY(-1);transform: scaleY(-1);filter: FlipV;">
-            <a href="/receta" class="btn btn-outline btn-xl js-scroll-trigger" >@lang('main.prescription')</a>
+            <a href="/receta" class="btn btn-xl contacto" style="">@lang('main.prescription')</a>
         </div>
     </section>
 
