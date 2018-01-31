@@ -1,10 +1,9 @@
 @extends('adminlte::master')
-
+<style type="text/css">
+    body{background-image: url('../img/fondo-03.jpg');background-size: cover;}
+</style>
 @section('adminlte_css')
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/css/auth.css') }}">
-    <style type="text/css">
-    body{background-image: url('../img/fondo-03.jpg');background-size: cover;} 
-</style>
     @yield('css')
 @stop
 
@@ -54,7 +53,7 @@
                     @endif
                 </div>
                 <button type="submit"
-                        class="btn btn-secundary btn-block btn-flat"
+                        class="btn btn-secondary btn-block btn-flat"
                 >{{ trans('adminlte::adminlte.reset_password') }}</button>
             </form>
         </div>
