@@ -13,7 +13,7 @@
 
 
 @section('body')
-    <div class="login-box">
+    <div class="login-box" style="background:green;">
         <div class="login-logo">
             <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" style="font-family:Catamaran,Helvetica,Arial,sans-serif;color: white;">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
         </div>
