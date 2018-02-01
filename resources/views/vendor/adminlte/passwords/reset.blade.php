@@ -2,7 +2,7 @@
 
 <style type="text/css">
     body{
-        border-color: yellow;
+        background-color: yellow;
     }
 </style>
 
