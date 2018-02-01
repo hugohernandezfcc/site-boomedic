@@ -2,7 +2,7 @@
 
 <style type="text/css">
     body{
-        background-image: url('img/fondo-3.jpg');
+        background-image: url('../img/fondo-3.jpg');
     }
 </style>
 
