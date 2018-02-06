@@ -13,13 +13,21 @@
 use Illuminate\Http\Request;
 use App\recipe_test;
 
-Route::get('medicines/{folio?}', ['as' => 'recetaa', 'uses' => 'recetaController@show']);
-
-Route::get('receta','recetaController@index');
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('medicines/{folio?}', ['as' => 'recetaa', 'uses' => 'recetaController@show']);
+
+Route::get('receta','recetaController@index');
+
+Route::post('/infoReceta', ['as' => 'infoReceta', 'uses' => 'recetaController@guardarJson']);
+
+Route::get('/prueba', function () { 
+});
+
+Auth::routes();
 
 Route::get('factura',['as'=>'factura','uses'=>'facturaController@fac']);
 
@@ -27,14 +35,7 @@ Route::post('/update/{id}','perfilTributarioController@update');
 
 Route::get('/perfilTributario',['as'=>'perfilTributario.edit','uses'=>'perfilTributarioController@edit']);
 
-Route::post('/infoReceta', ['as' => 'infoReceta', 'uses' => 'recetaController@guardarJson']);
-
 Route::get('/timbrado','selladoController@Timbrado');
-
-Route::get('/prueba', function () { 
-});
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
