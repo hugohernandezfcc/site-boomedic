@@ -211,14 +211,15 @@
       }
     };
     function calificar(){
-      var cont = 0;
+      var calificacion = 0;
       for (var i = 1; i <= 5; i++) {
         var idcheck = "radio"+i;
         if(document.getElementById(idcheck).checked == 1){
-          cont++;
+          calificacion = i;
+          break;
         }
       }
-      console.log(cont);
+      console.log(calificacion);
     };
     function timbrado(){
       var conceptos = [{'claveProdServ' : '01010101', 'cantidad' : 1, 'claveUnidad' : 'H87', 'tipoUnidad' : 'Pieza', 'descripcion' : 'Consulta en el área de '+$("#especialidad").text(), 'valorUnitario' : montoM, 'importe' : montoM}];
