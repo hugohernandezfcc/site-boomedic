@@ -36,7 +36,7 @@
               @foreach ($join as $key => $citas)
                 <tr>
                   <td>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal('{{$citas->general_amount}}','{{$citas->name}}','{{$citas->email}}','{{$citas->specialty}}','{{$citas->latitude}}','{{$citas->longitude}}','1','{{$citas->profile_photo}}','{{$citas->postalcode}}')">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal('{{$citas->general_amount}}','{{$citas->name}}','{{$citas->email}}','{{$citas->specialty}}','{{$citas->latitude}}','{{$citas->longitude}}','1','{{$citas->profile_photo}}','{{$citas->postalcode}}','{{$citas->id}}')">
                       Detalles
                     </button>
                   </td>
@@ -115,7 +115,7 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
             <button type="button" class="btn btn-default" onclick="timbrado();">Facturar</button>
-            <button type="button" class="btn btn-secondary" onclick="calificar();">Guardar cambios</button>
+            <button type="button" class="btn btn-secondary" onclick="qualification();">Guardar cambios</button>
           </div>
 
             <div id="carga2">
@@ -191,9 +191,11 @@
 
     var montoM;
     var codigoPostalM;
+    var idappointment;
 
-    function datosmodal(monto,nombre,email,especialidad,latitude,longitude,valor5,photo,codigoPostal) {
+    function datosmodal(monto,nombre,email,especialidad,latitude,longitude,valor5,photo,codigoPostal,id) {
       $("#alert").empty();
+      idappointment = id;
       montoM = monto;
       codigoPostalM = codigoPostal;
       document.getElementById("idlabelMonto").innerHTML = monto;
@@ -213,7 +215,7 @@
       }
     };
 
-    function qualification(id){
+    function qualification(){
       var qualification = 0;
       for (var i = 1; i <= 5; i++) {
         var idcheck = "radio"+i;
@@ -233,7 +235,7 @@
           headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
-          url : "/qualification/"+id,
+          url : "/qualification/"+idappointment,
           type : "post",
           data : dat,
           error: function() {
