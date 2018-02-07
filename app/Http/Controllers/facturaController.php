@@ -34,6 +34,6 @@ class facturaController extends Controller
         }else{
             return 'ya calificado, o no calificó';
         }*/
-        //return $qua->user_doctor;
+        return $qua->user_doctor;
     }
 }
