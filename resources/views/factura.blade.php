@@ -196,7 +196,11 @@
     function datosmodal(monto,nombre,email,especialidad,latitude,longitude,valor5,photo,codigoPostal,id) {
       $("#alert").empty();
       idappointment = id;
-      console.log('qualification '+valor5);
+      //console.log('qualification '+valor5);
+      for (var i = 1; i <= 5; i++) {
+        var idcheck = "radio"+i;
+        document.getElementById(idcheck).checked = 0;
+      }
       montoM = monto;
       codigoPostalM = codigoPostal;
       document.getElementById("idlabelMonto").innerHTML = monto;
