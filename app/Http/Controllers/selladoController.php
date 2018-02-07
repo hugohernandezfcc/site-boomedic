@@ -155,7 +155,7 @@ class selladoController extends Controller{
 	    $cfdi = <<<XML
 <?xml version="1.0" encoding="UTF-8"?>
 			<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd" Version="3.3" Fecha="$data->fecha_actual" Sello="" FormaPago="$data->formaPago" NoCertificado="" Certificado="" CondicionesDePago="$data->condicionesPago" SubTotal="$data->subtotal" Moneda="$data->moneda" Total="$data->total" TipoDeComprobante="I" MetodoPago="$data->metodoPago" LugarExpedicion="$data->lugarExpedicion">
-			  	<cfdi:Emisor Rfc="$data->rfcEmisor" Nombre="$data->nombreEmisor" RegimenFiscal="$regimenFiscal"/>
+			  	<cfdi:Emisor Rfc="$data->rfcEmisor" Nombre="$data->nombreEmisor" RegimenFiscal="$data->$regimenFiscal"/>
 			  	<cfdi:Receptor Rfc="$rfcReceptor" Nombre="$nombreReceptor" UsoCFDI="G01"/>
 			  	<cfdi:Conceptos>
 XML;
