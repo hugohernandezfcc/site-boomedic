@@ -33,6 +33,6 @@ class facturaController extends Controller
         }else{
             return 'ya calificado';
         }*/
-        return $request;
+        return $request->qualification;
     }
 }
