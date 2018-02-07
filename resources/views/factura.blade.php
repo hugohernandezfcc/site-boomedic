@@ -200,7 +200,7 @@
       document.getElementById("especialidad").innerHTML = especialidad;
       $("#photo").attr("src",photo);
       $("#map").attr("src", 'https://maps.googleapis.com/maps/api/staticmap?maptype=roadmap&center='+latitude+','+longitude+'&zoom=16&size=600x200&markers=color:black|'+latitude+','+longitude+'&key=AIzaSyDFFuMEwcwH3OpA8go3AVElVcocm6o5WBQ');
-      for (var i = 0; i > valor5; i++) {
+      for (var i = 1; i <= valor5; i++) {
         var idcheck = "radio"+i;
         document.getElementById(idcheck).checked = 1;
       }
