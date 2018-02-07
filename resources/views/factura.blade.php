@@ -250,7 +250,7 @@
           success : function(response){
             console.log('Correcto retornaste: '+response);
             $('#modal-default').modal('hide');
-            location.href="factura";
+            location.reload();
           }
       });
     };
