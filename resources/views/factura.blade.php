@@ -36,7 +36,7 @@
               @foreach ($join as $key => $citas)
                 <tr>
                   <td>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal('{{$citas->general_amount}}','{{$citas->name}}','{{$citas->email}}','{{$citas->specialty}}','{{$citas->latitude}}','{{$citas->longitude}}','1','{{$citas->profile_photo}}','{{$citas->postalcode}}','{{$citas->id}}')">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal('{{$citas->general_amount}}','{{$citas->name}}','{{$citas->email}}','{{$citas->specialty}}','{{$citas->latitude}}','{{$citas->longitude}}','{{$citas->qualification}}','{{$citas->profile_photo}}','{{$citas->postalcode}}','{{$citas->id}}')">
                       Detalles
                     </button>
                   </td>
@@ -210,6 +210,7 @@
       else if(valor5 == 3) valor5 = 3;
       else if(valor5 == 4) valor5 = 2;
       else if(valor5 == 5) valor5 = 1;
+      //else if(valor5 == null) valor5 = 0;
       for (var i = 1; i <= valor5; i++) {
         var idcheck = "radio"+i;
         document.getElementById(idcheck).checked = 1;
@@ -237,13 +238,13 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
           url : "/qualification/"+idappointment,
-          type : "get",
+          type : "post",
           data : dat,
           error: function() {
             console.log('Error :c');
           },
           success : function(response){
-            console.log('Correcto');
+            console.log('Correcto retornaste: '+response);
             $('#modal-default').modal('hide');
           }
       });
