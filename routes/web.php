@@ -31,6 +31,8 @@ Auth::routes();
 
 Route::get('factura',['as'=>'factura','uses'=>'facturaController@fac']);
 
+Route::post('/qualification/{id}','facturaController@qualification');
+
 Route::post('/update/{id}','perfilTributarioController@update');
 
 Route::get('/perfilTributario',['as'=>'perfilTributario.edit','uses'=>'perfilTributarioController@edit']);

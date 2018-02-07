@@ -23,4 +23,15 @@ class facturaController extends Controller
         //$professional_inf= DB::table('professional_information')->where('user',Auth::id())->get();
     	return view('factura',['join' => $join, 'user' => $user]);
 	}
+
+    public function qualification(Request $request,$id){
+        $qua = medical_appointments::find($id);
+        if($qua->qualification == null){
+            $qua->qualification = $request->qualification;
+            $qua->save();
+            return 'guardado';
+        }else{
+            return 'ya calificado';
+        }
+    }
 }

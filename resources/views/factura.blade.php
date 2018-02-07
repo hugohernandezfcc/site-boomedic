@@ -188,8 +188,10 @@
         }
       })
     });
+
     var montoM;
     var codigoPostalM;
+
     function datosmodal(monto,nombre,email,especialidad,latitude,longitude,valor5,photo,codigoPostal) {
       $("#alert").empty();
       montoM = monto;
@@ -210,22 +212,40 @@
         document.getElementById(idcheck).checked = 1;
       }
     };
-    function calificar(){
-      var calificacion = 0;
+
+    function qualification(id){
+      var qualification = 0;
       for (var i = 1; i <= 5; i++) {
         var idcheck = "radio"+i;
         if(document.getElementById(idcheck).checked == 1){
-          calificacion = i;
+          qualification = i;
           break;
         }
       }
-      if(calificacion == 1) calificacion = 5;
-      else if(calificacion == 2) calificacion = 4;
-      else if(calificacion == 3) calificacion = 3;
-      else if(calificacion == 4) calificacion = 2;
-      else if(calificacion == 5) calificacion = 1;
-      console.log(calificacion);
+      if(qualification == 1) qualification = 5;
+      else if(qualification == 2) qualification = 4;
+      else if(qualification == 3) qualification = 3;
+      else if(qualification == 4) qualification = 2;
+      else if(qualification == 5) qualification = 1;
+      //console.log(qualification);
+      var dat = {'qualification' : qualification};
+      $.ajax({
+          headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          url : "/qualification/"+id,
+          type : "post",
+          data : dat,
+          error: function() {
+            console.log('Error :c');
+          },
+          success : function(response){
+            console.log('Correcto');
+            $('#modal-default').modal('hide');
+          }
+      });
     };
+
     function timbrado(){
       var conceptos = [{'claveProdServ' : '01010101', 'cantidad' : 1, 'claveUnidad' : 'H87', 'tipoUnidad' : 'Pieza', 'descripcion' : 'Consulta en el área de '+$("#especialidad").text(), 'valorUnitario' : montoM, 'importe' : montoM}];
       var dat = {'nombreEmisor' : 'EMISOR PRUEBA SA DE CV', 'rfcEmisor' : 'LAN7008173R5', 'regimenFiscal' : '601', 'subtotal' : document.getElementById("idlabelMonto").innerHTML, 'total' : montoM, 'lugarExpedicion' : codigoPostalM, 'formaPago' : '03', 'condicionesPago' : 'CONTADO', 'metodoPago' : 'PUE', 'conceptos' : conceptos, 'moneda' : 'MXN'};
