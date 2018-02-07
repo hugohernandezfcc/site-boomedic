@@ -249,7 +249,7 @@
           },
           success : function(response){
             console.log('Correcto retornaste: '+response);
-            $('#modal-default').modal('hide');
+            //$('#modal-default').modal('hide');
             location.reload();
           }
       });
