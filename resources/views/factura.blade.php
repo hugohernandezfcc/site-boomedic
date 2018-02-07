@@ -200,7 +200,7 @@
       document.getElementById("especialidad").innerHTML = especialidad;
       $("#photo").attr("src",photo);
       $("#map").attr("src", 'https://maps.googleapis.com/maps/api/staticmap?maptype=roadmap&center='+latitude+','+longitude+'&zoom=16&size=600x200&markers=color:black|'+latitude+','+longitude+'&key=AIzaSyDFFuMEwcwH3OpA8go3AVElVcocm6o5WBQ');
-      if(valor5 == '5'){
+      /*if(valor5 == '5'){
         document.getElementById("radio1").checked = 1;
         document.getElementById("radio2").checked = 1;
         document.getElementById("radio3").checked = 1;
@@ -220,6 +220,9 @@
           document.getElementById("radio2").checked = 1;
       }else if(valor5 == '1'){
           document.getElementById("radio1").checked = 1;
+      }*/
+      for (var i = 1; i <= parseInt(valor5); i++) {
+        document.getElementById("radio"+toString(i)).checked = 1;
       }
     };
     function timbrado(){
