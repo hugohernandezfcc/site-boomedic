@@ -115,7 +115,7 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
             <button type="button" class="btn btn-default" onclick="timbrado();">Facturar</button>
-            <button type="button" class="btn btn-secondary">Guardar cambios</button>
+            <button type="button" class="btn btn-secondary" onclick="calificar();">Guardar cambios</button>
           </div>
 
             <div id="carga2">
@@ -209,6 +209,16 @@
         var idcheck = "radio"+i;
         document.getElementById(idcheck).checked = 1;
       }
+    };
+    function calificar(){
+      var cont = 0;
+      for (var i = 1; i <= valor5; i++) {
+        var idcheck = "radio"+i;
+        if(document.getElementById(idcheck).checked == 1){
+          cont++;
+        }
+      }
+      console.log(cont);
     };
     function timbrado(){
       var conceptos = [{'claveProdServ' : '01010101', 'cantidad' : 1, 'claveUnidad' : 'H87', 'tipoUnidad' : 'Pieza', 'descripcion' : 'Consulta en el área de '+$("#especialidad").text(), 'valorUnitario' : montoM, 'importe' : montoM}];
