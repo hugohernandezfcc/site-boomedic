@@ -7,6 +7,7 @@ use DB;
 use App\Quotation;
 use Auth;
 use App\User;
+use App\medical_appointment;
 
 use App\Http\Controllers\Controller;
 
@@ -25,14 +26,14 @@ class facturaController extends Controller
 	}
 
     public function qualification(Request $request,$id){
-        $qua = medical_appointments::find($id);
-        /*if($qua->qualification == null){
+        $qua = medical_appointment::find($id);
+        if($qua->qualification == null && $request->qualification != 0){
             $qua->qualification = $request->qualification;
             $qua->save();
             return 'guardado';
         }else{
-            return 'ya calificado';
-        }*/
-        return $qua->user_doctor;
+            return 'ya calificado, o no calificó';
+        }
+        //return $qua->user_doctor;
     }
 }

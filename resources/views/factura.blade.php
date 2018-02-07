@@ -238,7 +238,7 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
           url : "/qualification/"+idappointment,
-          type : "get",
+          type : "post",
           data : dat,
           error: function() {
             console.log('Error :c');
