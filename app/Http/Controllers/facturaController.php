@@ -25,7 +25,7 @@ class facturaController extends Controller
 	}
 
     public function qualification(Request $request,$id){
-        $qua = medical_appointments::find($id);
+        //$qua = medical_appointments::find($id);
         /*if($qua->qualification == null){
             $qua->qualification = $request->qualification;
             $qua->save();
