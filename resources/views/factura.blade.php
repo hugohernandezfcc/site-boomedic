@@ -221,8 +221,9 @@
       }else if(valor5 == '1'){
           document.getElementById("radio1").checked = 1;
       }*/
-      for (var i = 1; i <= parseInt(valor5); i++) {
+      for (var i = 1; i <= (valor5); i++) {
         var idcheck="radio"+toString(i);
+        console.log(idcheck+' ');
         document.getElementById(idcheck).checked = 1;
       }
     };
