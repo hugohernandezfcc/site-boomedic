@@ -222,7 +222,7 @@
           document.getElementById("radio1").checked = 1;
       }*/
       for (var i = 1; i <= (valor5); i++) {
-        var idcheck="radio"+toString(i);
+        var idcheck="radio"+i;
         console.log(idcheck+' ');
         document.getElementById(idcheck).checked = 1;
       }
