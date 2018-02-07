@@ -212,7 +212,7 @@
     };
     function calificar(){
       var cont = 0;
-      for (var i = 1; i <= valor5; i++) {
+      for (var i = 1; i <= 5; i++) {
         var idcheck = "radio"+i;
         if(document.getElementById(idcheck).checked == 1){
           cont++;
