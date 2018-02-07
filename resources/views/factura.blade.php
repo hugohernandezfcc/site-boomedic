@@ -98,15 +98,15 @@
               <label class="label2" id="idlabelMonto"></label>
               <form>
                 <scan class="clasificacion label2">
-                  <input id="radio1" type="radio" name="estrellas" value="5"><!--
+                  <input id="radio1" type="radio" name="estrellas" value=""><!--
                   --><label class="labelEstrellas" for="radio1">★</label><!--
-                  --><input id="radio2" type="radio" name="estrellas" value="4"><!--
+                  --><input id="radio2" type="radio" name="estrellas" value=""><!--
                   --><label class="labelEstrellas" for="radio2">★</label><!--
-                  --><input id="radio3" type="radio" name="estrellas" value="3"><!--
+                  --><input id="radio3" type="radio" name="estrellas" value=""><!--
                   --><label class="labelEstrellas" for="radio3">★</label><!--
-                  --><input id="radio4" type="radio" name="estrellas" value="2"><!--
+                  --><input id="radio4" type="radio" name="estrellas" value=""><!--
                   --><label class="labelEstrellas" for="radio4">★</label><!--
-                  --><input id="radio5" type="radio" name="estrellas" value="1"><!--
+                  --><input id="radio5" type="radio" name="estrellas" value=""><!--
                   --><label class="labelEstrellas" for="radio5">★</label>
                 </scan>
               </form>
@@ -222,7 +222,7 @@
           document.getElementById("radio1").checked = 1;
       }*/
       for (var i = 1; i <= (valor5); i++) {
-        var idcheck="radio"+i;
+        var idcheck = "radio"+i;
         console.log(idcheck+' ');
         document.getElementById(idcheck).checked = 1;
       }
