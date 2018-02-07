@@ -90,7 +90,7 @@
           <div class="col-lg-7 my-auto">
             <div class="header-content mx-auto">
               <h1 class="mb-5">@lang('main.header')</h1>
-              <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger contacto">@lang('main.btn_download')</a>
+              <a href="#download" class="btn btn-outline btn-xl js-scroll-trigger">@lang('main.btn_download')</a>
             </div>
           </div>
           <div class="col-lg-5 my-auto">
@@ -181,7 +181,7 @@
       <div class="cta-content">
         <div class="container">
           <h2>@lang('main.text_contact1')</h2>
-          <a href="/login" class="btn btn-outline btn-xl js-scroll-trigger contacto" >@lang('main.btn_contact')</a>
+          <a href="/login" class="btn btn-outline btn-xl js-scroll-trigger" >@lang('main.btn_contact')</a>
         </div>
       </div>
       <div class="overlay"></div>
