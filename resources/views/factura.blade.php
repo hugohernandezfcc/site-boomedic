@@ -219,6 +219,11 @@
           break;
         }
       }
+      if(calificacion == 1) calificacion = 5;
+      else if(calificacion == 2) calificacion = 4;
+      else if(calificacion == 3) calificacion = 3;
+      else if(calificacion == 4) calificacion = 2;
+      else if(calificacion == 5) calificacion = 1;
       console.log(calificacion);
     };
     function timbrado(){

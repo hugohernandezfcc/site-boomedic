@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddDataFrontendToRecipesTestsTable extends Migration
+class AddQualificationToMedicalAppointmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddDataFrontendToRecipesTestsTable extends Migration
      */
     public function up()
     {
-        Schema::table('recipes_tests', function (Blueprint $table) {
+        Schema::table('medical_appointments', function (Blueprint $table) {
             //
-            $table->longText('Data_frontend')->nullable();
+            $table->integer('qualification')->nullable();
         });
     }
 
@@ -26,7 +26,7 @@ class AddDataFrontendToRecipesTestsTable extends Migration
      */
     public function down()
     {
-        Schema::table('recipes_tests', function (Blueprint $table) {
+        Schema::table('medical_appointments', function (Blueprint $table) {
             //
         });
     }
