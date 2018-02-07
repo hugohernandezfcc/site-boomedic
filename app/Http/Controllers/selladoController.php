@@ -148,7 +148,7 @@ class selladoController extends Controller{
 	    $c->setAttribute('Sello', $sello);
 	    
 	    return $xdoc->saveXML();
-	}
+	} 
 
 	public function generarXML ($nombreEmisor,$rfcEmisor,$regimenFiscal,$nombreReceptor,$rfcReceptor,$subtotal,$total,$lugarExpedicion,Array $conceptos,$formaPago,$condicionesPago,$metodoPago) {
 		$fecha_actual = substr( date('c'), 0, 19);
