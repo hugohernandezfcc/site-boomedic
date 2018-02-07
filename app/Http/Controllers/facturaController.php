@@ -27,13 +27,13 @@ class facturaController extends Controller
 
     public function qualification(Request $request,$id){
         $qua = medical_appointment::find($id);
-        /*if($qua->qualification == null && $request->qualification != 0){
+        if($qua->qualification == null && $request->qualification != 0){
             $qua->qualification = $request->qualification;
             $qua->save();
             return 'guardado';
         }else{
             return 'ya calificado, o no calificó';
-        }*/
-        return $qua->user_doctor;
+        }
+        //return $qua->user_doctor;
     }
 }
