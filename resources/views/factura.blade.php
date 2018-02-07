@@ -222,7 +222,8 @@
           document.getElementById("radio1").checked = 1;
       }*/
       for (var i = 1; i <= parseInt(valor5); i++) {
-        document.getElementById("radio"+toString(i)).checked = 1;
+        var idcheck="radio"+toString(i);
+        document.getElementById(idcheck).checked = 1;
       }
     };
     function timbrado(){
