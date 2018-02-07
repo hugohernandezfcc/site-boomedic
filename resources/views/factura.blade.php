@@ -36,7 +36,7 @@
               @foreach ($join as $key => $citas)
                 <tr>
                   <td>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal('{{$citas->general_amount}}','{{$citas->name}}','{{$citas->email}}','{{$citas->specialty}}','{{$citas->latitude}}','{{$citas->longitude}}','4','{{$citas->profile_photo}}','{{$citas->postalcode}}')">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal('{{$citas->general_amount}}','{{$citas->name}}','{{$citas->email}}','{{$citas->specialty}}','{{$citas->latitude}}','{{$citas->longitude}}','1','{{$citas->profile_photo}}','{{$citas->postalcode}}')">
                       Detalles
                     </button>
                   </td>
@@ -200,9 +200,8 @@
       document.getElementById("especialidad").innerHTML = especialidad;
       $("#photo").attr("src",photo);
       $("#map").attr("src", 'https://maps.googleapis.com/maps/api/staticmap?maptype=roadmap&center='+latitude+','+longitude+'&zoom=16&size=600x200&markers=color:black|'+latitude+','+longitude+'&key=AIzaSyDFFuMEwcwH3OpA8go3AVElVcocm6o5WBQ');
-      for (var i = valor5; i > 0; i--) {
+      for (var i = 0; i > valor5; i++) {
         var idcheck = "radio"+i;
-        console.log(idcheck+' ');
         document.getElementById(idcheck).checked = 1;
       }
     };
