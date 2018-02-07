@@ -196,7 +196,7 @@
     function datosmodal(monto,nombre,email,especialidad,latitude,longitude,valor5,photo,codigoPostal,id) {
       $("#alert").empty();
       idappointment = id;
-      console.log('idappointment '+idappointment);
+      //console.log('idappointment '+idappointment);
       montoM = monto;
       codigoPostalM = codigoPostal;
       document.getElementById("idlabelMonto").innerHTML = monto;
@@ -237,7 +237,7 @@
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
           },
           url : "/qualification/"+idappointment,
-          type : "post",
+          type : "get",
           data : dat,
           error: function() {
             console.log('Error :c');
