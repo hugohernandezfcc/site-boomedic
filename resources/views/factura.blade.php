@@ -200,6 +200,11 @@
       document.getElementById("especialidad").innerHTML = especialidad;
       $("#photo").attr("src",photo);
       $("#map").attr("src", 'https://maps.googleapis.com/maps/api/staticmap?maptype=roadmap&center='+latitude+','+longitude+'&zoom=16&size=600x200&markers=color:black|'+latitude+','+longitude+'&key=AIzaSyDFFuMEwcwH3OpA8go3AVElVcocm6o5WBQ');
+      if(valor5 == 1) valor5 = 5;
+      else if(valor5 == 2) valor5 = 4;
+      else if(valor5 == 3) valor5 = 3;
+      else if(valor5 == 4) valor5 = 2;
+      else if(valor5 == 5) valor5 = 1;
       for (var i = 1; i <= valor5; i++) {
         var idcheck = "radio"+i;
         document.getElementById(idcheck).checked = 1;
