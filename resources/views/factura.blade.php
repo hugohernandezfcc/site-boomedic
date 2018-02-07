@@ -200,7 +200,7 @@
       document.getElementById("especialidad").innerHTML = especialidad;
       $("#photo").attr("src",photo);
       $("#map").attr("src", 'https://maps.googleapis.com/maps/api/staticmap?maptype=roadmap&center='+latitude+','+longitude+'&zoom=16&size=600x200&markers=color:black|'+latitude+','+longitude+'&key=AIzaSyDFFuMEwcwH3OpA8go3AVElVcocm6o5WBQ');
-      /*if(valor5 == '5'){
+      if(valor5 == '5'){
         document.getElementById("radio1").checked = 1;
         document.getElementById("radio2").checked = 1;
         document.getElementById("radio3").checked = 1;
@@ -220,12 +220,12 @@
           document.getElementById("radio2").checked = 1;
       }else if(valor5 == '1'){
           document.getElementById("radio1").checked = 1;
-      }*/
-      for (var i = 1; i <= (valor5); i++) {
+      }
+      /*for (var i = 1; i <= (valor5); i++) {
         var idcheck = "radio"+i;
         console.log(idcheck+' ');
         document.getElementById(idcheck).checked = 1;
-      }
+      }*/
     };
     function timbrado(){
       var conceptos = [{'claveProdServ' : '01010101', 'cantidad' : 1, 'claveUnidad' : 'H87', 'tipoUnidad' : 'Pieza', 'descripcion' : 'Consulta en el área de '+$("#especialidad").text(), 'valorUnitario' : montoM, 'importe' : montoM}];
