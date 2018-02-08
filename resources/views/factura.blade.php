@@ -162,12 +162,12 @@
     }
     .label1{
       text-align : right;
-      display : block;
+      display : inline-block;
     }
     .label2{
       font-weight : normal;
       text-align : left;
-      display : block;
+      display : inline-block;
     }
     .div2 {
       white-space: nowrap;
