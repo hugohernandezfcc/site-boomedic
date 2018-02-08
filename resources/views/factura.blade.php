@@ -7,7 +7,7 @@
     <div class="box-header with-border">
       <h3>Consultas</h3>
     </div>
-    <div class="box-body">
+    <div class="box-body table-responsive no-padding">
       <center>
         <div style="width: 90%">
           <table id="example" class="table table-bordered table-hover" width="100%">
