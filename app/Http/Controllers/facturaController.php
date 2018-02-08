@@ -28,7 +28,7 @@ class facturaController extends Controller
 
     public function qualification(Request $request,$id){
         $qua = medical_appointment::find($id);
-        $professional_information_doctor = professional_information::find($qua->user_doctor);
+        $professional_information_doctor = professional_information::where('user',$qua->user_doctor)->first();
         if($request->qualification != 0){
             if($qua->qualification != null){
                 $professional_information_doctor->qualification_points -= $qua->qualification;
