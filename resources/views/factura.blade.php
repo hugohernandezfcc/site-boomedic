@@ -88,14 +88,14 @@
             </center>
           </div>
           <div class="datosMedico">
-            <div class="div2" style=" width: 45%;display: inline-block;text-align: right;">
+            <div style=" width: 45%;display: inline-block;text-align: right;">
               <label class="label1" value="">Nombre :</label>
               <label class="label1" value="">Email :</label>
               <label class="label1" value="">Especialidad :</label>
               <label class="label1">Monto : </label>
               <label class="label1">Calificación:  </label>
             </div>
-            <div style=" width: 45%;display: inline-block;text-align: left;">
+            <div  class="div2" style=" width: 45%;display: inline-block;text-align: left;">
               <label class="label2" id="nombre"></label>
               <label class="label2" id="email"></label>
               <label class="label2" id="especialidad"></label>
@@ -170,8 +170,7 @@
       display : block;
     }
     .div2 {
-      white-space: nowrap; 
-      width: 12em; 
+      white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis; 
       border: 1px solid #000000;
