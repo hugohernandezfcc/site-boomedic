@@ -15,7 +15,8 @@ class medical_appointment extends Model
 		'when',
 		'status',
 		'workplace',
-		'qualification'
+		'qualification',
+		'invoiced'
     ];
 
     public function user(){
