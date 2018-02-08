@@ -88,15 +88,14 @@
             </center>
           </div>
           <div class="datosMedico">
-            <div style=" width: 45%;display: inline-block;text-align: right;">
+            <div style=" width: 30%;display: inline-block;text-align: right;">
               <label class="label1" value="">Nombre :</label>
               <label class="label1" value="">Email :</label>
               <label class="label1" value="">Especialidad :</label>
               <label class="label1">Monto : </label>
               <label class="label1">Calificación:  </label>
             </div>
-            <div style=" width: 45%;display: inline-block;text-align: left;">
-              <div class="overflow" style="width: 100%">
+            <div style=" width: 60%;display: inline-block;text-align: left;">
               <label class="label2" id="nombre"></label>
               <label class="label2" id="email"></label>
               <label class="label2" id="especialidad"></label>
@@ -115,7 +114,6 @@
                   --><label class="labelEstrellas" for="radio5">★</label>
                 </scan>
               </form>
-            </div>
             </div>
           </div>
           <div class="modal-footer">
@@ -158,7 +156,6 @@
       margin : auto;
       font-size : 14px;
       margin-left : 1em;
-      text-overflow: ellipsis;
     }
     .labelEstrellas{
       color : grey;
@@ -171,13 +168,6 @@
       font-weight : normal;
       text-align : left;
       display : block;
-    }
-    .overflow {
-      white-space: nowrap; 
-      width: 12em; 
-      overflow: hidden;
-      text-overflow: ellipsis; 
-      border: 1px solid #000000;
     }
   </style>
 @stop
