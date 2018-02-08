@@ -189,7 +189,7 @@
               "next" :       "Siguiente",
               "previous" :   "Anterior"
           },
-          "autoWidth": true,
+          responsive: true,
         }
       })
     });
