@@ -189,6 +189,7 @@
               "next" :       "Siguiente",
               "previous" :   "Anterior"
           },
+          "autoWidth": true,
         }
       })
     });
