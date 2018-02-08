@@ -189,7 +189,6 @@
               "next" :       "Siguiente",
               "previous" :   "Anterior"
           },
-          "order": [[ 7, 'desc' ]],
         }
       })
     });

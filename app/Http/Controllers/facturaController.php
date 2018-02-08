@@ -16,7 +16,7 @@ class facturaController extends Controller
 {
 	public function fac(){
 	    $user = user::find(Auth::id());
-       	$join = DB::table('medical_appointments')->where('medical_appointments.user',Auth::id())
+       	$join = DB::table('medical_appointments')->where('medical_appointments.user',Auth::id())->orderBy('medical_appointments.when')
         	->join('users', 'medical_appointments.user_doctor', '=', 'users.id')
         	->join('professional_information', 'medical_appointments.user_doctor', '=', 'professional_information.user')
         	->join('labor_information', 'medical_appointments.workplace', '=', 'labor_information.id')
