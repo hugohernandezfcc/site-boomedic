@@ -179,7 +179,7 @@
         'paging'      : true,
         'lengthChange': false,
         'ordering'    : true,
-        'autoWidth'   : false,
+        'autoWidth'   : true,
         'info'    : false,
         "language" : {
           "search" : "Buscar",
@@ -189,7 +189,6 @@
               "next" :       "Siguiente",
               "previous" :   "Anterior"
           },
-          responsive: true,
         }
       })
     });
