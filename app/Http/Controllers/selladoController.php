@@ -104,15 +104,15 @@ class selladoController extends Controller{
 	       	
 	       	$data = ['email' => $user->email,'xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10), 'pdf' => $pdf];
 
-	       	/*if($respuesta_timbrado['uuid'] =! null){
+	       	if($respuesta_timbrado['uuid'] != null){
             	$app = medical_appointment::find($request->idAppointment);
 				$app->invoiced = true;
 				$app->save();
 				//return json_encode($app);
-            }*/
+            }
 	       	
 	       	
-            Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) use($data){
+            /*Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) use($data){
                 $message->subject('Facturación Boomedic');
                 $message->to($data['email']);
                 $message->attachData($data['xml'], $data['xmlnombre'].'xml', [
@@ -121,7 +121,7 @@ class selladoController extends Controller{
             	$message->attachData($data['pdf']->output(), $data['xmlnombre'].'pdf', [
                 	'mime' => 'application/pdf',
                 ]);
-            });
+            });*/
             
 
             return $respuesta_timbrado['uuid'];
