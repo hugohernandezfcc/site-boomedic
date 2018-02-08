@@ -29,8 +29,8 @@ Route::post('/infoReceta', ['as' => 'infoReceta', 'uses' => 'recetaController@gu
 Route::get('/prueba', function () { 
 	$doc = professional_information::find(16);
 	$citas = medical_appointment::where('user_doctor',16)->where('qualification','!=',null)->count();
-	echo $citas.'<br>>br>';
-	echo $doc->qualification_points/$citas.'<br>>br>';
+	echo $citas.'<br><br>';
+	echo $doc->qualification_points/$citas.'<br><br>';
 });
 
 Route::get('/prueba2', function () { 
@@ -42,7 +42,7 @@ Route::get('/prueba2', function () {
 	$citas2 = medical_appointment::find(14);
 	$citas2->qualification = null;
 	$citas2->save();
-	echo 'qualification '.$citas->qualification.'<br>>br>';
+	echo 'qualification '.$citas->qualification.'<br><br>';
 	//echo $doc->qualification_points/$citas.'<br>>br>';
 });
 

@@ -33,7 +33,7 @@ class facturaController extends Controller
             if($qua->qualification != null){
                 $professional_information_doctor->qualification_points -= $qua->qualification;
             }
-            $professional_information_doctor->qualification_points -= $request->qualification;
+            $professional_information_doctor->qualification_points += $request->qualification;
             $qua->qualification = $request->qualification;
             $professional_information_doctor->save();
             $qua->save();
