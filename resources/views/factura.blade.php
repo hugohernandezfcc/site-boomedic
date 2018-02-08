@@ -95,7 +95,7 @@
               <label class="label1">Monto : </label>
               <label class="label1">Calificación:  </label>
             </div>
-            <div style=" display: inline-block;text-align: left;">
+            <div style=" width: 60%;display: inline-block;text-align: left;">
               <label class="label2" id="nombre"></label>
               <label class="label2" id="email"></label>
               <label class="label2" id="especialidad"></label>
@@ -156,18 +156,19 @@
       margin : auto;
       font-size : 14px;
       margin-left : 1em;
+      text-overflow: ellipsis;
     }
     .labelEstrellas{
       color : grey;
     }
     .label1{
       text-align : right;
-      display : inline-block;
+      display : block;
     }
     .label2{
       font-weight : normal;
       text-align : left;
-      display : inline-block;
+      display : block;
     }
   </style>
 @stop
