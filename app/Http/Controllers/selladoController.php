@@ -117,7 +117,7 @@ class selladoController extends Controller{
                 ]);
             });
             if($respuesta_timbrado['uuid'] =! null){
-            	$qua = medical_appointment::find($id);
+            	$qua = medical_appointment::find($request->idAppointment);
 				$qua->invoiced = true;
 				$qua->save();
             }
