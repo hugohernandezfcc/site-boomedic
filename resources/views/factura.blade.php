@@ -88,7 +88,7 @@
             </center>
           </div>
           <div class="datosMedico">
-            <div style=" width: 30%;display: inline-block;text-align: right;">
+            <div style=" width: 40%;display: inline-block;text-align: right;">
               <label class="label1" value="">Nombre :</label>
               <label class="label1" value="">Email :</label>
               <label class="label1" value="">Especialidad :</label>
