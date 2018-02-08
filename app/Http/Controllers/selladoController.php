@@ -9,6 +9,7 @@ use App\tributaryProfile;
 use Mail;
 use PDF;
 use App\User;
+//use App\medical_appointment;
 
 class selladoController extends Controller{
     
@@ -44,7 +45,7 @@ class selladoController extends Controller{
 
 	   	$perfilT = tributaryProfile::where('user',Auth::id())->first();
 	   	$user = user::find(Auth::id());
-
+ 
 	   	if($perfilT!= null){
 		  	/**
 			* Generar y sellar un XML con los CSD de pruebas
@@ -114,7 +115,12 @@ class selladoController extends Controller{
             	$message->attachData($data['pdf']->output(), $data['xmlnombre'].'pdf', [
                 	'mime' => 'application/pdf',
                 ]);
-            }); 
+            });
+            if($respuesta_timbrado['uuid'] =! null){
+            	$qua = medical_appointment::find($id);
+				$qua->invoiced = true;
+				$qua->save();
+            }
 
             return $respuesta_timbrado['uuid'];
 		}

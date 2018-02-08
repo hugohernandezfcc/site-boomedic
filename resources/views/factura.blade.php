@@ -36,7 +36,7 @@
               @foreach ($join as $key => $citas)
                 <tr>
                   <td>
-                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal('{{$citas->general_amount}}','{{$citas->name}}','{{$citas->email}}','{{$citas->specialty}}','{{$citas->latitude}}','{{$citas->longitude}}','{{$citas->qualification}}','{{$citas->profile_photo}}','{{$citas->postalcode}}','{{$citas->id}}')">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="datosmodal('{{$citas->general_amount}}','{{$citas->name}}','{{$citas->email}}','{{$citas->specialty}}','{{$citas->latitude}}','{{$citas->longitude}}','{{$citas->qualification}}','{{$citas->profile_photo}}','{{$citas->postalcode}}','{{$citas->id}}','{{$citas->invoiced}}')">
                       Detalles
                     </button>
                   </td>
@@ -192,8 +192,9 @@
     var montoM;
     var codigoPostalM;
     var idappointment;
-
-    function datosmodal(monto,nombre,email,especialidad,latitude,longitude,valor5,photo,codigoPostal,id) {
+    var invoiced;
+    function datosmodal(monto,nombre,email,especialidad,latitude,longitude,valor5,photo,codigoPostal,id,invo) {
+      invoiced = invo;
       $("#alert").empty();
       idappointment = id;
       //console.log('qualification '+valor5);
@@ -214,7 +215,6 @@
       else if(valor5 == 3) valor5 = 3;
       else if(valor5 == 4) valor5 = 2;
       else if(valor5 == 5) valor5 = 1;
-      //else if(valor5 == null) valor5 = 0;
       for (var i = 1; i <= valor5; i++) {
         var idcheck = "radio"+i;
         document.getElementById(idcheck).checked = 1;
@@ -258,39 +258,45 @@
     };
 
     function timbrado(){
-      var conceptos = [{'claveProdServ' : '01010101', 'cantidad' : 1, 'claveUnidad' : 'H87', 'tipoUnidad' : 'Pieza', 'descripcion' : 'Consulta en el área de '+document.getElementById("especialidad").innerHTML, 'valorUnitario' : montoM, 'importe' : montoM}];
-      var dat = {'nombreEmisor' : 'EMISOR PRUEBA SA DE CV', 'rfcEmisor' : 'LAN7008173R5', 'regimenFiscal' : '601', 'subtotal' : document.getElementById("idlabelMonto").innerHTML, 'total' : montoM, 'lugarExpedicion' : codigoPostalM, 'formaPago' : '03', 'condicionesPago' : 'CONTADO', 'metodoPago' : 'PUE', 'conceptos' : conceptos, 'moneda' : 'MXN'};
+      if(!invoiced){
+        var conceptos = [{'claveProdServ' : '01010101', 'cantidad' : 1, 'claveUnidad' : 'H87', 'tipoUnidad' : 'Pieza', 'descripcion' : 'Consulta en el área de '+document.getElementById("especialidad").innerHTML, 'valorUnitario' : montoM, 'importe' : montoM}];
+        var dat = {'nombreEmisor' : 'EMISOR PRUEBA SA DE CV', 'rfcEmisor' : 'LAN7008173R5', 'regimenFiscal' : '601', 'subtotal' : document.getElementById("idlabelMonto").innerHTML, 'total' : montoM, 'lugarExpedicion' : codigoPostalM, 'formaPago' : '03', 'condicionesPago' : 'CONTADO', 'metodoPago' : 'PUE', 'conceptos' : conceptos, 'moneda' : 'MXN'};
 
-      document.getElementById("carga2").className = "overlay";
-      document.getElementById("carga2").innerHTML = "<i class='fa fa-refresh fa-spin' id='imgCarga'></i>";
-      $.ajax({
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          },
-          url : "/timbrado",
-          type : "get",
-          data : dat,
-          error: function() {
-              $('#carga2').removeClass();
-              $('#imgCarga').remove();
-              console.log('Error :c');
-              document.getElementById("alert").innerHTML = '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Error!</h4>Ha ocurrido un error al facturar.</div>';
-          },
-          success : function(response){
-              $('#carga2').removeClass();
-              $('#imgCarga').remove();
-              if(response != null && response != 'no tiene perfil tributario'){
-                document.getElementById("alert").innerHTML = '<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Factura Realizada!</h4>Se ha enviado un XML y PDF a su correo.</div>';
-                console.log("Correcto Response: " + response);
-              }else{
-                  if(response == 'no tiene perfil tributario'){
-                    document.getElementById("alert").innerHTML = '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Error!</h4>No tiene perfil tributario.</div>';
-                  }else{
-                    document.getElementById("alert").innerHTML = '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Error!</h4>Ha ocurrido un error al facturar.</div>';
+        document.getElementById("carga2").className = "overlay";
+        document.getElementById("carga2").innerHTML = "<i class='fa fa-refresh fa-spin' id='imgCarga'></i>";
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url : "/timbrado",
+            type : "get",
+            data : dat,
+            error: function() {
+                $('#carga2').removeClass();
+                $('#imgCarga').remove();
+                console.log('Error :c');
+                document.getElementById("alert").innerHTML = '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Error!</h4>Ha ocurrido un error al facturar.</div>';
+            },
+            success : function(response){
+                $('#carga2').removeClass();
+                $('#imgCarga').remove();
+                if(response != null && response != 'no tiene perfil tributario'){
+                  document.getElementById("alert").innerHTML = '<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Factura Realizada!</h4>Se ha enviado un XML y PDF a su correo.</div>';
+                  console.log("Correcto Response: " + response);
+                  //setTimeout("location.reload();", 1000);
+                }else{
+                    if(response == 'no tiene perfil tributario'){
+                      document.getElementById("alert").innerHTML = '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Error!</h4>No tiene perfil tributario.</div>';
+                    }else{
+                      document.getElementById("alert").innerHTML = '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Error!</h4>Ha ocurrido un error al facturar.</div>';
+                  }
                 }
-              }
-          }
-      });
+            }
+        });
+      
+      }else{
+        document.getElementById("alert").innerHTML = '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Error!</h4>La cita ya ha sido facturada</div>';
+      }
     }
   </script>
 @stop
