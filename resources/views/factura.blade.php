@@ -8,7 +8,7 @@
       <h3>Consultas</h3>
     </div>
     <div class="box-body table-responsive no-padding">
-          <table id="example" class="table table-bordered table-hove">
+          <table id="example" class="table table-bordered table-hover">
             <thead>
               <tr>
                 <th>Detalles</th>
