@@ -34,7 +34,7 @@ Route::get('/prueba', function () {
 	echo 'Doctor '.$doctor->name.'<br><br>';
 	echo 'citas totales '.$citas.'<br><br>';
 	echo 'total de puntos '.$doc->qualification_points.'<br><br>';
-	echo 'promedio '.$doc->qualification_points/$citas.'<br><br>';
+	echo 'promedio '.$doc->qualification_points/$citas.'<br><br>'; 
 });
 
 Route::get('/prueba2', function () { 
