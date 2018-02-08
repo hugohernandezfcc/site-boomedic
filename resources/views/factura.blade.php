@@ -19,7 +19,7 @@
                 <th>Consultorio</th>
                 <th>Delegación</th>
                 <th>Método de pago</th>
-                <th>Fecha</th>
+                <!--<th>Fecha</th>-->
               </tr>
             </thead>
             <tfoot> 
@@ -30,7 +30,7 @@
                 <th>Consultorio</th>
                 <th>Delegación</th>
                 <th>Método de pago</th>
-                <th>Fecha</th>
+                <!--<th>Fecha</th>-->
               </tr>
             </tfoot>
             <tbody >
@@ -47,7 +47,7 @@
                   <td>{{$citas->workplace}}</td>
                   <td>{{$citas->delegation}}</td>
                   <td>PayPal</td>
-                  <td>{{$citas->when}}</td>
+                  <!--<td>{{$citas->when}}</td>-->
                 </tr>
               @endforeach
               @else
@@ -58,7 +58,7 @@
                   <td></td>
                   <td></td>
                   <td></td>
-                  <td></td>
+                  <!--<td></td>-->
                 </tr>
               @endif
             </tbody>
@@ -201,7 +201,6 @@
       invoiced = invo;
       $("#alert").empty();
       idappointment = id;
-      //console.log('qualification '+valor5);
       for (var i = 1; i <= 5; i++) {
         var idcheck = "radio"+i;
         document.getElementById(idcheck).checked = 0;
