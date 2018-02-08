@@ -14,7 +14,7 @@ class AddQualificationPointsToProfessionalInformationTable extends Migration
     public function up()
     {
         Schema::table('professional_information', function (Blueprint $table) {
-            //qualification_points
+            //
             $table->bigInteger('qualification_points')->nullable();
         });
     }
