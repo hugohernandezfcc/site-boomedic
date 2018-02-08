@@ -105,9 +105,10 @@ class selladoController extends Controller{
 	       	$data = ['email' => $user->email,'xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10), 'pdf' => $pdf];
 
 	       	if($respuesta_timbrado['uuid'] =! null){
-            	$qua = medical_appointment::find($request->idAppointment);
-				$qua->invoiced = true;
-				$qua->save();
+            	$app = medical_appointment::find($request->idAppointment);
+				$app->invoiced = true;
+				$app->save();
+				return json_encode($app);
             }
 	       	
 	       	
