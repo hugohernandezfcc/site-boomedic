@@ -8,6 +8,7 @@ use App\Quotation;
 use Auth;
 use App\User;
 use App\medical_appointment;
+use App\professional_information;
 
 use App\Http\Controllers\Controller;
 
@@ -27,18 +28,20 @@ class facturaController extends Controller
 
     public function qualification(Request $request,$id){
         $qua = medical_appointment::find($id);
-        if($qua->qualification == null && $request->qualification != 0){
+        $professional_information_doctor = professional_information::find($qua->user_doctor);
+        if($request->qualification != 0){
+            if($qua->qualification != null){
+                $professional_information_doctor->qualification_points -= $qua->qualification;
+            }
+            $professional_information_doctor->qualification_points -= $request->qualification;
             $qua->qualification = $request->qualification;
+            $professional_information_doctor->save();
             $qua->save();
             return 'guardado';
         }else{
-            if($qua->qualification != null){
-                return 'La cita ya ha sido calificada';
-            }
             if($request->qualification == 0){
                 return 'Calificar del 1 al 5 que le pareció la cita médica';
             }
         }
-        //return $qua->user_doctor;
     }
 }
