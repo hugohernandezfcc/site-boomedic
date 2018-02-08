@@ -33,12 +33,15 @@ Route::get('/prueba', function () {
 	echo $doc->qualification_points/$citas.'<br>>br>';
 });
 
-Route::get('/prueba2/{id}', function () { 
+Route::get('/prueba2', function () { 
 	//$doc = professional_information::find(16);
 	//$citas = medical_appointment::where('user_doctor',16)->where('qualification',!=,null)->count();
-	$citas = medical_appointment::find($id);
+	$citas = medical_appointment::find(7);
 	$citas->qualification = null;
 	$citas->save();
+	$citas2 = medical_appointment::find(14);
+	$citas2->qualification = null;
+	$citas2->save();
 	echo 'qualification '.$citas->qualification.'<br>>br>';
 	//echo $doc->qualification_points/$citas.'<br>>br>';
 });
