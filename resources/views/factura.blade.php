@@ -88,7 +88,7 @@
             </center>
           </div>
           <div class="datosMedico">
-            <div style=" width: 45%;display: inline-block;text-align: right;">
+            <div class="div2" style=" width: 45%;display: inline-block;text-align: right;">
               <label class="label1" value="">Nombre :</label>
               <label class="label1" value="">Email :</label>
               <label class="label1" value="">Especialidad :</label>
@@ -168,6 +168,13 @@
       font-weight : normal;
       text-align : left;
       display : block;
+    }
+    .div2 {
+      white-space: nowrap; 
+      width: 12em; 
+      overflow: hidden;
+      text-overflow: ellipsis; 
+      border: 1px solid #000000;
     }
   </style>
 @stop
