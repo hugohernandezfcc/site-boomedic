@@ -235,7 +235,6 @@
       else if(qualification == 3) qualification = 3;
       else if(qualification == 4) qualification = 2;
       else if(qualification == 5) qualification = 1;
-      //console.log(qualification);
       var dat = {'qualification' : qualification};
       $.ajax({
           headers: {
@@ -248,9 +247,12 @@
             console.log('Error :c');
           },
           success : function(response){
-            console.log('Correcto retornaste: '+response);
-            //$('#modal-default').modal('hide');
-            location.reload();
+            if(response == 'guardado'){
+              console.log('Correcto retornaste: '+response);
+              location.reload();
+            }else{
+              document.getElementById("alert").innerHTML = '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Error!</h4>'+response+'.</div>';
+            }
           }
       });
     };
@@ -272,7 +274,7 @@
               $('#carga2').removeClass();
               $('#imgCarga').remove();
               console.log('Error :c');
-              document.getElementById("alert").innerHTML = '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Error!</h4>Ha ocurrido un error al facturar.</div>'
+              document.getElementById("alert").innerHTML = '<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Error!</h4>Ha ocurrido un error al facturar.</div>';
           },
           success : function(response){
               $('#carga2').removeClass();
@@ -289,7 +291,6 @@
               }
           }
       });
-      //$('#modal-default').modal('hide');
     }
   </script>
 @stop

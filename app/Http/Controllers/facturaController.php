@@ -32,7 +32,12 @@ class facturaController extends Controller
             $qua->save();
             return 'guardado';
         }else{
-            return 'ya calificado, o no calificó';
+            if($qua->qualification != null){
+                return 'La cita ya ha sido calificada';
+            }
+            if($request->qualification == 0){
+                return 'Calificar del 1 al 5 que le pareció la cita médica';
+            }
         }
         //return $qua->user_doctor;
     }
