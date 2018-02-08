@@ -104,6 +104,11 @@ class selladoController extends Controller{
 	       	
 	       	$data = ['email' => $user->email,'xml' => $xmlCompleto, 'xmlnombre' => $respuesta_timbrado['uuid'].'_'.substr( date('c'), 0, 10), 'pdf' => $pdf];
 
+	       	if($respuesta_timbrado['uuid'] =! null){
+            	$qua = medical_appointment::find($request->idAppointment);
+				$qua->invoiced = true;
+				$qua->save();
+            }
 	       	
 	       	
             Mail::send('emails.factura_email', ['user' => 'hola?'], function ($message) use($data){
@@ -116,11 +121,7 @@ class selladoController extends Controller{
                 	'mime' => 'application/pdf',
                 ]);
             });
-            if($respuesta_timbrado['uuid'] =! null){
-            	$qua = medical_appointment::find($request->idAppointment);
-				$qua->invoiced = true;
-				$qua->save();
-            }
+            
 
             return $respuesta_timbrado['uuid'];
 		}
