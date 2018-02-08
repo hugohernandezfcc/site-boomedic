@@ -95,7 +95,7 @@
               <label class="label1">Monto : </label>
               <label class="label1">Calificación:  </label>
             </div>
-            <div style=" width: 60%;display: inline-block;text-align: left;">
+            <div style=" display: inline-block;text-align: left;">
               <label class="label2" id="nombre"></label>
               <label class="label2" id="email"></label>
               <label class="label2" id="especialidad"></label>
