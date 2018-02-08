@@ -189,7 +189,7 @@
               "next" :       "Siguiente",
               "previous" :   "Anterior"
           },
-          "order": [[ 6, 'desc' ]],
+          "order": [[ 7, 'desc' ]],
         }
       })
     });
