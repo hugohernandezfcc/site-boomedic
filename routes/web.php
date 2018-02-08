@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\recipe_test;
 use App\professional_information;
 use App\medical_appointment;
+use App\User;
 
 
 Route::get('/', function () {
@@ -28,7 +29,7 @@ Route::post('/infoReceta', ['as' => 'infoReceta', 'uses' => 'recetaController@gu
 
 Route::get('/prueba', function () { 
 	$doc = professional_information::where('user',16)->first();
-	$doctor = users::find(16);
+	$doctor = user::find(16);
 	$citas = medical_appointment::where('user_doctor',16)->where('qualification','!=',null)->count();
 	echo 'Doctor '.$doctor->name.'<br><br>';
 	echo 'citas totales '.$citas.'<br><br>';
