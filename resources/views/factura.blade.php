@@ -10,7 +10,7 @@
     <div class="box-body">
       <center>
         <div style="width: 90%">
-          <table id="example" class="table table-bordered table-hove" width="100%">
+          <table id="example" class="table table-bordered table-hover" width="100%">
             <thead>
               <tr>
                 <th>Detalles</th>
