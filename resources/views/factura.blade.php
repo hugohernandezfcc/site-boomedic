@@ -7,10 +7,10 @@
     <div class="box-header with-border">
       <h3>Consultas</h3>
     </div>
-    <div class="box-body table-responsive no-padding">
+    <div class="box-body">
       <center>
         <div style="width: 90%">
-          <table id="example" class="table table-bordered table-hover" width="100%">
+          <table id="example" class="table table-bordered table-hove" width="100%">
             <thead>
               <tr>
                 <th>Detalles</th>
@@ -162,12 +162,12 @@
     }
     .label1{
       text-align : right;
-      display : block;
+      display : inline-block;
     }
     .label2{
       font-weight : normal;
       text-align : left;
-      display : block;
+      display : inline-block;
     }
   </style>
 @stop
