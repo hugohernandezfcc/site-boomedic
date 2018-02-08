@@ -19,6 +19,7 @@
                 <th>Consultorio</th>
                 <th>Delegación</th>
                 <th>Método de pago</th>
+                <th>Fecha</th>
               </tr>
             </thead>
             <tfoot> 
@@ -29,6 +30,7 @@
                 <th>Consultorio</th>
                 <th>Delegación</th>
                 <th>Método de pago</th>
+                <th>Fecha</th>
               </tr>
             </tfoot>
             <tbody >
@@ -45,10 +47,12 @@
                   <td>{{$citas->workplace}}</td>
                   <td>{{$citas->delegation}}</td>
                   <td>PayPal</td>
+                  <td>{{$citas->when}}</td>
                 </tr>
               @endforeach
               @else
                 <tr>
+                  <td></td>
                   <td></td>
                   <td></td>
                   <td></td>
@@ -185,6 +189,7 @@
               "next" :       "Siguiente",
               "previous" :   "Anterior"
           },
+          "order": [[ 6, 'desc' ]],
         }
       })
     });
