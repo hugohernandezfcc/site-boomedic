@@ -27,8 +27,10 @@ Route::get('receta','recetaController@index');
 Route::post('/infoReceta', ['as' => 'infoReceta', 'uses' => 'recetaController@guardarJson']);
 
 Route::get('/prueba', function () { 
-	$doc = professional_information::find(16);
+	$doc = professional_information::where('user',16)->first();
+	$doctor = users::find(16);
 	$citas = medical_appointment::where('user_doctor',16)->where('qualification','!=',null)->count();
+	echo 'Doctor '.$doctor->name.'<br><br>';
 	echo 'citas totales '.$citas.'<br><br>';
 	echo 'total de puntos '.$doc->qualification_points.'<br><br>';
 	echo 'promedio '.$doc->qualification_points/$citas.'<br><br>';
@@ -37,11 +39,13 @@ Route::get('/prueba', function () {
 Route::get('/prueba2', function () { 
 	//$doc = professional_information::find(16);
 	//$citas = medical_appointment::where('user_doctor',16)->where('qualification',!=,null)->count();
-	$doc = professional_information::find(16);
+	//$doc = users::find(16);
+	//$doc->qualification_points=null;
+	//$doc->save();
+	$doc = professional_information::where('user',16)->first();
 	$doc->qualification_points=null;
 	$doc->save();
-	$doctor = professional_information::where('user',16)->first();
-	echo "Doctor ".$doctor->name.'<br><br>';
+	//echo "Doctor ".$doctor->name.'<br><br>';
 	$citas = medical_appointment::find(7);
 	$citas->qualification = null;
 	$citas->save();
