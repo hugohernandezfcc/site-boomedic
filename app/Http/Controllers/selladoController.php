@@ -9,7 +9,7 @@ use App\tributaryProfile;
 use Mail;
 use PDF;
 use App\User;
-//use App\medical_appointment;
+use App\medical_appointment;
 
 class selladoController extends Controller{
     
