@@ -88,14 +88,22 @@
             </center>
           </div>
           <div class="datosMedico">
+            @if($agent->isDesktop())
             <div style=" width: 30%;display: inline-block;text-align: right;">
+            @else
+            <div style=" width: 45%;display: inline-block;text-align: right;">
+            @endif
               <label class="label1" value="">Nombre :</label>
               <label class="label1" value="">Email :</label>
               <label class="label1" value="">Especialidad :</label>
               <label class="label1">Monto : </label>
               <label class="label1">Calificación:  </label>
             </div>
+            @if($agent->isDesktop())
             <div style=" width: 60%;display: inline-block;text-align: left;">
+            @else
+            <div style=" width: 45%;display: inline-block;text-align: left;">
+            @endif
               <label class="label2" id="nombre"></label>
               <label class="label2" id="email"></label>
               <label class="label2" id="especialidad"></label>
