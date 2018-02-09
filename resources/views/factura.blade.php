@@ -89,7 +89,7 @@
           </div>
           <div class="datosMedico">
             @if($agent->isMobile() || $agent->isTablet())
-            <div style=" width: 45%;display: inline-block;text-align: right;">
+            <div style=" width: 45%;display: inline-block;text-align: right;background-color: green">
             @else
             <div style=" width: 35%;display: inline-block;text-align: right;">
             @endif
@@ -101,11 +101,10 @@
               <label class="label1">Calificación:  </label>
             </div>
             @if($agent->isMobile() || $agent->isTablet())
-            <div  class="div2" style=" width: 65%;display: inline-block;text-align: left;background-color: yellow">
+            <div  class="div2" style=" width: 60%;display: inline-block;text-align: left;background-color: yellow">
             @else
-            <div  class="div2" style=" width: 50%;display: inline-block;text-align: left;background-color: blue">
+            <div  class="div2" style=" width: 55%;display: inline-block;text-align: left;background-color: blue">
             @endif
-              <br>
               <label class="label2" id="nombre"></label>
               <label class="label2" id="email"></label>
               <label class="label2" id="especialidad"></label>
@@ -182,8 +181,7 @@
     .div2 {
       white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis; 
-      border: 1px solid #000000;
+      text-overflow: ellipsis;
     }
   </style>
 @stop
