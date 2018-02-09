@@ -88,7 +88,12 @@
             </center>
           </div>
           <div class="datosMedico">
-            <div style=" width: 45%;display: inline-block;text-align: right;">
+            @if($agent->isMobile() || $agent->isTablet())
+            <div style=" width: 60%;display: inline-block;text-align: right;">
+            @else
+            <div style=" width: 50%;display: inline-block;text-align: right;">
+            @endif
+
               <label class="label1" value="">Nombre :</label>
               <label class="label1" value="">Email :</label>
               <label class="label1" value="">Especialidad :</label>
