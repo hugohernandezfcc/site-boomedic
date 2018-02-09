@@ -95,7 +95,7 @@
             @if($agent->isDesktop())
             <div style=" width: 30%;display: inline-block;text-align: right;">
             @else
-            <div style=" width: 30%;display: inline-block;text-align: right;">
+            <div style=" width: 27%;display: inline-block;text-align: right;">
             @endif
               <label class="label1" value="">Nombre :</label>
               <label class="label1" value="">Email :</label>
@@ -160,7 +160,6 @@
       width : 100%;
       margin : auto;
       font-size : 14px;
-      background-color: yellow
     }
     .datosMedico{
       border : 1px;
