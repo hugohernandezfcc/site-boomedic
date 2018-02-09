@@ -87,7 +87,7 @@
               @if($agent->isDesktop())
               <img id="photo" style="width: 70%;vertical-align: top;">
               @else
-              <img id="photo" style="width: 55%;vertical-align: top;">
+              <img id="photo" style="width: 45%;vertical-align: top;">
               @endif
             </center>
           </div>
@@ -160,7 +160,7 @@
       width : 100%;
       margin : auto;
       font-size : 14px;
-      margin-left : 2em;
+      background-color: yellow
     }
     .datosMedico{
       border : 1px;
