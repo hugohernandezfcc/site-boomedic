@@ -160,7 +160,6 @@
       width : 30%;
       margin : auto;
       font-size : 14px;
-      background-color: yellow
     }
     .datosMedico{
       border : 1px;
