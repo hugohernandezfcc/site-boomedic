@@ -85,9 +85,9 @@
           <div class="datos" style="vertical-align: top;">
             <center>
               @if($agent->isDesktop())
-              <img id="photo" style="width: 70%;vertical-align: top;">
-              @else
               <img id="photo" style="width: 45%;vertical-align: top;">
+              @else
+              <img id="photo" style="width: 55%;vertical-align: top;">
               @endif
             </center>
           </div>
@@ -95,7 +95,7 @@
             @if($agent->isDesktop())
             <div style=" width: 30%;display: inline-block;text-align: right;">
             @else
-            <div style=" width: 32%;display: inline-block;text-align: right;">
+            <div style=" width: 30%;display: inline-block;text-align: right;">
             @endif
               <label class="label1" value="">Nombre :</label>
               <label class="label1" value="">Email :</label>
