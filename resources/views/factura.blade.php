@@ -95,7 +95,7 @@
             @if($agent->isDesktop())
             <div style=" width: 30%;display: inline-block;text-align: right;">
             @else
-            <div style=" width: 45%;display: inline-block;text-align: right;">
+            <div style=" width: 50%;display: inline-block;text-align: right;">
             @endif
               <label class="label1" value="">Nombre :</label>
               <label class="label1" value="">Email :</label>
@@ -106,7 +106,7 @@
             @if($agent->isDesktop())
             <div style=" width: 60%;display: inline-block;text-align: left;">
             @else
-            <div style=" width: 45%;display: inline-block;text-align: left;">
+            <div style=" width: 40%;display: inline-block;text-align: left;background-color: yellow;">
             @endif
               <label class="label2" id="nombre"></label>
               <label class="label2" id="email"></label>
@@ -169,7 +169,6 @@
       margin : auto;
       font-size : 14px;
       margin-left : 1em;
-      background-color: yellow
     }
     .labelEstrellas{
       color : grey;
