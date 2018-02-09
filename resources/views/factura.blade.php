@@ -84,7 +84,7 @@
           <br>
           <div class="datos" style="vertical-align: top;">
               @if($agent->isDesktop())
-              <img id="photo" style="width: 70%;vertical-align: top;margin-right: 0px;">
+              <img id="photo" style="width: 70%;vertical-align: top;float: right;">
               @else
               <center>
                 <img id="photo" style="width: 45%;vertical-align: top;">
@@ -143,7 +143,7 @@
 @stop
 
 @section('css')
-@if($agent->isMobile() || $agent->isTablet())
+@if($agent->isDesktop())
   <style type="text/css">
     .th{border-style: none;}
     input[type = "radio"]{ display:none;}
@@ -157,14 +157,15 @@
     .datos{
       border : 1px;
       display : inline-block;
-      width : 100%;
+      width : 30%;
       margin : auto;
       font-size : 14px;
+      background-color: yellow
     }
     .datosMedico{
       border : 1px;
       display : inline-block;
-      width : 100%;
+      width : 60%;
       margin : auto;
       font-size : 14px;
       margin-left : 1em;
@@ -196,15 +197,14 @@
     .datos{
       border : 1px;
       display : inline-block;
-      width : 30%;
+      width : 100%;
       margin : auto;
       font-size : 14px;
-      background-color: yellow
     }
     .datosMedico{
       border : 1px;
       display : inline-block;
-      width : 60%;
+      width : 100%;
       margin : auto;
       font-size : 14px;
       margin-left : 1em;
