@@ -131,6 +131,7 @@
 @stop
 
 @section('css')
+@if($agent->isMobile() || $agent->isTablet())
   <style type="text/css">
     .th{border-style: none;}
     input[type = "radio"]{ display:none;}
@@ -170,6 +171,47 @@
       display : block;
     }
   </style>
+  @else
+  <style type="text/css">
+    .th{border-style: none;}
+    input[type = "radio"]{ display:none;}
+    .labelEstrellas : hover{color:orange;}
+    .labelEstrellas : hover ~ label{color:orange;}
+    input[type = "radio"]:checked ~ .labelEstrellas{color:orange;}
+    .clasificacion{
+      direction : rtl;/* right to left */
+      unicode-bidi : bidi-override;/* bidi de bidireccional */
+    }
+    .datos{
+      border : 1px;
+      display : inline-block;
+      width : 100%;
+      margin : auto;
+      font-size : 14px;
+      margin-left : 2em;
+    }
+    .datosMedico{
+      border : 1px;
+      display : inline-block;
+      width : 100%;
+      margin : auto;
+      font-size : 14px;
+      margin-left : 1em;
+    }
+    .labelEstrellas{
+      color : grey;
+    }
+    .label1{
+      text-align : right;
+      display : block;
+    }
+    .label2{
+      font-weight : normal;
+      text-align : left;
+      display : block;
+    }
+  </style>
+  @endif
 @stop
 
 @section('js')
