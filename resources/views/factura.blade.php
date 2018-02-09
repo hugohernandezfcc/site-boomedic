@@ -83,13 +83,13 @@
           </center>
           <br>
           <div class="datos" style="vertical-align: top;">
-            <center>
               @if($agent->isDesktop())
-              <img id="photo" style="width: 70%;vertical-align: top;">
+              <img id="photo" style="width: 70%;vertical-align: top;margin-right: 0px;">
               @else
-              <img id="photo" style="width: 45%;vertical-align: top;">
+              <center>
+                <img id="photo" style="width: 45%;vertical-align: top;">
+              </center>
               @endif
-            </center>
           </div>
           <div class="datosMedico">
             @if($agent->isDesktop())
