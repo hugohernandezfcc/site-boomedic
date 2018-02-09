@@ -145,7 +145,7 @@
     .datos{
       border : 1px;
       display : inline-block;
-      width : 30%;
+      width : 100%;
       margin : auto;
       font-size : 14px;
       margin-left : 2em;
@@ -153,7 +153,7 @@
     .datosMedico{
       border : 1px;
       display : inline-block;
-      width : 60%;
+      width : 100%;
       margin : auto;
       font-size : 14px;
       margin-left : 1em;
@@ -185,7 +185,7 @@
     .datos{
       border : 1px;
       display : inline-block;
-      width : 100%;
+      width : 30%;
       margin : auto;
       font-size : 14px;
       margin-left : 2em;
@@ -193,7 +193,7 @@
     .datosMedico{
       border : 1px;
       display : inline-block;
-      width : 100%;
+      width : 60%;
       margin : auto;
       font-size : 14px;
       margin-left : 1em;
