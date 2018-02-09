@@ -169,6 +169,7 @@
       margin : auto;
       font-size : 14px;
       margin-left : 1em;
+      background-color: yellow
     }
     .labelEstrellas{
       color : grey;
