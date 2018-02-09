@@ -101,9 +101,9 @@
               <label class="label1">Calificación:  </label>
             </div>
             @if($agent->isMobile() || $agent->isTablet())
-            <div  class="div2" style=" width: 45%;display: inline-block;text-align: left;">
+            <div  class="div2" style=" width: 45%;display: inline-block;text-align: left;background-color: yellow">
             @else
-            <div  class="div2" style=" width: 65%;display: inline-block;text-align: left;">
+            <div  class="div2" style=" width: 45%;display: inline-block;text-align: left;background-color: blue">
             @endif
               <label class="label2" id="nombre"></label>
               <label class="label2" id="email"></label>
