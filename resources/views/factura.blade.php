@@ -89,9 +89,9 @@
           </div>
           <div class="datosMedico">
             @if($agent->isMobile() || $agent->isTablet())
-            <div style=" width: 60%;display: inline-block;text-align: right;">
+            <div style=" width: 45%;display: inline-block;text-align: right;">
             @else
-            <div style=" width: 50%;display: inline-block;text-align: right;">
+            <div style=" width: 35%;display: inline-block;text-align: right;">
             @endif
 
               <label class="label1" value="">Nombre :</label>
@@ -100,7 +100,11 @@
               <label class="label1">Monto : </label>
               <label class="label1">Calificación:  </label>
             </div>
-            <div  class="" style=" width: 45%;display: inline-block;text-align: left;">
+            @if($agent->isMobile() || $agent->isTablet())
+            <div  class="div2" style=" width: 45%;display: inline-block;text-align: left;">
+            @else
+            <div  class="div2" style=" width: 65%;display: inline-block;text-align: left;">
+            @endif
               <label class="label2" id="nombre"></label>
               <label class="label2" id="email"></label>
               <label class="label2" id="especialidad"></label>
